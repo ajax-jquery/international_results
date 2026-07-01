@@ -1,0 +1,85 @@
+ASUS@Redmi-13 MINGW64 /d/Documents/proyek/nodejs/Bola/wc prediction/wcup-scraper/bet-predictor/data (main)
+$ py ml_prediction_v3.1.py England "DR Congo"
+py ml_prediction_v3.1.py Belgium Senegal
+py ml_prediction_v3.1.py "United States" "Bosnia and Herzegovina"
+[*] Mengunduh database historis dari GitHub untuk kalkulasi Elo...
+=================================================================
+ HYBRID MODEL PREDICTION (XGBOOST POISSON + DIXON-COLES)
+=================================================================
+[i] KEKUATAN ELO GLOBAL -> England: 2069.1 | Dr Congo: 1753.6 (Selisih: +315.5)
+[i] PREDIKSI TIMING GOL -> Nilai Lambda England: 2.27 gol | Dr Congo: 0.73 gol
+-----------------------------------------------------------------
+[+] PROBABILITAS HASIL UTAMA 3-WAY (H / D / A):
+    - [H] England Menang : 71.87%
+    - [D] Hasil Seri/Draw : 18.18%
+    - [A] Dr Congo Menang : 9.95%
+-----------------------------------------------------------------
+[+] PASARAN HANDICAP FT (90 MENIT):
+    - Line Pasaran Ideal : England -1.00 (Ekspektasi Selisih: +1.54 gol)
+    - Peluang Untung HDP : 48.61%
+    - SARAN TARUHAN      : ❌ PASS (LEWATI) - Pasar Terlalu Efisien / Berimbang
+-----------------------------------------------------------------
+[+] PASARAN OVER / UNDER 2.5 GOL:
+    - OVER 2.5  : 57.52% | UNDER 2.5 : 42.48%
+-----------------------------------------------------------------
+[+] TEBAK SKOR TERBAIK DENGAN PERSENTASE KEMUNGKINAN:
+    1. Skor 2 - 0 : Pr(12.89%)
+    2. Skor 1 - 0 : Pr(10.95%)
+    3. Skor 3 - 0 : Pr(9.74%)
+    4. Skor 2 - 1 : Pr(9.36%)
+    5. Skor 1 - 1 : Pr(8.67%)
+=================================================================
+[*] Mengunduh database historis dari GitHub untuk kalkulasi Elo...
+=================================================================
+ HYBRID MODEL PREDICTION (XGBOOST POISSON + DIXON-COLES)
+=================================================================
+[i] KEKUATAN ELO GLOBAL -> Belgium: 1988.9 | Senegal: 1880.0 (Selisih: +108.9)
+[i] PREDIKSI TIMING GOL -> Nilai Lambda Belgium: 2.52 gol | Senegal: 1.32 gol
+-----------------------------------------------------------------
+[+] PROBABILITAS HASIL UTAMA 3-WAY (H / D / A):
+    - [H] Belgium Menang : 63.09%
+    - [D] Hasil Seri/Draw : 18.70%
+    - [A] Senegal Menang : 18.21%
+-----------------------------------------------------------------
+[+] PASARAN HANDICAP FT (90 MENIT):
+    - Line Pasaran Ideal : Belgium -1.00 (Ekspektasi Selisih: +1.20 gol)
+    - Peluang Untung HDP : 42.37%
+    - SARAN TARUHAN      : ❌ PASS (LEWATI) - Pasar Terlalu Efisien / Berimbang
+-----------------------------------------------------------------
+[+] PASARAN OVER / UNDER 2.5 GOL:
+    - OVER 2.5  : 73.77% | UNDER 2.5 : 26.23%
+-----------------------------------------------------------------
+[+] TEBAK SKOR TERBAIK DENGAN PERSENTASE KEMUNGKINAN:
+    1. Skor 2 - 1 : Pr(9.01%)
+    2. Skor 3 - 1 : Pr(7.57%)
+    3. Skor 1 - 1 : Pr(7.51%)
+    4. Skor 2 - 0 : Pr(6.82%)
+    5. Skor 2 - 2 : Pr(5.96%)
+=================================================================
+[*] Mengunduh database historis dari GitHub untuk kalkulasi Elo...
+=================================================================
+ HYBRID MODEL PREDICTION (XGBOOST POISSON + DIXON-COLES)
+=================================================================
+[i] KEKUATAN ELO GLOBAL -> United States: 1920.4 | Bosnia And Herzegovina: 1680.4 (Selisih: +240.1)
+[i] PREDIKSI TIMING GOL -> Nilai Lambda United States: 1.86 gol | Bosnia And Herzegovina: 0.98 gol
+-----------------------------------------------------------------
+[+] PROBABILITAS HASIL UTAMA 3-WAY (H / D / A):
+    - [H] United States Menang : 57.57%
+    - [D] Hasil Seri/Draw : 23.49%
+    - [A] Bosnia And Herzegovina Menang : 18.94%
+-----------------------------------------------------------------
+[+] PASARAN HANDICAP FT (90 MENIT):
+    - Line Pasaran Ideal : United States -1.00 (Ekspektasi Selisih: +0.88 gol)
+    - Peluang Untung HDP : 33.81%
+    - SARAN TARUHAN      : ❌ PASS (LEWATI) - Pasar Terlalu Efisien / Berimbang
+-----------------------------------------------------------------
+[+] PASARAN OVER / UNDER 2.5 GOL:
+    - OVER 2.5  : 54.01% | UNDER 2.5 : 45.99%
+-----------------------------------------------------------------
+[+] TEBAK SKOR TERBAIK DENGAN PERSENTASE KEMUNGKINAN:
+    1. Skor 1 - 1 : Pr(11.17%)
+    2. Skor 1 - 0 : Pr(10.35%)
+    3. Skor 2 - 0 : Pr(10.13%)
+    4. Skor 2 - 1 : Pr(9.91%)
+    5. Skor 0 - 0 : Pr(6.37%)
+=================================================================
