@@ -83,3 +83,78 @@ py ml_prediction_v3.1.py "United States" "Bosnia and Herzegovina"
     4. Skor 2 - 1 : Pr(9.91%)
     5. Skor 0 - 0 : Pr(6.37%)
 =================================================================
+=================================================================
+
+ASUS@Redmi-13 MINGW64 /d/Documents/proyek/nodejs/Bola/wc prediction/wcup-scraper/bet-predictor/data/v3 (main)
+$ py main.py England "DR Congo"
+py main.py Belgium Senegal
+py main.py "United States" "Bosnia and Herzegovina"
+============================================================
+England vs Dr Congo
+============================================================
+
+Expected Goal
+England 2.43
+Dr Congo 0.64
+
+England : 76.56 %
+Draw : 15.93 %
+Dr Congo : 7.52 %
+
+Correct Score
+2-0 : 13.68%
+3-0 : 11.09%
+1-0 : 10.89%
+2-1 : 8.78%
+1-1 : 7.58%
+3-1 : 7.12%
+4-0 : 6.74%
+0-0 : 4.99%
+4-1 : 4.33%
+5-0 : 3.28%
+============================================================
+Belgium vs Senegal
+============================================================
+
+Expected Goal
+Belgium 2.03
+Senegal 0.86
+
+Belgium : 64.04 %
+Draw : 21.41 %
+Senegal : 14.56 %
+
+Correct Score
+2-0 : 11.45%
+1-0 : 10.80%
+1-1 : 10.20%
+2-1 : 9.85%
+3-0 : 7.74%
+3-1 : 6.66%
+0-0 : 6.05%
+0-1 : 4.30%
+2-2 : 4.24%
+1-2 : 4.18%
+============================================================
+United States vs Bosnia And Herzegovina
+============================================================
+
+Expected Goal
+United States 0.88
+Bosnia And Herzegovina 0.46
+
+United States : 43.35 %
+Draw : 38.9 %
+Bosnia And Herzegovina : 17.75 %
+
+Correct Score
+0-0 : 26.64%
+1-0 : 22.53%
+0-1 : 11.47%
+1-1 : 11.13%
+2-0 : 10.18%
+2-1 : 4.68%
+3-0 : 3.00%
+0-2 : 2.76%
+1-2 : 2.44%
+3-1 : 1.38%
