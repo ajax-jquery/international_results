@@ -1,160 +1,127 @@
 ASUS@Redmi-13 MINGW64 /d/Documents/proyek/nodejs/Bola/wc prediction/wcup-scraper/bet-predictor/data (main)
-$ py ml_prediction_v3.1.py England "DR Congo"
-py ml_prediction_v3.1.py Belgium Senegal
-py ml_prediction_v3.1.py "United States" "Bosnia and Herzegovina"
+$ py  ml_prediction_v3.3_FIXED.py Belgium Senegal
+py  ml_prediction_v3.3_FIXED.py "United States" "Bosnia and Herzegovina"
 [*] Mengunduh database historis dari GitHub untuk kalkulasi Elo...
+[*] Jadwal ditemukan di database GitHub! Setting venue: Netral
 =================================================================
  HYBRID MODEL PREDICTION (XGBOOST POISSON + DIXON-COLES)
 =================================================================
-[i] KEKUATAN ELO GLOBAL -> England: 2069.1 | Dr Congo: 1753.6 (Selisih: +315.5)
-[i] PREDIKSI TIMING GOL -> Nilai Lambda England: 2.27 gol | Dr Congo: 0.73 gol
+[i] STATUS VENUE        -> Tempat Netral
+[i] KEKUATAN ELO GLOBAL -> Belgium: 1985.9 | Senegal: 1891.6 (Selisih: +94.3)
+[i] PREDIKSI TIMING GOL -> Nilai Lambda Belgium: 2.22 gol | Senegal: 1.45 gol
 -----------------------------------------------------------------
 [+] PROBABILITAS HASIL UTAMA 3-WAY (H / D / A):
-    - [H] England Menang : 71.87%
-    - [D] Hasil Seri/Draw : 18.18%
-    - [A] Dr Congo Menang : 9.95%
+    - [H] Belgium Menang : 54.47%
+    - [D] Hasil Seri/Draw : 21.09%
+    - [A] Senegal Menang : 24.43%
 -----------------------------------------------------------------
 [+] PASARAN HANDICAP FT (90 MENIT):
-    - Line Pasaran Ideal : England -1.00 (Ekspektasi Selisih: +1.54 gol)
-    - Peluang Untung HDP : 48.61%
+    - Line Pasaran Ideal : Belgium -1.00 (Ekspektasi Selisih: +0.76 gol)
+    - Peluang Untung HDP : 33.70%
     - SARAN TARUHAN      : ❌ PASS (LEWATI) - Pasar Terlalu Efisien / Berimbang
 -----------------------------------------------------------------
 [+] PASARAN OVER / UNDER 2.5 GOL:
-    - OVER 2.5  : 57.52% | UNDER 2.5 : 42.48%
+    - OVER 2.5  : 70.98% | UNDER 2.5 : 29.02%
 -----------------------------------------------------------------
 [+] TEBAK SKOR TERBAIK DENGAN PERSENTASE KEMUNGKINAN:
-    1. Skor 2 - 0 : Pr(12.89%)
-    2. Skor 1 - 0 : Pr(10.95%)
-    3. Skor 3 - 0 : Pr(9.74%)
-    4. Skor 2 - 1 : Pr(9.36%)
-    5. Skor 1 - 1 : Pr(8.67%)
+    1. Skor 2 - 1 : Pr(9.10%)
+    2. Skor 1 - 1 : Pr(8.61%)
+    3. Skor 3 - 1 : Pr(6.73%)
+    4. Skor 2 - 2 : Pr(6.61%)
+    5. Skor 2 - 0 : Pr(6.26%)
 =================================================================
 [*] Mengunduh database historis dari GitHub untuk kalkulasi Elo...
+[*] Jadwal ditemukan di database GitHub! Setting venue: Kandang United States
 =================================================================
  HYBRID MODEL PREDICTION (XGBOOST POISSON + DIXON-COLES)
 =================================================================
-[i] KEKUATAN ELO GLOBAL -> Belgium: 1988.9 | Senegal: 1880.0 (Selisih: +108.9)
-[i] PREDIKSI TIMING GOL -> Nilai Lambda Belgium: 2.52 gol | Senegal: 1.32 gol
+[i] STATUS VENUE        -> Kandang United States
+[i] KEKUATAN ELO GLOBAL -> United States: 1834.7 | Bosnia And Herzegovina: 1665.2 (Selisih: +169.5)
+[i] PREDIKSI TIMING GOL -> Nilai Lambda United States: 1.85 gol | Bosnia And Herzegovina: 0.97 gol
 -----------------------------------------------------------------
 [+] PROBABILITAS HASIL UTAMA 3-WAY (H / D / A):
-    - [H] Belgium Menang : 63.09%
-    - [D] Hasil Seri/Draw : 18.70%
-    - [A] Senegal Menang : 18.21%
+    - [H] United States Menang : 57.65%
+    - [D] Hasil Seri/Draw : 23.56%
+    - [A] Bosnia And Herzegovina Menang : 18.79%
 -----------------------------------------------------------------
 [+] PASARAN HANDICAP FT (90 MENIT):
-    - Line Pasaran Ideal : Belgium -1.00 (Ekspektasi Selisih: +1.20 gol)
-    - Peluang Untung HDP : 42.37%
+    - Line Pasaran Ideal : United States -1.00 (Ekspektasi Selisih: +0.89 gol)
+    - Peluang Untung HDP : 33.79%
     - SARAN TARUHAN      : ❌ PASS (LEWATI) - Pasar Terlalu Efisien / Berimbang
 -----------------------------------------------------------------
 [+] PASARAN OVER / UNDER 2.5 GOL:
-    - OVER 2.5  : 73.77% | UNDER 2.5 : 26.23%
+    - OVER 2.5  : 53.48% | UNDER 2.5 : 46.52%
 -----------------------------------------------------------------
 [+] TEBAK SKOR TERBAIK DENGAN PERSENTASE KEMUNGKINAN:
-    1. Skor 2 - 1 : Pr(9.01%)
-    2. Skor 3 - 1 : Pr(7.57%)
-    3. Skor 1 - 1 : Pr(7.51%)
-    4. Skor 2 - 0 : Pr(6.82%)
-    5. Skor 2 - 2 : Pr(5.96%)
+    1. Skor 1 - 1 : Pr(11.22%)
+    2. Skor 1 - 0 : Pr(10.53%)
+    3. Skor 2 - 0 : Pr(10.25%)
+    4. Skor 2 - 1 : Pr(9.90%)
+    5. Skor 0 - 0 : Pr(6.51%)
 =================================================================
+
+#################################################################################################
+ASUS@Redmi-13 MINGW64 /d/Documents/proyek/nodejs/Bola/wc prediction/wcup-scraper/bet-predictor/data (main)
+$ py ml_prediction_v3.4.py Belgium Senegal
+py ml_prediction_v3.4.py "United States" "Bosnia and Herzegovina"
 [*] Mengunduh database historis dari GitHub untuk kalkulasi Elo...
+[*] Jadwal ditemukan di database GitHub! Setting venue: Netral
 =================================================================
  HYBRID MODEL PREDICTION (XGBOOST POISSON + DIXON-COLES)
 =================================================================
-[i] KEKUATAN ELO GLOBAL -> United States: 1920.4 | Bosnia And Herzegovina: 1680.4 (Selisih: +240.1)
-[i] PREDIKSI TIMING GOL -> Nilai Lambda United States: 1.86 gol | Bosnia And Herzegovina: 0.98 gol
+[i] STATUS VENUE        -> Tempat Netral
+[i] KEKUATAN ELO GLOBAL -> Belgium: 1985.9 | Senegal: 1891.6 (Selisih: +94.3)
+[i] PREDIKSI TIMING GOL -> Nilai Lambda Belgium: 2.09 gol | Senegal: 1.66 gol
 -----------------------------------------------------------------
 [+] PROBABILITAS HASIL UTAMA 3-WAY (H / D / A):
-    - [H] United States Menang : 57.57%
-    - [D] Hasil Seri/Draw : 23.49%
-    - [A] Bosnia And Herzegovina Menang : 18.94%
+    - [H] Belgium Menang : 47.74%
+    - [D] Hasil Seri/Draw : 21.81%
+    - [A] Senegal Menang : 30.45%
 -----------------------------------------------------------------
 [+] PASARAN HANDICAP FT (90 MENIT):
-    - Line Pasaran Ideal : United States -1.00 (Ekspektasi Selisih: +0.88 gol)
-    - Peluang Untung HDP : 33.81%
+    - Line Pasaran Ideal : Belgium -0.50 (Ekspektasi Selisih: +0.44 gol)
+    - Peluang Untung HDP : 47.74%
     - SARAN TARUHAN      : ❌ PASS (LEWATI) - Pasar Terlalu Efisien / Berimbang
 -----------------------------------------------------------------
 [+] PASARAN OVER / UNDER 2.5 GOL:
-    - OVER 2.5  : 54.01% | UNDER 2.5 : 45.99%
+    - OVER 2.5  : 72.27% | UNDER 2.5 : 27.73%
 -----------------------------------------------------------------
 [+] TEBAK SKOR TERBAIK DENGAN PERSENTASE KEMUNGKINAN:
-    1. Skor 1 - 1 : Pr(11.17%)
-    2. Skor 1 - 0 : Pr(10.35%)
-    3. Skor 2 - 0 : Pr(10.13%)
-    4. Skor 2 - 1 : Pr(9.91%)
-    5. Skor 0 - 0 : Pr(6.37%)
+    1. Skor 1 - 1 : Pr(8.57%)
+    2. Skor 2 - 1 : Pr(8.54%)
+    3. Skor 2 - 2 : Pr(7.07%)
+    4. Skor 1 - 2 : Pr(6.76%)
+    5. Skor 3 - 1 : Pr(5.96%)
 =================================================================
+[*] Mengunduh database historis dari GitHub untuk kalkulasi Elo...
+[*] Jadwal ditemukan di database GitHub! Setting venue: Kandang United States
+=================================================================
+ HYBRID MODEL PREDICTION (XGBOOST POISSON + DIXON-COLES)
+=================================================================
+[i] STATUS VENUE        -> Kandang United States
+[i] KEKUATAN ELO GLOBAL -> United States: 1834.7 | Bosnia And Herzegovina: 1665.2 (Selisih: +169.5)
+[i] PREDIKSI TIMING GOL -> Nilai Lambda United States: 2.14 gol | Bosnia And Herzegovina: 1.25 gol
+-----------------------------------------------------------------
+[+] PROBABILITAS HASIL UTAMA 3-WAY (H / D / A):
+    - [H] United States Menang : 57.32%
+    - [D] Hasil Seri/Draw : 21.46%
+    - [A] Bosnia And Herzegovina Menang : 21.22%
+-----------------------------------------------------------------
+[+] PASARAN HANDICAP FT (90 MENIT):
+    - Line Pasaran Ideal : United States -1.00 (Ekspektasi Selisih: +0.89 gol)
+    - Peluang Untung HDP : 35.47%
+    - SARAN TARUHAN      : ❌ PASS (LEWATI) - Pasar Terlalu Efisien / Berimbang
+-----------------------------------------------------------------
+[+] PASARAN OVER / UNDER 2.5 GOL:
+    - OVER 2.5  : 65.70% | UNDER 2.5 : 34.30%
+-----------------------------------------------------------------
+[+] TEBAK SKOR TERBAIK DENGAN PERSENTASE KEMUNGKINAN:
+    1. Skor 2 - 1 : Pr(9.66%)
+    2. Skor 1 - 1 : Pr(9.49%)
+    3. Skor 2 - 0 : Pr(7.75%)
+    4. Skor 3 - 1 : Pr(6.89%)
+    5. Skor 1 - 0 : Pr(6.80%)
 =================================================================
 
-ASUS@Redmi-13 MINGW64 /d/Documents/proyek/nodejs/Bola/wc prediction/wcup-scraper/bet-predictor/data/v3 (main)
-$ py main.py England "DR Congo"
-py main.py Belgium Senegal
-py main.py "United States" "Bosnia and Herzegovina"
-============================================================
-England vs Dr Congo
-============================================================
-
-Expected Goal
-England 2.43
-Dr Congo 0.64
-
-England : 76.56 %
-Draw : 15.93 %
-Dr Congo : 7.52 %
-
-Correct Score
-2-0 : 13.68%
-3-0 : 11.09%
-1-0 : 10.89%
-2-1 : 8.78%
-1-1 : 7.58%
-3-1 : 7.12%
-4-0 : 6.74%
-0-0 : 4.99%
-4-1 : 4.33%
-5-0 : 3.28%
-============================================================
-Belgium vs Senegal
-============================================================
-
-Expected Goal
-Belgium 2.03
-Senegal 0.86
-
-Belgium : 64.04 %
-Draw : 21.41 %
-Senegal : 14.56 %
-
-Correct Score
-2-0 : 11.45%
-1-0 : 10.80%
-1-1 : 10.20%
-2-1 : 9.85%
-3-0 : 7.74%
-3-1 : 6.66%
-0-0 : 6.05%
-0-1 : 4.30%
-2-2 : 4.24%
-1-2 : 4.18%
-============================================================
-United States vs Bosnia And Herzegovina
-============================================================
-
-Expected Goal
-United States 0.88
-Bosnia And Herzegovina 0.46
-
-United States : 43.35 %
-Draw : 38.9 %
-Bosnia And Herzegovina : 17.75 %
-
-Correct Score
-0-0 : 26.64%
-1-0 : 22.53%
-0-1 : 11.47%
-1-1 : 11.13%
-2-0 : 10.18%
-2-1 : 4.68%
-3-0 : 3.00%
-0-2 : 2.76%
-1-2 : 2.44%
-3-1 : 1.38%
+ASUS@Redmi-13 MINGW64 /d/Documents/proyek/nodejs/Bola/wc prediction/wcup-scraper/bet-predictor/data (main)
+$
