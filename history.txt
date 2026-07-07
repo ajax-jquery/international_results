@@ -1,207 +1,3 @@
-ASUS@Redmi-13 MINGW64 /d/Documents/proyek/nodejs/Bola/wc prediction/wcup-scraper/bet-predictor/data/Gemini/ChatGPT/perbaikan3 (main)
-$ py main.py "2026-07-06" "Switzerland" "Colombia"
-py main.py "2026-07-09" "France" "Morocco"
-py main.py "2026-07-10" "Spain" "Belgium"
-py main.py "2026-07-11" "Norway" "England"
-[*] Memuat data...
-[*] Memeriksa model AI...
-[*] Memuat model dan histori fitur dari model_cache.pkl...
-
-[*] Melakukan kalkulasi untuk Switzerland vs Colombia pada 2026-07-06...
-
-=================================================================
- PREDIKSI MATCH: Switzerland vs Colombia
-=================================================================
-
-📌 Status Venue     : Tempat Netral
-📈 Kekuatan Elo     : Switzerland (1957.9) vs Colombia (2060.7)
-⚽ Prediksi xG 90M  : Switzerland 1.71 - 1.83 Colombia
-🎯 Probabilitas 1X2 : Home 36.1% | Draw 23.0% | Away 40.9%
-⚖️ Prediksi HDP     : 0.0 (Laga Seimbang / Scratch)
-
-⚽ MARKET GOAL & BTTS :
-   • BTTS (Kedua Tim Gol) : YES 69.3% | NO 30.7%
-   • Over/Under 2.0 Goals : OVER 68.7% | UNDER 12.7% | PUSH 18.6%
-   • Over/Under 2.5 Goals : OVER 68.7% | UNDER 31.3%
-   • Over/Under 3.0 Goals : OVER 47.3% | UNDER 31.3% | PUSH 21.4%
-
-🚩 MARKET CORNER (SUDUT) :
-   • Estimasi Home-Away   : Switzerland (5.61) | Colombia (4.20)
-   • Total Prediksi Corner: 9.80 Corner
-   • Over/Under 8.5       : OVER 64.5% | UNDER 35.5%
-   • Over/Under 9.0       : OVER 51.7% | UNDER 35.5% | PUSH 12.7%
-
-🟨 MARKET KARTU (CARDS) :
-   • Estimasi Home-Away   : Switzerland (0.91) | Colombia (1.36)
-   • Total Prediksi Kartu : 2.27 Kartu
-   • Over/Under 3.0       : OVER 19.5% | UNDER 60.4% | PUSH 20.1%
-   • Over/Under 4.5       : OVER 8.0% | UNDER 92.0%
-   • Over/Under 5.0       : OVER 2.8% | UNDER 92.0% | PUSH 5.2%
-
-📋 Tebak Skor Tepat : 1-1 (9.5%) | 1-2 (8.3%) | 2-1 (7.8%)
-⏳ Skenario Laga    : 77.0% Selesai 90 Menit | 23.0% Lanjut Extra Time/Penalti
-
-📰 ANALISIS PERTANDINGAN:
-Pertandingan diprediksi akan berjalan alot di lini tengah dengan penguasaan bola yang relatif berimbang. Kedua tim memiliki kekuatan lini serang yang sepadan, sehingga efisiensi penyelesaian akhir di dalam kotak penalti akan menjadi penentu kemenangan.
-
-=================================================================
-
-
-[*] Memuat data...
-[*] Memeriksa model AI...
-[*] Memuat model dan histori fitur dari model_cache.pkl...
-
-[*] Melakukan kalkulasi untuk France vs Morocco pada 2026-07-09...
-
-=================================================================
- PREDIKSI MATCH: France vs Morocco
-=================================================================
-
-📌 Status Venue     : Tempat Netral
-📈 Kekuatan Elo     : France (2129.2) vs Morocco (1989.4)
-⚽ Prediksi xG 90M  : France 2.64 - 1.17 Morocco
-🎯 Probabilitas 1X2 : Home 68.5% | Draw 17.2% | Away 14.3%
-⚖️ Prediksi HDP     : France -1.50
-
-⚽ MARKET GOAL & BTTS :
-   • BTTS (Kedua Tim Gol) : YES 64.3% | NO 35.7%
-   • Over/Under 2.0 Goals : OVER 73.2% | UNDER 10.3% | PUSH 16.4%
-   • Over/Under 2.5 Goals : OVER 73.2% | UNDER 26.8%
-   • Over/Under 3.0 Goals : OVER 52.8% | UNDER 26.8% | PUSH 20.4%
-
-🚩 MARKET CORNER (SUDUT) :
-   • Estimasi Home-Away   : France (7.24) | Morocco (4.90)
-   • Total Prediksi Corner: 12.13 Corner
-   • Over/Under 8.5       : OVER 85.4% | UNDER 14.6%
-   • Over/Under 9.0       : OVER 76.9% | UNDER 14.6% | PUSH 8.4%
-
-🟨 MARKET KARTU (CARDS) :
-   • Estimasi Home-Away   : France (0.83) | Morocco (1.21)
-   • Total Prediksi Kartu : 2.03 Kartu
-   • Over/Under 3.0       : OVER 14.9% | UNDER 66.8% | PUSH 18.3%
-   • Over/Under 4.5       : OVER 5.6% | UNDER 94.4%
-   • Over/Under 5.0       : OVER 1.8% | UNDER 94.4% | PUSH 3.8%
-
-📋 Tebak Skor Tepat : 2-1 (9.0%) | 3-1 (8.0%) | 2-0 (7.7%)
-⏳ Skenario Laga    : 82.8% Selesai 90 Menit | 17.2% Lanjut Extra Time/Penalti
-
-📰 ANALISIS PERTANDINGAN:
-Pertandingan diprediksi akan berjalan alot di lini tengah dengan penguasaan bola yang relatif berimbang. Daya gedor France terlihat jauh lebih superior, sehingga ancaman ke gawang lawan akan datang bertubi-tubi.
-
-=================================================================
-
-
-[*] Memuat data...
-[*] Memeriksa model AI...
-[*] Memuat model dan histori fitur dari model_cache.pkl...
-
-[*] Melakukan kalkulasi untuk Spain vs Belgium pada 2026-07-10...
-
-=================================================================
- PREDIKSI MATCH: Spain vs Belgium
-=================================================================
-
-📌 Status Venue     : Tempat Netral
-📈 Kekuatan Elo     : Spain (2167.2) vs Belgium (1994.5)
-⚽ Prediksi xG 90M  : Spain 2.95 - 0.59 Belgium
-🎯 Probabilitas 1X2 : Home 84.3% | Draw 11.1% | Away 4.5%
-⚖️ Prediksi HDP     : Spain -2.25
-
-⚽ MARKET GOAL & BTTS :
-   • BTTS (Kedua Tim Gol) : YES 42.7% | NO 57.3%
-   • Over/Under 2.0 Goals : OVER 68.7% | UNDER 12.9% | PUSH 18.4%
-   • Over/Under 2.5 Goals : OVER 68.7% | UNDER 31.3%
-   • Over/Under 3.0 Goals : OVER 47.3% | UNDER 31.3% | PUSH 21.5%
-
-🚩 MARKET CORNER (SUDUT) :
-   • Estimasi Home-Away   : Spain (7.73) | Belgium (4.55)
-   • Total Prediksi Corner: 12.28 Corner
-   • Over/Under 8.5       : OVER 86.3% | UNDER 13.7%
-   • Over/Under 9.0       : OVER 78.1% | UNDER 13.7% | PUSH 8.1%
-
-🟨 MARKET KARTU (CARDS) :
-   • Estimasi Home-Away   : Spain (0.61) | Belgium (1.01)
-   • Total Prediksi Kartu : 1.62 Kartu
-   • Over/Under 3.0       : OVER 8.2% | UNDER 77.8% | PUSH 14.0%
-   • Over/Under 4.5       : OVER 2.5% | UNDER 97.5%
-   • Over/Under 5.0       : OVER 0.6% | UNDER 97.5% | PUSH 1.8%
-
-📋 Tebak Skor Tepat : 2-0 (12.6%) | 3-0 (12.4%) | 4-0 (9.1%)
-⏳ Skenario Laga    : 88.9% Selesai 90 Menit | 11.1% Lanjut Extra Time/Penalti
-
-📰 ANALISIS PERTANDINGAN:
-Spain diperkirakan akan memegang kendali permainan dengan dominasi penguasaan bola di atas 65%. Kedua tim memiliki kekuatan lini serang yang sepadan, sehingga efisiensi penyelesaian akhir di dalam kotak penalti akan menjadi penentu kemenangan.
-
-=================================================================
-
-
-[*] Memuat data...
-[*] Memeriksa model AI...
-[*] Memuat model dan histori fitur dari model_cache.pkl...
-
-[*] Melakukan kalkulasi untuk Norway vs England pada 2026-07-11...
-
-=================================================================
- PREDIKSI MATCH: Norway vs England
-=================================================================
-
-📌 Status Venue     : Tempat Netral
-📈 Kekuatan Elo     : Norway (1954.0) vs England (2053.9)
-⚽ Prediksi xG 90M  : Norway 0.81 - 0.72 England
-🎯 Probabilitas 1X2 : Home 34.1% | Draw 37.5% | Away 28.4%
-⚖️ Prediksi HDP     : 0.0 (Laga Seimbang / Scratch)
-
-⚽ MARKET GOAL & BTTS :
-   • BTTS (Kedua Tim Gol) : YES 29.1% | NO 70.9%
-   • Over/Under 2.0 Goals : OVER 19.9% | UNDER 54.2% | PUSH 26.0%
-   • Over/Under 2.5 Goals : OVER 19.9% | UNDER 80.1%
-   • Over/Under 3.0 Goals : OVER 6.9% | UNDER 80.1% | PUSH 12.9%
-
-🚩 MARKET CORNER (SUDUT) :
-   • Estimasi Home-Away   : Norway (4.40) | England (6.08)
-   • Total Prediksi Corner: 10.48 Corner
-   • Over/Under 8.5       : OVER 71.9% | UNDER 28.1%
-   • Over/Under 9.0       : OVER 60.0% | UNDER 28.1% | PUSH 11.8%
-
-🟨 MARKET KARTU (CARDS) :
-   • Estimasi Home-Away   : Norway (0.41) | England (1.67)
-   • Total Prediksi Kartu : 2.08 Kartu
-   • Over/Under 3.0       : OVER 15.7% | UNDER 65.5% | PUSH 18.7%
-   • Over/Under 4.5       : OVER 6.0% | UNDER 94.0%
-   • Over/Under 5.0       : OVER 2.0% | UNDER 94.0% | PUSH 4.0%
-
-📋 Tebak Skor Tepat : 0-0 (22.3%) | 1-0 (17.0%) | 0-1 (14.9%)
-⏳ Skenario Laga    : 62.5% Selesai 90 Menit | 37.5% Lanjut Extra Time/Penalti
-
-📰 ANALISIS PERTANDINGAN:
-Pertandingan diprediksi akan berjalan alot di lini tengah dengan penguasaan bola yang relatif berimbang. Meski bertindak sebagai tamu/underdog, England memiliki ketajaman serangan balik yang jauh lebih mematikan.
-
-=================================================================
-#############################################################
-##########################################################################################################################
-##########################################################################################################################
-##########################################################################################################################
-##########################################################################################################################
-##########################################################################################################################
-#############################################################
-
-
-ASUS@Redmi-13 MINGW64 /d/Documents/proyek/nodejs/Bola/wc prediction/wcup-scraper/bet-predictor/data/Gemini/MAIN (main)
-$ py main.py "2026-07-06" "Switzerland" "Colombia"
-py main.py "2026-07-09" "France" "Morocco"
-py main.py "2026-07-10" "Spain" "Belgium"
-py main.py "2026-07-11" "Norway" "England
-[*] Load database...
-[*] Kalkulasi Elo...
-[*] Melakukan filter duplikasi dan Pemanasan Elo dari results.csv...
-[*] Berhasil memuat 41304 match murni untuk warm-up Elo (Duplikat dibersihkan).
-[*] Membuat fitur...
-[*] Cache ditemukan! Meload fitur dari cache...
-[*] Training model...
-[*] Cache model ditemukan! Meload model dari cache...
-[*] Selesai memuat model cache: 3257 matches
-[*] Info: Jadwal disesuaikan ke 2026-07-07 (Selisih 1 hari)
-
 =================================================================
  PREDIKSI MATCH: Switzerland vs Colombia
 =================================================================
@@ -398,3 +194,188 @@ Pertandingan diperkirakan berjalan seimbang. Kedua tim memiliki lini serang yang
 
 ASUS@Redmi-13 MINGW64 /d/Documents/proyek/nodejs/Bola/wc prediction/wcup-scraper/bet-predictor/data/Gemini/MAIN (main)
 $
+#################################################################################################################################################################################################################################################################################################################################################################################
+#################################################################################################################################################################################################################################################################################################################################################################################
+ASUS@Redmi-13 MINGW64 /d/Documents/proyek/nodejs/Bola/wc prediction/wcup-scraper/bet-predictor/data/Gemini/ChatGPT/perbaikan3 (main)
+$ py main.py "2026-07-06" "Switzerland" "Colombia"
+py main.py "2026-07-09" "France" "Morocco"
+py main.py "2026-07-10" "Spain" "Belgium"
+py main.py "2026-07-11" "Norway" "England"
+[*] Memuat data...
+[*] Memeriksa model AI...
+[*] Memuat model dan histori fitur dari model_cache.pkl...
+
+[*] Melakukan kalkulasi untuk Switzerland vs Colombia pada 2026-07-06...
+
+=================================================================
+ PREDIKSI MATCH: Switzerland vs Colombia
+=================================================================
+
+📌 Status Venue     : Tempat Netral
+📈 Kekuatan Elo     : Switzerland (1957.9) vs Colombia (2060.7)
+⚽ Prediksi xG 90M  : Switzerland 1.71 - 1.83 Colombia
+🎯 Probabilitas 1X2 : Home 36.1% | Draw 23.0% | Away 40.9%
+⚖️ Prediksi HDP     : 0.0 (Laga Seimbang / Scratch)
+
+⚽ MARKET GOAL & BTTS :
+   • BTTS (Kedua Tim Gol) : YES 69.3% | NO 30.7%
+   • Over/Under 2.0 Goals : OVER 68.7% | UNDER 12.7% | PUSH 18.6%
+   • Over/Under 2.5 Goals : OVER 68.7% | UNDER 31.3%
+   • Over/Under 3.0 Goals : OVER 47.3% | UNDER 31.3% | PUSH 21.4%
+
+🚩 MARKET CORNER (SUDUT) :
+   • Estimasi Home-Away   : Switzerland (5.61) | Colombia (4.20)
+   • Total Prediksi Corner: 9.80 Corner
+   • Over/Under 8.5       : OVER 64.5% | UNDER 35.5%
+   • Over/Under 9.0       : OVER 51.7% | UNDER 35.5% | PUSH 12.7%
+
+🟨 MARKET KARTU (CARDS) :
+   • Estimasi Home-Away   : Switzerland (0.91) | Colombia (1.36)
+   • Total Prediksi Kartu : 2.27 Kartu
+   • Over/Under 3.0       : OVER 19.5% | UNDER 60.4% | PUSH 20.1%
+   • Over/Under 4.5       : OVER 8.0% | UNDER 92.0%
+   • Over/Under 5.0       : OVER 2.8% | UNDER 92.0% | PUSH 5.2%
+
+📋 Tebak Skor Tepat : 1-1 (9.5%) | 1-2 (8.3%) | 2-1 (7.8%)
+⏳ Skenario Laga    : 77.0% Selesai 90 Menit | 23.0% Lanjut Extra Time/Penalti
+
+📰 ANALISIS PERTANDINGAN:
+Pertandingan diprediksi akan berjalan alot di lini tengah dengan penguasaan bola yang relatif berimbang. Kedua tim memiliki kekuatan lini serang yang sepadan, sehingga efisiensi penyelesaian akhir di dalam kotak penalti akan menjadi penentu kemenangan.
+
+=================================================================
+
+
+[*] Memuat data...
+[*] Memeriksa model AI...
+[*] Memuat model dan histori fitur dari model_cache.pkl...
+
+[*] Melakukan kalkulasi untuk France vs Morocco pada 2026-07-09...
+
+=================================================================
+ PREDIKSI MATCH: France vs Morocco
+=================================================================
+
+📌 Status Venue     : Tempat Netral
+📈 Kekuatan Elo     : France (2129.2) vs Morocco (1989.4)
+⚽ Prediksi xG 90M  : France 2.64 - 1.17 Morocco
+🎯 Probabilitas 1X2 : Home 68.5% | Draw 17.2% | Away 14.3%
+⚖️ Prediksi HDP     : France -1.50
+
+⚽ MARKET GOAL & BTTS :
+   • BTTS (Kedua Tim Gol) : YES 64.3% | NO 35.7%
+   • Over/Under 2.0 Goals : OVER 73.2% | UNDER 10.3% | PUSH 16.4%
+   • Over/Under 2.5 Goals : OVER 73.2% | UNDER 26.8%
+   • Over/Under 3.0 Goals : OVER 52.8% | UNDER 26.8% | PUSH 20.4%
+
+🚩 MARKET CORNER (SUDUT) :
+   • Estimasi Home-Away   : France (7.24) | Morocco (4.90)
+   • Total Prediksi Corner: 12.13 Corner
+   • Over/Under 8.5       : OVER 85.4% | UNDER 14.6%
+   • Over/Under 9.0       : OVER 76.9% | UNDER 14.6% | PUSH 8.4%
+
+🟨 MARKET KARTU (CARDS) :
+   • Estimasi Home-Away   : France (0.83) | Morocco (1.21)
+   • Total Prediksi Kartu : 2.03 Kartu
+   • Over/Under 3.0       : OVER 14.9% | UNDER 66.8% | PUSH 18.3%
+   • Over/Under 4.5       : OVER 5.6% | UNDER 94.4%
+   • Over/Under 5.0       : OVER 1.8% | UNDER 94.4% | PUSH 3.8%
+
+📋 Tebak Skor Tepat : 2-1 (9.0%) | 3-1 (8.0%) | 2-0 (7.7%)
+⏳ Skenario Laga    : 82.8% Selesai 90 Menit | 17.2% Lanjut Extra Time/Penalti
+
+📰 ANALISIS PERTANDINGAN:
+Pertandingan diprediksi akan berjalan alot di lini tengah dengan penguasaan bola yang relatif berimbang. Daya gedor France terlihat jauh lebih superior, sehingga ancaman ke gawang lawan akan datang bertubi-tubi.
+
+=================================================================
+
+
+[*] Memuat data...
+[*] Memeriksa model AI...
+[*] Memuat model dan histori fitur dari model_cache.pkl...
+
+[*] Melakukan kalkulasi untuk Spain vs Belgium pada 2026-07-10...
+
+=================================================================
+ PREDIKSI MATCH: Spain vs Belgium
+=================================================================
+
+📌 Status Venue     : Tempat Netral
+📈 Kekuatan Elo     : Spain (2167.2) vs Belgium (1994.5)
+⚽ Prediksi xG 90M  : Spain 2.95 - 0.59 Belgium
+🎯 Probabilitas 1X2 : Home 84.3% | Draw 11.1% | Away 4.5%
+⚖️ Prediksi HDP     : Spain -2.25
+
+⚽ MARKET GOAL & BTTS :
+   • BTTS (Kedua Tim Gol) : YES 42.7% | NO 57.3%
+   • Over/Under 2.0 Goals : OVER 68.7% | UNDER 12.9% | PUSH 18.4%
+   • Over/Under 2.5 Goals : OVER 68.7% | UNDER 31.3%
+   • Over/Under 3.0 Goals : OVER 47.3% | UNDER 31.3% | PUSH 21.5%
+
+🚩 MARKET CORNER (SUDUT) :
+   • Estimasi Home-Away   : Spain (7.73) | Belgium (4.55)
+   • Total Prediksi Corner: 12.28 Corner
+   • Over/Under 8.5       : OVER 86.3% | UNDER 13.7%
+   • Over/Under 9.0       : OVER 78.1% | UNDER 13.7% | PUSH 8.1%
+
+🟨 MARKET KARTU (CARDS) :
+   • Estimasi Home-Away   : Spain (0.61) | Belgium (1.01)
+   • Total Prediksi Kartu : 1.62 Kartu
+   • Over/Under 3.0       : OVER 8.2% | UNDER 77.8% | PUSH 14.0%
+   • Over/Under 4.5       : OVER 2.5% | UNDER 97.5%
+   • Over/Under 5.0       : OVER 0.6% | UNDER 97.5% | PUSH 1.8%
+
+📋 Tebak Skor Tepat : 2-0 (12.6%) | 3-0 (12.4%) | 4-0 (9.1%)
+⏳ Skenario Laga    : 88.9% Selesai 90 Menit | 11.1% Lanjut Extra Time/Penalti
+
+📰 ANALISIS PERTANDINGAN:
+Spain diperkirakan akan memegang kendali permainan dengan dominasi penguasaan bola di atas 65%. Kedua tim memiliki kekuatan lini serang yang sepadan, sehingga efisiensi penyelesaian akhir di dalam kotak penalti akan menjadi penentu kemenangan.
+
+=================================================================
+
+
+[*] Memuat data...
+[*] Memeriksa model AI...
+[*] Memuat model dan histori fitur dari model_cache.pkl...
+
+[*] Melakukan kalkulasi untuk Norway vs England pada 2026-07-11...
+
+=================================================================
+ PREDIKSI MATCH: Norway vs England
+=================================================================
+
+📌 Status Venue     : Tempat Netral
+📈 Kekuatan Elo     : Norway (1954.0) vs England (2053.9)
+⚽ Prediksi xG 90M  : Norway 0.81 - 0.72 England
+🎯 Probabilitas 1X2 : Home 34.1% | Draw 37.5% | Away 28.4%
+⚖️ Prediksi HDP     : 0.0 (Laga Seimbang / Scratch)
+
+⚽ MARKET GOAL & BTTS :
+   • BTTS (Kedua Tim Gol) : YES 29.1% | NO 70.9%
+   • Over/Under 2.0 Goals : OVER 19.9% | UNDER 54.2% | PUSH 26.0%
+   • Over/Under 2.5 Goals : OVER 19.9% | UNDER 80.1%
+   • Over/Under 3.0 Goals : OVER 6.9% | UNDER 80.1% | PUSH 12.9%
+
+🚩 MARKET CORNER (SUDUT) :
+   • Estimasi Home-Away   : Norway (4.40) | England (6.08)
+   • Total Prediksi Corner: 10.48 Corner
+   • Over/Under 8.5       : OVER 71.9% | UNDER 28.1%
+   • Over/Under 9.0       : OVER 60.0% | UNDER 28.1% | PUSH 11.8%
+
+🟨 MARKET KARTU (CARDS) :
+   • Estimasi Home-Away   : Norway (0.41) | England (1.67)
+   • Total Prediksi Kartu : 2.08 Kartu
+   • Over/Under 3.0       : OVER 15.7% | UNDER 65.5% | PUSH 18.7%
+   • Over/Under 4.5       : OVER 6.0% | UNDER 94.0%
+   • Over/Under 5.0       : OVER 2.0% | UNDER 94.0% | PUSH 4.0%
+
+📋 Tebak Skor Tepat : 0-0 (22.3%) | 1-0 (17.0%) | 0-1 (14.9%)
+⏳ Skenario Laga    : 62.5% Selesai 90 Menit | 37.5% Lanjut Extra Time/Penalti
+
+📰 ANALISIS PERTANDINGAN:
+Pertandingan diprediksi akan berjalan alot di lini tengah dengan penguasaan bola yang relatif berimbang. Meski bertindak sebagai tamu/underdog, England memiliki ketajaman serangan balik yang jauh lebih mematikan.
+
+=================================================================
+
+
+
+
