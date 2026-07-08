@@ -1,42 +1,42 @@
 =================================================================
- PREDIKSI MATCH: Switzerland vs Colombia
+ PREDIKSI MATCH: Argentina vs Switzerland
 =================================================================
-📅 Jadwal Ditemukan : 2026-07-07
+📅 Jadwal Ditemukan : 2026-07-12
 📌 Status Venue     : Netral
-📈 Kekuatan Elo     : Switzerland (1915.42) vs Colombia (1956.47) = -41.05
-🎯 Probabilitas 1X2 : Home 13.82% | Draw 72.89% | Away 13.3%
-⚖️ Prediksi HDP     : Switzerland +0.25
+📈 Kekuatan Elo     : Argentina (2101.64) vs Switzerland (1917.96) = +183.68
+🎯 Probabilitas 1X2 : Home 59.04% | Draw 13.88% | Away 27.08%
+⚖️ Prediksi HDP     : Argentina -1.5
 -----------------------------------------------------------------
-🎯 xG 90 Menit  : Switzerland 1.15 - Colombia 1.36
-⏱ Babak 1       : Switzerland 0.48 - Colombia 0.57
-⏱ Babak 2       : Switzerland 0.67 - Colombia 0.79
+🎯 xG 90 Menit  : Argentina 2.21 - Switzerland 0.68
+⏱ Babak 1       : Argentina 0.93 - Switzerland 0.29
+⏱ Babak 2       : Argentina 1.28 - Switzerland 0.39
 -----------------------------------------------------------------
 ⚽ MARKET GOAL & BTTS :
-   • BTTS (Kedua Tim Gol) : YES 50.8% | NO 49.2%
-   • Over/Under 2.0 Goals : OVER 45.9% | UNDER 28.5% | PUSH 25.6%
-   • Over/Under 2.5 Goals : OVER 45.9% | UNDER 54.1%
-   • Over/Under 3.0 Goals : OVER 24.5% | UNDER 54.1% | PUSH 21.4%
+   • BTTS (Kedua Tim Gol) : YES 43.8% | NO 56.2%
+   • Over/Under 2.0 Goals : OVER 55.0% | UNDER 21.7% | PUSH 23.3%
+   • Over/Under 2.5 Goals : OVER 55.0% | UNDER 45.0%
+   • Over/Under 3.0 Goals : OVER 32.7% | UNDER 45.0% | PUSH 22.4%
 -----------------------------------------------------------------
 🚩 MARKET CORNER (SUDUT) :
-   • Estimasi Home-Away   : Switzerland (3.57) | Colombia (3.4)
-   • Total Prediksi Corner: 6.97 Corner
-   • Over/Under 8.5       : OVER 26.8% | UNDER 73.2%
-   • Over/Under 9.0       : OVER 16.7% | UNDER 73.2% | PUSH 10.1%
+   • Estimasi Home-Away   : Argentina (5.77) | Switzerland (2.37)
+   • Total Prediksi Corner: 8.14 Corner
+   • Over/Under 8.5       : OVER 42.7% | UNDER 57.3%
+   • Over/Under 9.0       : OVER 30.1% | UNDER 57.3% | PUSH 12.6%
 -----------------------------------------------------------------
 🟨 MARKET KARTU (CARDS) :
-   • Estimasi Home-Away   : Switzerland (0.06) | Colombia (0.0)
-   • Total Prediksi Kartu : 0.06 Kartu
-   • Over/Under 3.0       : OVER 0.0% | UNDER 100.0% | PUSH 0.0%
+   • Estimasi Home-Away   : Argentina (0.33) | Switzerland (0.15)
+   • Total Prediksi Kartu : 0.48 Kartu
+   • Over/Under 3.0       : OVER 0.2% | UNDER 98.7% | PUSH 1.1%
    • Over/Under 4.5       : OVER 0.0% | UNDER 100.0%
    • Over/Under 5.0       : OVER 0.0% | UNDER 100.0% | PUSH 0.0%
 -----------------------------------------------------------------
-📋 Tebak Skor Tepat : 1-1 (12.7%)
-                       0-1 (11.1%)
-                       1-0 (9.3%)
-⏳ Skenario Laga    : 27.1% Selesai 90 Menit | 72.89% Lanjut Extra Time/Penalti
+📋 Tebak Skor Tepat : 2-0 (13.6%)
+                       1-0 (12.3%)
+                       3-0 (10.0%)
+⏳ Skenario Laga    : 86.1% Selesai 90 Menit | 13.88% Lanjut Extra Time/Penalti
 -----------------------------------------------------------------
 📰 ANALISIS PERTANDINGAN:
-Pertandingan diperkirakan berjalan seimbang. Kedua tim memiliki lini serang yang sepadan, sehingga efisiensi penyelesaian akhir akan menjadi penentu. Laga diprediksi lebih banyak terjadi duel di lini tengah. Wasit diprediksi tidak terlalu sering mengeluarkan kartu.
+Argentina diprediksi lebih dominan dengan tekanan tinggi. Kedua tim memiliki lini serang yang sepadan, sehingga efisiensi penyelesaian akhir akan menjadi penentu. Laga diprediksi lebih banyak terjadi duel di lini tengah. Wasit diprediksi tidak terlalu sering mengeluarkan kartu.
 =================================================================
 
 [*] Load database...
