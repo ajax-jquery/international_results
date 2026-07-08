@@ -191,9 +191,46 @@ Pertandingan diperkirakan berjalan seimbang. Kedua tim memiliki lini serang yang
 Pertandingan diperkirakan berjalan seimbang. Kedua tim memiliki lini serang yang sepadan, sehingga efisiensi penyelesaian akhir akan menjadi penentu. Laga diprediksi lebih banyak terjadi duel di lini tengah. Wasit diprediksi tidak terlalu sering mengeluarkan kartu.
 =================================================================
 
-
-ASUS@Redmi-13 MINGW64 /d/Documents/proyek/nodejs/Bola/wc prediction/wcup-scraper/bet-predictor/data/Gemini/MAIN (main)
-$
+=================================================================
+ PREDIKSI MATCH: Argentina vs Switzerland
+=================================================================
+📅 Jadwal Ditemukan : 2026-07-12
+📌 Status Venue     : Netral
+📈 Kekuatan Elo     : Argentina (2101.64) vs Switzerland (1917.96) = +183.68
+🎯 Probabilitas 1X2 : Home 65.31% | Draw 13.75% | Away 20.93%
+⚖️ Prediksi HDP     : Argentina -1.75
+-----------------------------------------------------------------
+🎯 xG 90 Menit  : Argentina 2.32 - Switzerland 0.68
+⏱ Babak 1       : Argentina 0.97 - Switzerland 0.29
+⏱ Babak 2       : Argentina 1.35 - Switzerland 0.39
+-----------------------------------------------------------------
+⚽ MARKET GOAL & BTTS :
+   • BTTS (Kedua Tim Gol) : YES 44.6% | NO 55.4%
+   • Over/Under 2.0 Goals : OVER 57.8% | UNDER 19.8% | PUSH 22.4%
+   • Over/Under 2.5 Goals : OVER 57.8% | UNDER 42.2%
+   • Over/Under 3.0 Goals : OVER 35.4% | UNDER 42.2% | PUSH 22.4%
+-----------------------------------------------------------------
+🚩 MARKET CORNER (SUDUT) :
+   • Estimasi Home-Away   : Argentina (5.43) | Switzerland (2.42)
+   • Total Prediksi Corner: 7.85 Corner
+   • Over/Under 8.5       : OVER 38.5% | UNDER 61.5%
+   • Over/Under 9.0       : OVER 26.4% | UNDER 61.5% | PUSH 12.1%
+-----------------------------------------------------------------
+🟨 MARKET KARTU (CARDS) :
+   • Estimasi Home-Away   : Argentina (0.4) | Switzerland (0.24)
+   • Total Prediksi Kartu : 0.64 Kartu
+   • Over/Under 3.0       : OVER 0.4% | UNDER 97.3% | PUSH 2.3%
+   • Over/Under 4.5       : OVER 0.1% | UNDER 99.9%
+   • Over/Under 5.0       : OVER 0.0% | UNDER 99.9% | PUSH 0.0%
+-----------------------------------------------------------------
+📋 Tebak Skor Tepat : 2-0 (13.4%)
+                       1-0 (11.5%)
+                       3-0 (10.3%)
+⏳ Skenario Laga    : 86.2% Selesai 90 Menit | 13.75% Lanjut Extra Time/Penalti
+-----------------------------------------------------------------
+📰 ANALISIS PERTANDINGAN:
+Argentina diprediksi lebih dominan dengan tekanan tinggi. Kedua tim memiliki lini serang yang sepadan, sehingga efisiensi penyelesaian akhir akan menjadi penentu. Laga diprediksi lebih banyak terjadi duel di lini tengah. Wasit diprediksi tidak terlalu sering mengeluarkan kartu.
+=================================================================
 #################################################################################################################################################################################################################################################################################################################################################################################
 #################################################################################################################################################################################################################################################################################################################################################################################
 ASUS@Redmi-13 MINGW64 /d/Documents/proyek/nodejs/Bola/wc prediction/wcup-scraper/bet-predictor/data/Gemini/ChatGPT/perbaikan3 (main)
@@ -373,6 +410,43 @@ Spain diperkirakan akan memegang kendali permainan dengan dominasi penguasaan bo
 
 📰 ANALISIS PERTANDINGAN:
 Pertandingan diprediksi akan berjalan alot di lini tengah dengan penguasaan bola yang relatif berimbang. Meski bertindak sebagai tamu/underdog, England memiliki ketajaman serangan balik yang jauh lebih mematikan.
+
+=================================================================
+
+=================================================================
+ PREDIKSI MATCH: Argentina vs Switzerland
+=================================================================
+
+📌 Status Venue     : Tempat Netral
+📈 Kekuatan Elo     : Argentina (2231.8) vs Switzerland (2008.3)
+⚽ Prediksi xG 90M  : Argentina 1.76 - 0.67 Switzerland
+🎯 Probabilitas 1X2 : Home 63.0% | Draw 23.7% | Away 13.3%
+⚖️ Prediksi HDP     : Argentina -1.00
+
+⚽ MARKET GOAL & BTTS :
+   • BTTS (Kedua Tim Gol) : YES 41.1% | NO 58.9%
+   • Over/Under 2.0 Goals : OVER 43.9% | UNDER 29.6% | PUSH 26.5%
+   • Over/Under 2.5 Goals : OVER 43.9% | UNDER 56.1%
+   • Over/Under 3.0 Goals : OVER 22.8% | UNDER 56.1% | PUSH 21.1%
+
+🚩 MARKET CORNER (SUDUT) :
+   • Estimasi Home-Away   : Argentina (4.47) | Switzerland (4.91)
+   • Total Prediksi Corner: 9.39 Corner
+   • Over/Under 8.5       : OVER 59.4% | UNDER 40.6%
+   • Over/Under 9.0       : OVER 46.3% | UNDER 40.6% | PUSH 13.1%
+
+🟨 MARKET KARTU (CARDS) :
+   • Estimasi Home-Away   : Argentina (0.61) | Switzerland (1.25)
+   • Total Prediksi Kartu : 1.87 Kartu
+   • Over/Under 3.0       : OVER 11.9% | UNDER 71.3% | PUSH 16.7%
+   • Over/Under 4.5       : OVER 4.1% | UNDER 95.9%
+   • Over/Under 5.0       : OVER 1.2% | UNDER 95.9% | PUSH 2.9%
+
+📋 Tebak Skor Tepat : 1-0 (14.9%) | 2-0 (13.6%) | 1-1 (10.9%)
+⏳ Skenario Laga    : 76.3% Selesai 90 Menit | 23.7% Lanjut Extra Time/Penalti
+
+📰 ANALISIS PERTANDINGAN:
+Pertandingan diprediksi akan berjalan alot di lini tengah dengan penguasaan bola yang relatif berimbang. Kedua tim memiliki kekuatan lini serang yang sepadan, sehingga efisiensi penyelesaian akhir di dalam kotak penalti akan menjadi penentu kemenangan.
 
 =================================================================
 
