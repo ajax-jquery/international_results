@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>API Fetch Request</title>
+</head>
+<body>
+
+    <h2>Hasil Request:</h2>
+    <pre id="output">Menunggu request...</pre>
+
+    <script>
+        const url = "https://api.q28i38.com/v1/order/bet/singlePass";
+        
+        const data = {
+            "currencyId": 1001,
+            "singleBetList": [{
+                "unitStake": 10,
+                "oddsChange": 1,
+                "betOptionList": [{
+                    "marketId": 323588891,
+                    "optionType": 2,
+                    "odds": 1.93,
+                    "oddsFormat": 2
+                }]
+            }],
+            "languageType": "IND",
+            "isPC": true
+        };
+
+        const options = {
+            method: 'POST',
+            headers: {
+                "accept": "application/json, text/plain, */*",
+                "accept-language": "id,en;q=0.9",
+                "authorization": "tt_JmRTT0HzZ1ftvyzJKLJWcJpq5g6QhgJj.670095fb7dbd7e65b7eb8199ce88400b",
+                "content-type": "application/json;charset=UTF-8",
+                "Referer": "https://spotbet.vip/",
+                "Origin": "https://spotbet.vip"
+            },
+            body: JSON.stringify(data)
+        };
+
+        fetch(url, options)
+            .then(response => response.json())
+            .then(result => {
+                document.getElementById('output').textContent = JSON.stringify(result, null, 2);
+                console.log('Success:', result);
+            })
+            .catch(error => {
+                document.getElementById('output').textContent = 'Error: ' + error.message;
+                console.error('Error:', error);
+            });
+    </script>
+</body>
+</html>
