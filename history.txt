@@ -39,46 +39,48 @@
  📰 ANALISIS PERTANDINGAN:
     Pertandingan diperkirakan berjalan alot dan sangat seimbang di lini tengah. Kualitas penyelesaian akhir (xGOT) dan kontribusi pemain pengganti (Substitutes) diprediksi akan menentukan arah laga. Serangan diprediksi lebih berpusat di poros tengah tanpa banyak variasi silang. Laga diprediksi tidak akan diwarnai terlalu banyak pelanggaran keras. Karena ini adalah fase krusial/gugur, kehati-hatian ekstra terutama di menit akhir (Late Goals) akan menjadi penentu.
 ======================================================================
-=================================================================
- PREDIKSI MATCH: England vs Argentina
-=================================================================
-📅 Jadwal Ditemukan : 2026-07-15
-📌 Status Venue     : Netral
-📈 Kekuatan Elo     : England (2044.08) vs Argentina (2115.56) = -71.48
-🎯 Probabilitas 1X2 : Home 40.48% | Draw 23.03% | Away 36.49%
-⚖️ Prediksi HDP     : England +0.25
------------------------------------------------------------------
-🎯 xG 90 Menit  : England 0.87 - Argentina 1.1
-⏱ Babak 1       : England 0.37 - Argentina 0.46
-⏱ Babak 2       : England 0.5 - Argentina 0.64
------------------------------------------------------------------
-⚽ MARKET GOAL & BTTS :
-   • BTTS (Kedua Tim Gol) : YES 40.9% | NO 59.1%
-   • Over/Under 2.0 Goals : OVER 31.6% | UNDER 41.3% | PUSH 27.1%
-   • Over/Under 2.5 Goals : OVER 31.6% | UNDER 68.4%
-   • Over/Under 3.0 Goals : OVER 13.8% | UNDER 68.4% | PUSH 17.8%
------------------------------------------------------------------
-🚩 MARKET CORNER (SUDUT) :
-   • Estimasi Home-Away   : England (3.77) | Argentina (3.34)
-   • Total Prediksi Corner: 7.11 Corner
-   • Over/Under 8.5       : OVER 28.5% | UNDER 71.5%
-   • Over/Under 9.0       : OVER 18.1% | UNDER 71.5% | PUSH 10.5%
------------------------------------------------------------------
-🟨 MARKET KARTU (CARDS) :
-   • Estimasi Home-Away   : England (0.14) | Argentina (0.0)
-   • Total Prediksi Kartu : 0.14 Kartu
-   • Over/Under 3.0       : OVER 0.0% | UNDER 100.0% | PUSH 0.0%
-   • Over/Under 4.5       : OVER 0.0% | UNDER 100.0%
-   • Over/Under 5.0       : OVER 0.0% | UNDER 100.0% | PUSH 0.0%
------------------------------------------------------------------
-📋 Tebak Skor Tepat : 0-0 (15.9%)
-                       1-1 (15.3%)
-                       0-1 (13.3%)
-⏳ Skenario Laga    : 77.0% Selesai 90 Menit | 23.03% Lanjut Extra Time/Penalti
------------------------------------------------------------------
-📰 ANALISIS PERTANDINGAN:
-Pertandingan diperkirakan berjalan seimbang. Kedua tim memiliki lini serang yang sepadan, sehingga efisiensi penyelesaian akhir akan menjadi penentu. Laga diprediksi lebih banyak terjadi duel di lini tengah. Wasit diprediksi tidak terlalu sering mengeluarkan kartu.
-=================================================================
+
+======================================================================
+ 🏆 PREDIKSI MATCH : England vs Argentina
+ 🏅 Kompetisi      : FIFA World Cup (Fase: 1/2)
+======================================================================
+ 📅 Jadwal Match    : 2026-07-15
+ 📌 Status Venue    : Netral
+ 📈 Kekuatan Elo    : England (2044.08) vs Argentina (2115.56) = -71.48
+ 🎯 Probabilitas 1X2: Home 25.34% | Draw 27.13% | Away 47.53%
+ ⚖️ Prediksi HDP    : England +0.5
+----------------------------------------------------------------------
+ 🎯 xG 90 Menit  : England 1.21 - Argentina 1.72
+ ⏱ Babak 1       : England 0.51 - Argentina 0.72
+ ⏱ Babak 2       : England 0.7 - Argentina 1.0
+----------------------------------------------------------------------
+ ⚽ MARKET GOAL & BTTS :
+    • BTTS (Kedua Tim Gol) : YES 59.3% | NO 40.7%
+    • Over/Under 2.0 Goals : OVER 56.0% | UNDER 21.0% | PUSH 22.9%
+    • Over/Under 2.5 Goals : OVER 56.0% | UNDER 44.0%
+    • Over/Under 3.0 Goals : OVER 33.7% | UNDER 44.0% | PUSH 22.4%
+----------------------------------------------------------------------
+ 🚩 MARKET CORNER (SUDUT) :
+    • Estimasi Home-Away   : England (4.87) | Argentina (5.37)
+    • Total Prediksi Corner: 10.24 Corner
+    • Over/Under 8.5       : OVER 69.3% | UNDER 30.7%
+    • Over/Under 9.0       : OVER 57.2% | UNDER 30.7% | PUSH 12.2%
+----------------------------------------------------------------------
+ 🟨 MARKET KARTU (CARDS) :
+    • Estimasi Home-Away   : England (1.48) | Argentina (1.48)
+    • Total Prediksi Kartu : 2.96 Kartu
+    • Over/Under 3.0       : OVER 34.4% | UNDER 43.2% | PUSH 22.4%
+    • Over/Under 4.5       : OVER 17.8% | UNDER 82.2%
+    • Over/Under 5.0       : OVER 8.0% | UNDER 82.2% | PUSH 9.8%
+----------------------------------------------------------------------
+ 📋 Tebak Skor Tepat : 1-1 (12.8%)  
+                        1-2 (9.5%)  
+                        0-2 (7.9%)  
+ ⏳ Skenario Laga    : 72.9% Selesai 90 Menit | 27.13% Lanjut Extra Time/Penalti
+----------------------------------------------------------------------
+ 📰 ANALISIS PERTANDINGAN:
+    Pertandingan diperkirakan berjalan alot dan sangat seimbang di lini tengah. Serangan diprediksi lebih berpusat di poros tengah tanpa banyak variasi silang. Laga diprediksi tidak akan diwarnai terlalu banyak pelanggaran keras. Kedua tim memiliki efisiensi bangunan serangan (build-up) yang relatif setara. Karena ini fase krusial/gugur, kehati-hatian ekstra terutama di menit akhir akan menjadi penentu. Catatan: Faktor kebugaran fisik lebih menguntungkan England, mengingat skuad Argentina baru saja melewati jadwal padat.
+======================================================================
 ======================================================================
  🏆 PREDIKSI MATCH : France vs Spain
  🏅 Kompetisi      : FIFA World Cup (Fase: 1/2)
@@ -120,46 +122,47 @@ Pertandingan diperkirakan berjalan seimbang. Kedua tim memiliki lini serang yang
  📰 ANALISIS PERTANDINGAN:
     Pertandingan diperkirakan berjalan alot dan sangat seimbang di lini tengah. Kualitas penyelesaian akhir (xGOT) dan kontribusi pemain pengganti (Substitutes) diprediksi akan menentukan arah laga. Serangan diprediksi lebih berpusat di poros tengah tanpa banyak variasi silang. Laga diprediksi tidak akan diwarnai terlalu banyak pelanggaran keras. Karena ini adalah fase krusial/gugur, kehati-hatian ekstra terutama di menit akhir (Late Goals) akan menjadi penentu.
 ======================================================================
-=================================================================
- PREDIKSI MATCH: France vs Spain
-=================================================================
-📅 Jadwal Ditemukan : 2026-07-14
-📌 Status Venue     : Netral
-📈 Kekuatan Elo     : France (2113.94) vs Spain (2097.89) = +16.05
-🎯 Probabilitas 1X2 : Home 44.78% | Draw 40.72% | Away 14.51%
-⚖️ Prediksi HDP     : France -0.25
------------------------------------------------------------------
-🎯 xG 90 Menit  : France 1.04 - Spain 0.78
-⏱ Babak 1       : France 0.44 - Spain 0.33
-⏱ Babak 2       : France 0.6 - Spain 0.45
------------------------------------------------------------------
-⚽ MARKET GOAL & BTTS :
-   • BTTS (Kedua Tim Gol) : YES 37.1% | NO 62.9%
-   • Over/Under 2.0 Goals : OVER 27.6% | UNDER 45.6% | PUSH 26.8%
-   • Over/Under 2.5 Goals : OVER 27.6% | UNDER 72.4%
-   • Over/Under 3.0 Goals : OVER 11.3% | UNDER 72.4% | PUSH 16.3%
------------------------------------------------------------------
-🚩 MARKET CORNER (SUDUT) :
-   • Estimasi Home-Away   : France (4.32) | Spain (3.86)
-   • Total Prediksi Corner: 8.18 Corner
-   • Over/Under 8.5       : OVER 43.3% | UNDER 56.7%
-   • Over/Under 9.0       : OVER 30.6% | UNDER 56.7% | PUSH 12.7%
------------------------------------------------------------------
-🟨 MARKET KARTU (CARDS) :
-   • Estimasi Home-Away   : France (0.39) | Spain (0.15)
-   • Total Prediksi Kartu : 0.54 Kartu
-   • Over/Under 3.0       : OVER 0.2% | UNDER 98.2% | PUSH 1.5%
-   • Over/Under 4.5       : OVER 0.0% | UNDER 100.0%
-   • Over/Under 5.0       : OVER 0.0% | UNDER 100.0% | PUSH 0.0%
------------------------------------------------------------------
-📋 Tebak Skor Tepat : 0-0 (18.1%)
-                       1-1 (15.1%)
-                       1-0 (14.9%)
-⏳ Skenario Laga    : 59.3% Selesai 90 Menit | 40.72% Lanjut Extra Time/Penalti
------------------------------------------------------------------
-📰 ANALISIS PERTANDINGAN:
-Pertandingan diperkirakan berjalan seimbang. Kedua tim memiliki lini serang yang sepadan, sehingga efisiensi penyelesaian akhir akan menjadi penentu. Laga diprediksi lebih banyak terjadi duel di lini tengah. Wasit diprediksi tidak terlalu sering mengeluarkan kartu.
-=================================================================
+======================================================================
+ 🏆 PREDIKSI MATCH : France vs Spain
+ 🏅 Kompetisi      : FIFA World Cup (Fase: 1/2)
+======================================================================
+ 📅 Jadwal Match    : 2026-07-14
+ 📌 Status Venue    : Netral
+ 📈 Kekuatan Elo    : France (2113.94) vs Spain (2097.89) = +16.05
+ 🎯 Probabilitas 1X2: Home 42.27% | Draw 25.94% | Away 31.8%
+ ⚖️ Prediksi HDP    : France -0.25
+----------------------------------------------------------------------
+ 🎯 xG 90 Menit  : France 1.76 - Spain 1.52
+ ⏱ Babak 1       : France 0.74 - Spain 0.64
+ ⏱ Babak 2       : France 1.02 - Spain 0.88
+----------------------------------------------------------------------
+ ⚽ MARKET GOAL & BTTS :
+    • BTTS (Kedua Tim Gol) : YES 66.2% | NO 33.8%
+    • Over/Under 2.0 Goals : OVER 63.7% | UNDER 16.1% | PUSH 20.2%
+    • Over/Under 2.5 Goals : OVER 63.7% | UNDER 36.3%
+    • Over/Under 3.0 Goals : OVER 41.6% | UNDER 36.3% | PUSH 22.1%
+----------------------------------------------------------------------
+ 🚩 MARKET CORNER (SUDUT) :
+    • Estimasi Home-Away   : France (4.19) | Spain (4.99)
+    • Total Prediksi Corner: 9.18 Corner
+    • Over/Under 8.5       : OVER 56.8% | UNDER 43.2%
+    • Over/Under 9.0       : OVER 43.7% | UNDER 43.2% | PUSH 13.2%
+----------------------------------------------------------------------
+ 🟨 MARKET KARTU (CARDS) :
+    • Estimasi Home-Away   : France (2.11) | Spain (1.89)
+    • Total Prediksi Kartu : 4.0 Kartu
+    • Over/Under 3.0       : OVER 56.8% | UNDER 23.7% | PUSH 19.5%
+    • Over/Under 4.5       : OVER 37.2% | UNDER 62.8%
+    • Over/Under 5.0       : OVER 21.6% | UNDER 62.8% | PUSH 15.7%
+----------------------------------------------------------------------
+ 📋 Tebak Skor Tepat : 1-1 (11.6%)  
+                        2-1 (8.9%)  
+                        1-2 (7.6%)  
+ ⏳ Skenario Laga    : 74.1% Selesai 90 Menit | 25.94% Lanjut Extra Time/Penalti
+----------------------------------------------------------------------
+ 📰 ANALISIS PERTANDINGAN:
+    Pertandingan diperkirakan berjalan alot dan sangat seimbang di lini tengah. Serangan diprediksi lebih berpusat di poros tengah tanpa banyak variasi silang. Laga diprediksi tidak akan diwarnai terlalu banyak pelanggaran keras. Kedua tim memiliki efisiensi bangunan serangan (build-up) yang relatif setara. Karena ini fase krusial/gugur, kehati-hatian ekstra terutama di menit akhir akan menjadi penentu.
+======================================================================
 ======================================================================
  🏆 PREDIKSI MATCH : Argentina vs Switzerland
  🏅 Kompetisi      : FIFA World Cup (Fase: 1/4)
