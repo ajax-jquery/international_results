@@ -39,7 +39,46 @@
  📰 ANALISIS PERTANDINGAN:
     Pertandingan diperkirakan berjalan alot dan sangat seimbang di lini tengah. Kualitas penyelesaian akhir (xGOT) dan kontribusi pemain pengganti (Substitutes) diprediksi akan menentukan arah laga. Serangan diprediksi lebih berpusat di poros tengah tanpa banyak variasi silang. Laga diprediksi tidak akan diwarnai terlalu banyak pelanggaran keras. Karena ini adalah fase krusial/gugur, kehati-hatian ekstra terutama di menit akhir (Late Goals) akan menjadi penentu.
 ======================================================================
-
+=================================================================
+ PREDIKSI MATCH: France vs Spain
+=================================================================
+📅 Jadwal Ditemukan : 2026-07-14
+📌 Status Venue     : Netral
+📈 Kekuatan Elo     : France (2113.94) vs Spain (2097.89) = +16.05
+🎯 Probabilitas 1X2 : Home 44.78% | Draw 40.72% | Away 14.51%
+⚖️ Prediksi HDP     : France -0.25
+-----------------------------------------------------------------
+🎯 xG 90 Menit  : France 1.04 - Spain 0.78
+⏱ Babak 1       : France 0.44 - Spain 0.33
+⏱ Babak 2       : France 0.6 - Spain 0.45
+-----------------------------------------------------------------
+⚽ MARKET GOAL & BTTS :
+   • BTTS (Kedua Tim Gol) : YES 37.1% | NO 62.9%
+   • Over/Under 2.0 Goals : OVER 27.6% | UNDER 45.6% | PUSH 26.8%
+   • Over/Under 2.5 Goals : OVER 27.6% | UNDER 72.4%
+   • Over/Under 3.0 Goals : OVER 11.3% | UNDER 72.4% | PUSH 16.3%
+-----------------------------------------------------------------
+🚩 MARKET CORNER (SUDUT) :
+   • Estimasi Home-Away   : France (4.32) | Spain (3.86)
+   • Total Prediksi Corner: 8.18 Corner
+   • Over/Under 8.5       : OVER 43.3% | UNDER 56.7%
+   • Over/Under 9.0       : OVER 30.6% | UNDER 56.7% | PUSH 12.7%
+-----------------------------------------------------------------
+🟨 MARKET KARTU (CARDS) :
+   • Estimasi Home-Away   : France (0.39) | Spain (0.15)
+   • Total Prediksi Kartu : 0.54 Kartu
+   • Over/Under 3.0       : OVER 0.2% | UNDER 98.2% | PUSH 1.5%
+   • Over/Under 4.5       : OVER 0.0% | UNDER 100.0%
+   • Over/Under 5.0       : OVER 0.0% | UNDER 100.0% | PUSH 0.0%
+-----------------------------------------------------------------
+📋 Tebak Skor Tepat : 0-0 (18.1%)
+                       1-1 (15.1%)
+                       1-0 (14.9%)
+⏳ Skenario Laga    : 59.3% Selesai 90 Menit | 40.72% Lanjut Extra Time/Penalti
+-----------------------------------------------------------------
+📰 ANALISIS PERTANDINGAN:
+Pertandingan diperkirakan berjalan seimbang. Kedua tim memiliki lini serang yang sepadan, sehingga efisiensi penyelesaian akhir akan menjadi penentu. Laga diprediksi lebih banyak terjadi duel di lini tengah. Wasit diprediksi tidak terlalu sering mengeluarkan kartu.
+=================================================================
 ======================================================================
  🏆 PREDIKSI MATCH : Argentina vs Switzerland
  🏅 Kompetisi      : FIFA World Cup (Fase: 1/4)
