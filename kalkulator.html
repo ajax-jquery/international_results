@@ -114,15 +114,19 @@
 
     // FUNGSI BARU: Mengubah input "2.5/3" menjadi "2.75" atau "-0.5/1" menjadi "-0.75"
     function parseAsianLine(val) {
-        let str = val.toString().trim();
-        if (!str.includes('/')) return parseFloat(str); // Jika input desimal biasa
+        // Ubah koma menjadi titik agar terbaca sebagai desimal yang valid
+        let str = val.toString().trim().replace(/,/g, '.');
+        if (!str.includes('/')) return parseFloat(str); 
         
         let parts = str.split('/');
         let p1 = parseFloat(parts[0]);
         let p2 = parseFloat(parts[1]);
 
-        // Mengatasi penulisan singkat seperti -0.5/1 (dimana 1 seharusnya dianggap minus juga)
-        if (p1 < 0 && p2 > 0) p2 = -Math.abs(p2); 
+        // Pastikan jika ada tanda minus di depan, dua-duanya dihitung minus (termasuk -0)
+        if (str.startsWith('-')) {
+            p1 = -Math.abs(p1);
+            p2 = -Math.abs(p2);
+        }
         
         return (p1 + p2) / 2;
     }
@@ -278,25 +282,27 @@
     }
 
     // Engine Perhitungan Pengembalian (TERMASUK MENANG/KALAH SETENGAH)
+  // Engine Perhitungan Pengembalian (Update: Format Odds Hong Kong / Indo)
     function hitungReturnTaruhan(h, a, bet) {
         let m = bet.modal;
         let o = bet.odds;
 
         if (bet.type === 'tebak_score') {
-            return (h === bet.home && a === bet.away) ? (m * o) : 0;
+            // Menang Full: Modal dikembalikan + (Modal dikali Odds)
+            return (h === bet.home && a === bet.away) ? (m + (m * o)) : 0;
         } 
         
         else if (bet.type === 'btts') {
-            if (bet.selection === 'ya' && h > 0 && a > 0) return m * o;
-            if (bet.selection === 'tidak' && (h === 0 || a === 0)) return m * o;
+            if (bet.selection === 'ya' && h > 0 && a > 0) return (m + (m * o));
+            if (bet.selection === 'tidak' && (h === 0 || a === 0)) return (m + (m * o));
             return 0;
         } 
         
         else if (bet.type === 'margin') {
             let diff = h - a;
-            if (bet.selection === 'home' && diff === bet.margin) return m * o;
-            if (bet.selection === 'away' && -diff === bet.margin) return m * o;
-            if (bet.selection === 'draw' && diff === 0) return m * o;
+            if (bet.selection === 'home' && diff === bet.margin) return (m + (m * o));
+            if (bet.selection === 'away' && -diff === bet.margin) return (m + (m * o));
+            if (bet.selection === 'draw' && diff === 0) return (m + (m * o));
             return 0;
         }
         
@@ -304,10 +310,13 @@
             let total = h + a;
             let diff = bet.selection === 'over' ? (total - bet.threshold) : (bet.threshold - total);
             
-            if (diff >= 0.5) return m * o; // Menang Full
-            if (diff === 0.25) return m + ((m / 2) * (o - 1)); // Menang Setengah
+            // Fix Presisi Desimal
+            diff = Math.round(diff * 4) / 4; 
+            
+            if (diff >= 0.5) return m + (m * o); // Menang Full (Modal + Untung)
+            if (diff === 0.25) return m + ((m / 2) * o); // Menang Setengah (Modal utuh + setengah untung)
             if (diff === 0) return m; // Draw / Uang Kembali (Push)
-            if (diff === -0.25) return m / 2; // Kalah Setengah
+            if (diff === -0.25) return m / 2; // Kalah Setengah (Modal hilang setengah)
             return 0; // Kalah Full
         }
         
@@ -315,9 +324,12 @@
             let homeScore = bet.selection === 'home' ? h + bet.hdp : h;
             let awayScore = bet.selection === 'away' ? a + bet.hdp : a;
             let netDiff = bet.selection === 'home' ? (homeScore - awayScore) : (awayScore - homeScore);
+            
+            // Fix Presisi Desimal
+            netDiff = Math.round(netDiff * 4) / 4; 
 
-            if (netDiff >= 0.5) return m * o; // Menang Full
-            if (netDiff === 0.25) return m + ((m / 2) * (o - 1)); // Menang Setengah
+            if (netDiff >= 0.5) return m + (m * o); // Menang Full
+            if (netDiff === 0.25) return m + ((m / 2) * o); // Menang Setengah
             if (netDiff === 0) return m; // Draw / Push
             if (netDiff === -0.25) return m / 2; // Kalah Setengah
             return 0; // Kalah Full
