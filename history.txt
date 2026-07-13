@@ -47,36 +47,36 @@
  📅 Jadwal Match    : 2026-07-15
  📌 Status Venue    : Netral
  📈 Kekuatan Elo    : England (2044.08) vs Argentina (2115.56) = -71.48
- 🎯 Probabilitas 1X2: Home 25.34% | Draw 27.13% | Away 47.53%
+ 🎯 Probabilitas 1X2: Home 27.17% | Draw 28.27% | Away 44.55%
  ⚖️ Prediksi HDP    : England +0.5
 ----------------------------------------------------------------------
- 🎯 xG 90 Menit  : England 1.21 - Argentina 1.72
- ⏱ Babak 1       : England 0.51 - Argentina 0.72
- ⏱ Babak 2       : England 0.7 - Argentina 1.0
+ 🎯 xG 90 Menit  : England 1.21 - Argentina 1.59
+ ⏱ Babak 1       : England 0.51 - Argentina 0.67
+ ⏱ Babak 2       : England 0.7 - Argentina 0.92
 ----------------------------------------------------------------------
  ⚽ MARKET GOAL & BTTS :
-    • BTTS (Kedua Tim Gol) : YES 59.3% | NO 40.7%
-    • Over/Under 2.0 Goals : OVER 56.0% | UNDER 21.0% | PUSH 22.9%
-    • Over/Under 2.5 Goals : OVER 56.0% | UNDER 44.0%
-    • Over/Under 3.0 Goals : OVER 33.7% | UNDER 44.0% | PUSH 22.4%
+    • BTTS (Kedua Tim Gol) : YES 57.6% | NO 42.4%
+    • Over/Under 2.0 Goals : OVER 53.0% | UNDER 23.1% | PUSH 23.9%
+    • Over/Under 2.5 Goals : OVER 53.0% | UNDER 47.0%
+    • Over/Under 3.0 Goals : OVER 30.8% | UNDER 47.0% | PUSH 22.2%
 ----------------------------------------------------------------------
  🚩 MARKET CORNER (SUDUT) :
-    • Estimasi Home-Away   : England (4.87) | Argentina (5.37)
-    • Total Prediksi Corner: 10.24 Corner
-    • Over/Under 8.5       : OVER 69.3% | UNDER 30.7%
-    • Over/Under 9.0       : OVER 57.2% | UNDER 30.7% | PUSH 12.2%
+    • Estimasi Home-Away   : England (4.9) | Argentina (5.38)
+    • Total Prediksi Corner: 10.28 Corner
+    • Over/Under 8.5       : OVER 69.7% | UNDER 30.3%
+    • Over/Under 9.0       : OVER 57.6% | UNDER 30.3% | PUSH 12.1%
 ----------------------------------------------------------------------
  🟨 MARKET KARTU (CARDS) :
-    • Estimasi Home-Away   : England (1.48) | Argentina (1.48)
-    • Total Prediksi Kartu : 2.96 Kartu
-    • Over/Under 3.0       : OVER 34.4% | UNDER 43.2% | PUSH 22.4%
-    • Over/Under 4.5       : OVER 17.8% | UNDER 82.2%
-    • Over/Under 5.0       : OVER 8.0% | UNDER 82.2% | PUSH 9.8%
+    • Estimasi Home-Away   : England (1.46) | Argentina (1.49)
+    • Total Prediksi Kartu : 2.95 Kartu
+    • Over/Under 3.0       : OVER 34.1% | UNDER 43.5% | PUSH 22.4%
+    • Over/Under 4.5       : OVER 17.6% | UNDER 82.4%
+    • Over/Under 5.0       : OVER 7.9% | UNDER 82.4% | PUSH 9.7%
 ----------------------------------------------------------------------
- 📋 Tebak Skor Tepat : 1-1 (12.8%)  
-                        1-2 (9.5%)  
-                        0-2 (7.9%)  
- ⏳ Skenario Laga    : 72.9% Selesai 90 Menit | 27.13% Lanjut Extra Time/Penalti
+ 📋 Tebak Skor Tepat : 1-1 (13.5%)
+                        1-2 (9.3%)
+                        0-1 (7.9%)
+ ⏳ Skenario Laga    : 71.7% Selesai 90 Menit | 28.27% Lanjut Extra Time/Penalti
 ----------------------------------------------------------------------
  📰 ANALISIS PERTANDINGAN:
     Pertandingan diperkirakan berjalan alot dan sangat seimbang di lini tengah. Serangan diprediksi lebih berpusat di poros tengah tanpa banyak variasi silang. Laga diprediksi tidak akan diwarnai terlalu banyak pelanggaran keras. Kedua tim memiliki efisiensi bangunan serangan (build-up) yang relatif setara. Karena ini fase krusial/gugur, kehati-hatian ekstra terutama di menit akhir akan menjadi penentu. Catatan: Faktor kebugaran fisik lebih menguntungkan England, mengingat skuad Argentina baru saja melewati jadwal padat.
