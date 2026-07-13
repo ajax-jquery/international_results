@@ -16,6 +16,9 @@
     .bg-win { background-color: #d1e7dd !important; color: #0f5132; font-weight: bold; }
     .bg-loss { background-color: #f8d7da !important; color: #842029; font-weight: bold; }
     .bg-even { background-color: #fff3cd !important; color: #664d03; font-weight: bold; }
+    
+    /* CSS tambahan untuk badge probabilitas */
+    .prob-badge { font-size: 0.9rem; padding: 6px 10px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
 </style>
 </head>
 <body>
@@ -79,8 +82,14 @@
         <!-- TABEL HASIL PROBABILITAS -->
         <div class="col-lg-8">
             <div class="card">
-                <div class="card-header bg-success text-white">
-                    <h5 class="mb-0">Simulasi Hasil (Batas Goal 0 - 4)</h5>
+                <!-- BAGIAN INI DIPERBARUI UNTUK MENAMPILKAN PERSENTASE -->
+                <div class="card-header bg-success text-white d-flex justify-content-between align-items-center flex-wrap">
+                    <h5 class="mb-0 d-inline-block">Simulasi Hasil (Batas Goal 0 - 4)</h5>
+                    <div id="probabilityContainer" style="display: none;">
+                        <span class="badge bg-light text-success prob-badge ms-1" id="badgeWin">Untung: 0%</span>
+                        <span class="badge bg-warning text-dark prob-badge ms-1" id="badgeDraw">Balik Modal: 0%</span>
+                        <span class="badge bg-danger text-white prob-badge ms-1" id="badgeLoss">Rugi: 0%</span>
+                    </div>
                 </div>
                 <div class="card-body p-0 table-responsive">
                     <table class="table table-hover table-bordered text-center mb-0">
@@ -96,7 +105,7 @@
                         </thead>
                         <tbody id="resultTableBody">
                             <tr>
-                                <td colspan="4" class="text-muted py-4">Silakan masukkan taruhan terlebih dahulu untuk melihat kalkulasi.</td>
+                                <td colspan="6" class="text-muted py-4">Silakan masukkan taruhan terlebih dahulu untuk melihat kalkulasi.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -114,9 +123,7 @@
         return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(angka);
     };
 
-    // FUNGSI BARU: Mengubah input "2.5/3" menjadi "2.75" atau "-0.5/1" menjadi "-0.75"
     function parseAsianLine(val) {
-        // Ubah koma menjadi titik agar terbaca sebagai desimal yang valid
         let str = val.toString().trim().replace(/,/g, '.');
         if (!str.includes('/')) return parseFloat(str); 
         
@@ -124,7 +131,6 @@
         let p1 = parseFloat(parts[0]);
         let p2 = parseFloat(parts[1]);
 
-        // Pastikan jika ada tanda minus di depan, dua-duanya dihitung minus (termasuk -0)
         if (str.startsWith('-')) {
             p1 = -Math.abs(p1);
             p2 = -Math.abs(p2);
@@ -165,7 +171,6 @@
                     </div>
                     <div class="col">
                         <label class="form-label">Batas Pasaran</label>
-                        <!-- Diubah ke type text agar bisa input 2.5/3 -->
                         <input type="text" id="ouThreshold" class="form-control" placeholder="Contoh: 2.5 atau 2.5/3" required>
                     </div>
                 </div>`;
@@ -181,7 +186,6 @@
                     </div>
                     <div class="col">
                         <label class="form-label">Nilai Handicap</label>
-                        <!-- Diubah ke type text agar bisa input -0.5/1 -->
                         <input type="text" id="hdpValue" class="form-control" placeholder="Contoh: -0.5 atau -0.5/1" required>
                     </div>
                 </div>`;
@@ -227,12 +231,12 @@
         } else if (type === 'ou') {
             let rawInput = document.getElementById('ouThreshold').value;
             betDetail.selection = document.getElementById('ouSelection').value;
-            betDetail.threshold = parseAsianLine(rawInput); // Konversi ke desimal
+            betDetail.threshold = parseAsianLine(rawInput);
             label = `O/U: ${betDetail.selection.toUpperCase()} ${rawInput}`;
         } else if (type === 'hdp') {
             let rawInput = document.getElementById('hdpValue').value;
             betDetail.selection = document.getElementById('hdpSelection').value;
-            betDetail.hdp = parseAsianLine(rawInput); // Konversi ke desimal
+            betDetail.hdp = parseAsianLine(rawInput);
             label = `HDP: ${betDetail.selection.toUpperCase()} ${rawInput}`;
         } else if (type === 'margin') {
             betDetail.selection = document.getElementById('marginSelection').value;
@@ -283,23 +287,18 @@
         });
     }
 
-    // Engine Perhitungan Pengembalian (TERMASUK MENANG/KALAH SETENGAH)
-  // Engine Perhitungan Pengembalian (Update: Format Odds Hong Kong / Indo)
     function hitungReturnTaruhan(h, a, bet) {
         let m = bet.modal;
         let o = bet.odds;
 
         if (bet.type === 'tebak_score') {
-            // Menang Full: Modal dikembalikan + (Modal dikali Odds)
             return (h === bet.home && a === bet.away) ? (m + (m * o)) : 0;
         } 
-        
         else if (bet.type === 'btts') {
             if (bet.selection === 'ya' && h > 0 && a > 0) return (m + (m * o));
             if (bet.selection === 'tidak' && (h === 0 || a === 0)) return (m + (m * o));
             return 0;
         } 
-        
         else if (bet.type === 'margin') {
             let diff = h - a;
             if (bet.selection === 'home' && diff === bet.margin) return (m + (m * o));
@@ -307,34 +306,30 @@
             if (bet.selection === 'draw' && diff === 0) return (m + (m * o));
             return 0;
         }
-        
         else if (bet.type === 'ou') {
             let total = h + a;
             let diff = bet.selection === 'over' ? (total - bet.threshold) : (bet.threshold - total);
             
-            // Fix Presisi Desimal
             diff = Math.round(diff * 4) / 4; 
             
-            if (diff >= 0.5) return m + (m * o); // Menang Full (Modal + Untung)
-            if (diff === 0.25) return m + ((m / 2) * o); // Menang Setengah (Modal utuh + setengah untung)
-            if (diff === 0) return m; // Draw / Uang Kembali (Push)
-            if (diff === -0.25) return m / 2; // Kalah Setengah (Modal hilang setengah)
-            return 0; // Kalah Full
+            if (diff >= 0.5) return m + (m * o); 
+            if (diff === 0.25) return m + ((m / 2) * o); 
+            if (diff === 0) return m; 
+            if (diff === -0.25) return m / 2; 
+            return 0; 
         }
-        
         else if (bet.type === 'hdp') {
             let homeScore = bet.selection === 'home' ? h + bet.hdp : h;
             let awayScore = bet.selection === 'away' ? a + bet.hdp : a;
             let netDiff = bet.selection === 'home' ? (homeScore - awayScore) : (awayScore - homeScore);
             
-            // Fix Presisi Desimal
             netDiff = Math.round(netDiff * 4) / 4; 
 
-            if (netDiff >= 0.5) return m + (m * o); // Menang Full
-            if (netDiff === 0.25) return m + ((m / 2) * o); // Menang Setengah
-            if (netDiff === 0) return m; // Draw / Push
-            if (netDiff === -0.25) return m / 2; // Kalah Setengah
-            return 0; // Kalah Full
+            if (netDiff >= 0.5) return m + (m * o); 
+            if (netDiff === 0.25) return m + ((m / 2) * o); 
+            if (netDiff === 0) return m; 
+            if (netDiff === -0.25) return m / 2; 
+            return 0; 
         }
 
         return 0;
@@ -342,11 +337,12 @@
 
     function calculateProbabilities() {
         const tbody = document.getElementById('resultTableBody');
+        const probContainer = document.getElementById('probabilityContainer');
         tbody.innerHTML = '';
 
         if (activeBets.length === 0) {
-            // Ubah colspan menjadi 6 karena sekarang ada 6 kolom
             tbody.innerHTML = '<tr><td colspan="6" class="text-muted py-4">Silakan masukkan taruhan terlebih dahulu untuk melihat kalkulasi.</td></tr>';
+            probContainer.style.display = 'none'; // Sembunyikan persentase jika tidak ada bet
             return;
         }
 
@@ -360,6 +356,11 @@
         }
         scoreCombinations.sort((a, b) => a.total - b.total || b.h - a.h);
 
+        // Variabel untuk menghitung kejadian Untung, Rugi, dan Draw
+        let winCount = 0;
+        let lossCount = 0;
+        let drawCount = 0;
+
         scoreCombinations.forEach(match => {
             let totalModal = 0;
             let totalPengembalian = 0;
@@ -371,32 +372,33 @@
                 let returnBet = hitungReturnTaruhan(match.h, match.a, bet);
                 totalPengembalian += returnBet;
 
-                // Logika mendeteksi modal hangus dan kembali
                 if (returnBet === 0) {
-                    modalHangus += bet.modal; // Kalah full, modal hangus semua
+                    modalHangus += bet.modal;
                 } else if (returnBet > 0 && returnBet < bet.modal) {
-                    modalHangus += (bet.modal - returnBet); // Kalah setengah
-                    modalKembali += returnBet; // Sisa modal yang selamat
+                    modalHangus += (bet.modal - returnBet);
+                    modalKembali += returnBet;
                 } else {
-                    modalKembali += bet.modal; // Menang/Draw, modal utuh kembali
+                    modalKembali += bet.modal;
                 }
             });
 
-            // Rumus: (Total Uang Masuk) - (Modal Hangus)
-            let profit = totalPengembalian - modalHangus;
+            // Perbaikan Rumus: Profit yang benar adalah (Total Pengembalian - Total Modal Taruhan)
+            let profit = totalPengembalian - totalModal;
             
-            // Logika Penentuan Warna Background
             let rowClass = '';
             let statusText = '';
             if (profit > 0) {
-                rowClass = 'bg-win'; // HIJAU
+                rowClass = 'bg-win'; 
                 statusText = '+ ' + formatRp(profit);
+                winCount++; // Tambah hitungan untung
             } else if (profit < 0) {
-                rowClass = 'bg-loss'; // MERAH
+                rowClass = 'bg-loss'; 
                 statusText = '- ' + formatRp(Math.abs(profit));
+                lossCount++; // Tambah hitungan rugi
             } else {
-                rowClass = 'bg-even'; // KUNING
+                rowClass = 'bg-even'; 
                 statusText = '0 (Balik Modal)';
+                drawCount++; // Tambah hitungan balik modal
             }
 
             tbody.innerHTML += `
@@ -410,9 +412,25 @@
                 </tr>
             `;
         });
+
+        // Hitung Persentase Probabilitas
+        const totalMatches = scoreCombinations.length;
+        const winPerc = Math.round((winCount / totalMatches) * 100);
+        const lossPerc = Math.round((lossCount / totalMatches) * 100);
+        const drawPerc = Math.round((drawCount / totalMatches) * 100);
+
+        // Update teks pada badge HTML
+        document.getElementById('badgeWin').innerText = `${winPerc}% Untung`;
+        document.getElementById('badgeLoss').innerText = `${lossPerc}% Rugi`;
+        document.getElementById('badgeDraw').innerText = `${drawPerc}% Balik Modal`;
+
+        // Tampilkan Container Badge
+        probContainer.style.display = 'block';
+        
+        // Sembunyikan badge draw secara dinamis jika probabilitasnya 0% agar tidak memenuhi ruang
+        document.getElementById('badgeDraw').style.display = drawPerc > 0 ? 'inline-block' : 'none';
     }
 </script>
-
 
 </body>
 </html>
