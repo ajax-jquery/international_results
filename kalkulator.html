@@ -88,6 +88,8 @@
                             <tr>
                                 <th>Skor Akhir<br>(Home - Away)</th>
                                 <th>Total Modal</th>
+                                <th>Modal Hangus</th>
+                                <th>Modal Kembali</th>
                                 <th>Total Pengembalian</th>
                                 <th>Untung / Rugi Bersih</th>
                             </tr>
@@ -343,7 +345,8 @@
         tbody.innerHTML = '';
 
         if (activeBets.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="4" class="text-muted py-4">Silakan masukkan taruhan terlebih dahulu untuk melihat kalkulasi.</td></tr>';
+            // Ubah colspan menjadi 6 karena sekarang ada 6 kolom
+            tbody.innerHTML = '<tr><td colspan="6" class="text-muted py-4">Silakan masukkan taruhan terlebih dahulu untuk melihat kalkulasi.</td></tr>';
             return;
         }
 
@@ -360,13 +363,27 @@
         scoreCombinations.forEach(match => {
             let totalModal = 0;
             let totalPengembalian = 0;
+            let modalHangus = 0;
+            let modalKembali = 0;
 
             activeBets.forEach(bet => {
                 totalModal += bet.modal;
-                totalPengembalian += hitungReturnTaruhan(match.h, match.a, bet);
+                let returnBet = hitungReturnTaruhan(match.h, match.a, bet);
+                totalPengembalian += returnBet;
+
+                // Logika mendeteksi modal hangus dan kembali
+                if (returnBet === 0) {
+                    modalHangus += bet.modal; // Kalah full, modal hangus semua
+                } else if (returnBet > 0 && returnBet < bet.modal) {
+                    modalHangus += (bet.modal - returnBet); // Kalah setengah
+                    modalKembali += returnBet; // Sisa modal yang selamat
+                } else {
+                    modalKembali += bet.modal; // Menang/Draw, modal utuh kembali
+                }
             });
 
-            let profit = totalPengembalian - totalModal;
+            // Rumus: (Total Uang Masuk) - (Modal Hangus)
+            let profit = totalPengembalian - modalHangus;
             
             // Logika Penentuan Warna Background
             let rowClass = '';
@@ -386,6 +403,8 @@
                 <tr>
                     <td class="fw-bold fs-5">${match.h} - ${match.a}</td>
                     <td>${formatRp(totalModal)}</td>
+                    <td class="text-danger">${formatRp(modalHangus)}</td>
+                    <td class="text-success">${formatRp(modalKembali)}</td>
                     <td>${formatRp(totalPengembalian)}</td>
                     <td class="${rowClass}">${statusText}</td>
                 </tr>
