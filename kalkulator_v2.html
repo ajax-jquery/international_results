@@ -5,6 +5,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
 <!-- Library untuk menyimpan/mengunduh file -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+<!-- Library untuk Grafik Pie -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- Library untuk Popup Detail (Mobile Friendly) -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -102,25 +106,37 @@
                     </div>
                 </div>
                 <div class="card-body p-0">
+    <!-- TAMBAHAN GRAFIK (CHART.JS) -->
+    <div id="chartContainer" class="p-3 bg-white border-bottom text-center" style="display: none; height: 200px;">
+        <canvas id="resultChart"></canvas>
+    </div>
 
-                    <!-- TOOLBAR KONTROL & FILTER -->
-                    <div class="p-3 bg-light border-bottom d-flex flex-wrap gap-3 align-items-center justify-content-between">
-                        <div class="d-flex align-items-center gap-2">
-                            <label class="form-label mb-0 fw-bold small text-secondary">Max Goal:</label>
-                            <input type="number" id="maxGoalInput" class="form-control form-control-sm" value="4" min="1" max="8" style="width: 65px;" onchange="updateMaxGoalSettings()">
-                        </div>
-                        <div class="d-flex align-items-center gap-2">
-                            <label class="form-label mb-0 fw-bold small text-secondary">Filter:</label>
-                            <select id="filterSelect" class="form-select form-select-sm" style="width: 140px;" onchange="calculateProbabilities()">
-                                <option value="all">Semua Hasil</option>
-                                <option value="win">Hanya Untung</option>
-                                <option value="loss">Hanya Rugi</option>
-                                <option value="even">Hanya Balik Modal</option>
-                            </select>
-                        </div>
-                        <!-- Tombol Ekspor Excel Berwarna -->
-                        <button class="btn btn-sm btn-success fw-bold text-uppercase px-3" onclick="exportToExcel()" id="ExportXLS">📊 Ekspor ke Excel</button>
-                    </div>
+    <!-- TOOLBAR KONTROL & FILTER -->
+    <div class="p-3 bg-light border-bottom d-flex flex-wrap gap-3 align-items-center justify-content-between">
+        
+        <!-- TAMBAHAN TOGGLE MIX PARLAY -->
+        <div class="form-check form-switch pt-1" style="display:none">
+            <input class="form-check-input" type="checkbox" id="parlayMode" onchange="calculateProbabilities()">
+            <label class="form-check-label fw-bold text-primary" for="parlayMode">Mode Mix Parlay</label>
+        </div>
+
+        <div class="d-flex align-items-center gap-2">
+            <label class="form-label mb-0 fw-bold small text-secondary">Max Goal:</label>
+            <input type="number" id="maxGoalInput" class="form-control form-control-sm" value="4" min="1" max="8" style="width: 65px;" onchange="updateMaxGoalSettings()">
+        </div>
+        <div class="d-flex align-items-center gap-2">
+            <label class="form-label mb-0 fw-bold small text-secondary">Filter:</label>
+            <select id="filterSelect" class="form-select form-select-sm" style="width: 140px;" onchange="calculateProbabilities()">
+                <option value="all">Semua Hasil</option>
+                <option value="win">Hanya Untung</option>
+                <option value="loss">Hanya Rugi</option>
+                <option value="even">Hanya Balik Modal</option>
+            </select>
+        </div>
+        <!-- Tombol Ekspor Excel Berwarna -->
+        <button class="btn btn-sm btn-success fw-bold text-uppercase px-3" onclick="exportToExcel()" id="ExportXLS">📊 Ekspor ke Excel</button>
+    </div>
+
 
                     <!-- TABEL DATA -->
                     <div class="table-responsive">
@@ -153,6 +169,66 @@
 <script>
     let activeBets = JSON.parse(localStorage.getItem('activeBets')) || [];
     let savedMaxGoal = localStorage.getItem('maxGoalSetting') || 4;
+    
+    let myDoughnutChart = null; // Variabel global untuk grafik
+// Fungsi untuk memunculkan detail saat baris tabel di-tap (Mobile/Desktop)
+function showDetailPopup(element) {
+    const skor = element.getAttribute('data-skor');
+    const detail = element.getAttribute('data-detail');
+    
+    Swal.fire({
+        title: `Rincian Skor ${skor}`,
+        html: `<div class="text-start" style="font-size: 0.95rem; line-height: 1.8;">${detail}</div>`,
+        icon: 'info',
+        confirmButtonText: 'Tutup',
+        confirmButtonColor: '#343a40' // Warna tombol dark
+    });
+}
+
+function renderChart(winPerc, lossPerc, drawPerc) {
+    const ctx = document.getElementById('resultChart');
+    const chartContainer = document.getElementById('chartContainer');
+    
+    // Tampilkan container jika ada data
+    chartContainer.style.display = 'block';
+
+    // TAMBAHAN: Gabungkan teks label dengan persentasenya
+    const labelsWithPerc = [
+        `Untung (${winPerc}%)`, 
+        `Rugi (${lossPerc}%)`, 
+        `Balik Modal (${drawPerc}%)`
+    ];
+
+    if (myDoughnutChart) {
+        // Update data jika grafik sudah ada
+        myDoughnutChart.data.labels = labelsWithPerc; // Update teks legend
+        myDoughnutChart.data.datasets[0].data = [winPerc, lossPerc, drawPerc];
+        myDoughnutChart.update();
+    } else {
+        // Buat grafik baru
+        myDoughnutChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: labelsWithPerc, // Gunakan label baru yang ada persentasenya
+                datasets: [{
+                    data: [winPerc, lossPerc, drawPerc],
+                    backgroundColor: ['#198754', '#dc3545', '#ffc107'],
+                    borderWidth: 2,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'right' }
+                }
+            }
+        });
+    }
+}
+
+
 
     document.addEventListener("DOMContentLoaded", function() {
         document.getElementById('maxGoalInput').value = savedMaxGoal;
@@ -447,42 +523,76 @@
     }
 
     function calculateProbabilities() {
-        const tbody = document.getElementById('resultTableBody');
-        const probContainer = document.getElementById('probabilityContainer');
-        tbody.innerHTML = '';
+    const tbody = document.getElementById('resultTableBody');
+    const probContainer = document.getElementById('probabilityContainer');
+    tbody.innerHTML = '';
 
-        const betsToCalculate = activeBets.filter(bet => bet.isActive);
+    const betsToCalculate = activeBets.filter(bet => bet.isActive);
 
-        if (betsToCalculate.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="7" class="text-muted py-4">Silakan centang/masukkan taruhan untuk melihat kalkulasi.</td></tr>';
-            probContainer.style.display = 'none'; 
-            return;
+    if (betsToCalculate.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" class="text-muted py-4">Silakan masukkan taruhan terlebih dahulu untuk melihat kalkulasi.</td></tr>';
+        probContainer.style.display = 'none'; 
+        document.getElementById('chartContainer').style.display = 'none';
+        return;
+    }
+
+    const maxGoal = parseInt(document.getElementById('maxGoalInput').value) || 4;
+    const filterVal = document.getElementById('filterSelect').value;
+    const isParlay = document.getElementById('parlayMode').checked; // Cek status Parlay
+
+    let scoreCombinations = [];
+    for (let h = 0; h <= maxGoal; h++) {
+        for (let a = 0; a <= maxGoal; a++) {
+            scoreCombinations.push({h: h, a: a, total: h+a});
         }
+    }
+    scoreCombinations.sort((a, b) => a.total - b.total || b.h - a.h);
 
-        const maxGoal = parseInt(document.getElementById('maxGoalInput').value) || 4;
-        const filterVal = document.getElementById('filterSelect').value;
+    let winCount = 0;
+    let lossCount = 0;
+    let drawCount = 0;
 
-        // Gabungkan string label taruhan aktif untuk ditampilkan di kolom baru
-        let betLabels = betsToCalculate.map(b => b.label).join(" | ");
+    scoreCombinations.forEach(match => {
+        let totalModal = 0;
+        let totalPengembalian = 0;
+        let modalHangus = 0;
+        let modalKembali = 0;
+        
+        // Array untuk menyimpan teks detail saat baris di-hover
+        let hoverDetails = []; 
 
-        let scoreCombinations = [];
-        for (let h = 0; h <= maxGoal; h++) {
-            for (let a = 0; a <= maxGoal; a++) {
-                scoreCombinations.push({h: h, a: a, total: h+a});
+        if (isParlay) {
+            // --- LOGIKA MIX PARLAY ---
+            let parlayMultiplier = 1;
+            
+            // Anggap total dari semua modal yang diinput adalah Stake untuk 1 tiket Parlay ini
+            betsToCalculate.forEach(bet => totalModal += bet.modal);
+
+            betsToCalculate.forEach(bet => {
+                let returnBet = hitungReturnTaruhan(match.h, match.a, bet);
+                
+                // Faktor pengali: 0 (Kalah Penuh), 0.5 (Kalah Setengah), >1 (Menang)
+                let payoutFactor = returnBet / bet.modal;
+                parlayMultiplier *= payoutFactor;
+
+                // Catat detail untuk tooltip hover
+                let statusBet = payoutFactor > 1 ? 'Win' : (payoutFactor === 1 ? 'Draw' : (payoutFactor > 0 ? 'Lose Half' : 'Lose'));
+                hoverDetails.push(`${bet.label} (${statusBet})`);
+            });
+
+            totalPengembalian = totalModal * parlayMultiplier;
+
+            if (totalPengembalian === 0) {
+                modalHangus = totalModal;
+            } else if (totalPengembalian < totalModal) {
+                modalHangus = totalModal - totalPengembalian;
+                modalKembali = totalPengembalian;
+            } else {
+                modalKembali = totalModal;
             }
-        }
-        scoreCombinations.sort((a, b) => a.total - b.total || b.h - a.h);
 
-        let winCount = 0;
-        let lossCount = 0;
-        let drawCount = 0;
-
-        scoreCombinations.forEach(match => {
-            let totalModal = 0;
-            let totalPengembalian = 0;
-            let modalHangus = 0;
-            let modalKembali = 0;
-
+        } else {
+            // --- LOGIKA SINGLE BET (NORMAL) ---
             betsToCalculate.forEach(bet => {
                 totalModal += bet.modal;
                 let returnBet = hitungReturnTaruhan(match.h, match.a, bet);
@@ -496,57 +606,80 @@
                 } else {
                     modalKembali += bet.modal;
                 }
+
+                // Catat detail untuk tooltip hover (Tampilkan profit tiap taruhan)
+                let profitBet = returnBet - bet.modal;
+                let textProfit = profitBet > 0 ? `+${formatRp(profitBet)}` : (profitBet < 0 ? `${formatRp(profitBet)}` : `Balik Modal`);
+                hoverDetails.push(`• ${bet.label}: ${textProfit}`);
             });
+        }
 
-            let profit = totalPengembalian - totalModal;
-            let rowClass = '';
-            let statusText = '';
-            let matchStatus = '';
+        let profit = totalPengembalian - totalModal;
+        let rowClass = '';
+        let statusText = '';
+        let matchStatus = '';
 
-            if (profit > 0) {
-                rowClass = 'bg-win'; 
-                statusText = '+ ' + formatRp(profit);
-                matchStatus = 'win';
-                winCount++; 
-            } else if (profit < 0) {
-                rowClass = 'bg-loss'; 
-                statusText = '- ' + formatRp(Math.abs(profit));
-                matchStatus = 'loss';
-                lossCount++; 
-            } else {
-                rowClass = 'bg-even'; 
-                statusText = '0 (Balik Modal)';
-                matchStatus = 'even';
-                drawCount++; 
-            }
+        if (profit > 0) {
+            rowClass = 'bg-win'; 
+            statusText = '+ ' + formatRp(profit);
+            matchStatus = 'win';
+            winCount++; 
+        } else if (profit < 0) {
+            rowClass = 'bg-loss'; 
+            statusText = '- ' + formatRp(Math.abs(profit));
+            matchStatus = 'loss';
+            lossCount++; 
+        } else {
+            rowClass = 'bg-even'; 
+            statusText = '0 (Balik Modal)';
+            matchStatus = 'even';
+            drawCount++; 
+        }
 
-            if (filterVal !== 'all' && filterVal !== matchStatus) return;
+        if (filterVal !== 'all' && filterVal !== matchStatus) return;
 
-            tbody.innerHTML += `
-                <tr class="${rowClass}">
-                    <td class="fw-bold">${match.h} - ${match.a}</td>
+        // Terapkan title="teks" ke dalam tag <tr> agar native tooltip muncul saat di-hover
+                // Siapkan teks untuk hover (Desktop) dan HTML untuk Popup (Mobile)
+        let tooltipText = hoverDetails.join('\n');
+        let popupHtml = hoverDetails.join('<br>'); // Ganti baris baru jadi tag <br> untuk Swal
+
+        // Tambahkan atribut data-skor, data-detail, dan onclick pada tag <tr>
+        tbody.innerHTML += `
+            <tr class="${rowClass}" 
+                title="${tooltipText}" 
+                data-skor="${match.h} - ${match.a}" 
+                data-detail="${popupHtml}" 
+                onclick="showDetailPopup(this)" 
+                style="cursor: pointer;">
                 
-                    <td>${formatRp(totalModal)}</td>
-                    <td>${formatRp(modalHangus)}</td>
-                    <td>${formatRp(modalKembali)}</td>
-                    <td>${formatRp(totalPengembalian)}</td>
-                    <td>${statusText}</td>
-                </tr>
-            `;
-        });
+                <td class="fw-bold">${match.h} - ${match.a}</td>
+                <td>${formatRp(totalModal)}</td>
+                <td>${formatRp(modalHangus)}</td>
+                <td>${formatRp(modalKembali)}</td>
+                <td>${formatRp(totalPengembalian)}</td>
+                <td>${statusText}</td>
+            </tr>
+        `;
 
-        const totalMatches = scoreCombinations.length;
-        const winPerc = Math.round((winCount / totalMatches) * 100);
-        const lossPerc = Math.round((lossCount / totalMatches) * 100);
-        const drawPerc = Math.round((drawCount / totalMatches) * 100);
+        
+    });
 
-        document.getElementById('badgeWin').innerText = `${winPerc}% Untung`;
-        document.getElementById('badgeLoss').innerText = `${lossPerc}% Rugi`;
-        document.getElementById('badgeDraw').innerText = `${drawPerc}% Balik Modal`;
+    const totalMatches = scoreCombinations.length;
+    const winPerc = totalMatches > 0 ? Math.round((winCount / totalMatches) * 100) : 0;
+    const lossPerc = totalMatches > 0 ? Math.round((lossCount / totalMatches) * 100) : 0;
+    const drawPerc = totalMatches > 0 ? Math.round((drawCount / totalMatches) * 100) : 0;
 
-        probContainer.style.display = 'block';
-        document.getElementById('badgeDraw').style.display = drawPerc > 0 ? 'inline-block' : 'none';
-    }
+    document.getElementById('badgeWin').innerText = `Untung: ${winPerc}%`;
+    document.getElementById('badgeLoss').innerText = `Rugi: ${lossPerc}%`;
+    document.getElementById('badgeDraw').innerText = `Seri: ${drawPerc}%`;
+
+    probContainer.style.display = 'block';
+    document.getElementById('badgeDraw').style.display = drawPerc > 0 ? 'inline-block' : 'none';
+
+    // Panggil fungsi render grafik
+    renderChart(winPerc, lossPerc, drawPerc);
+}
+
 
     // FUNGSI EKSPOR TERBARU: Menggabungkan 2 Tabel dalam 1 Layout agar terbaca sempurna di semua versi Excel
     async function exportToExcel() {
@@ -698,6 +831,54 @@
             };
         });
     });
+     // --- MULAI TAMBAHAN: MASUKKAN GRAFIK KE EXCEL ---
+    const canvas = document.getElementById('resultChart');
+    if (canvas && myDoughnutChart) {
+        try {
+            // 1. Ubah canvas Chart.js menjadi gambar Base64 (PNG)
+            const chartBase64 = canvas.toDataURL('image/png', 1.0);
+            
+            // 2. Daftarkan gambar tersebut ke dalam workbook ExcelJS
+            const imageId = workbook.addImage({
+                base64: chartBase64,
+                extension: 'png',
+            });
+            
+            // Beri jarak 2 baris kosong dari tabel terakhir
+            sheet.addRow([]);
+            sheet.addRow([]);
+            
+            // 3. Tambahkan baris Judul untuk Grafik
+            const chartTitle = sheet.addRow(['VISUALISASI PROBABILITAS HASIL (CHART)']);
+            sheet.mergeCells(`A${chartTitle.number}:F${chartTitle.number}`);
+            chartTitle.getCell(1).font = { bold: true, size: 12, color: { argb: 'FFFFFFFF' } };
+            chartTitle.getCell(1).alignment = { horizontal: 'center' };
+            chartTitle.getCell(1).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF0D6EFD' } }; 
+            
+            // --- PERBAIKAN BENTUK TELUR: HITUNG ASPEK RASIO ---
+            const imgWidth = canvas.width;
+            const imgHeight = canvas.height;
+            const ratio = imgWidth / imgHeight; // Dapatkan rasio asli canvas
+            
+            const targetHeight = 250; // Tinggi gambar di Excel
+            const targetWidth = targetHeight * ratio; // Lebar menyesuaikan rasio otomatis
+            
+            // 4. Masukkan gambar ke dalam sheet menggunakan ukuran yang proporsional
+            sheet.addImage(imageId, {
+                tl: { col: 1, row: chartTitle.number + 1 }, 
+                ext: { width: targetWidth, height: targetHeight } 
+            });
+
+            // (Opsional) Tambahkan baris kosong palsu untuk memberi "ruang" tinggi pada gambar 
+            for (let i = 0; i < 15; i++) {
+                sheet.addRow([]);
+            }
+        } catch (error) {
+            console.error("Gagal menyisipkan grafik ke Excel:", error);
+        }
+    }
+    // --- SELESAI TAMBAHAN GRAFIK ---
+
 
     // 2. Generate file (Efek jeda 1 detik agar tombol loading terlihat)
     setTimeout(async () => {
