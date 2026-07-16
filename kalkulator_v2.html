@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+	<!-- Library untuk membuat Excel asli dengan warna -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+<!-- Library untuk menyimpan/mengunduh file -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalkulator Probabilitas Taruhan Bola - Pro Edition</title>
@@ -544,175 +549,169 @@
     }
 
     // FUNGSI EKSPOR TERBARU: Menggabungkan 2 Tabel dalam 1 Layout agar terbaca sempurna di semua versi Excel
-    function exportToExcel() {
-    	const exportBtn = document.getElementById('ExportXLS');
-        exportBtn.innerText = "⏳ Memproses...";
-        exportBtn.disabled = true;
+    async function exportToExcel() {
+    const exportBtn = document.getElementById('ExportXLS');
+    exportBtn.innerText = "⏳ Memproses...";
+    exportBtn.disabled = true;
 
-        const betsToCalculate = activeBets.filter(bet => bet.isActive);
-        if (betsToCalculate.length === 0) {
-            alert("Masukkan/centang taruhan terlebih dahulu sebelum ekspor.");
-            exportBtn.innerText = "📊 Ekspor ke Excel";
-            exportBtn.disabled = false;
-            return;
-        }
-
-        const maxGoal = parseInt(document.getElementById('maxGoalInput').value) || 4;
-        const filterVal = document.getElementById('filterSelect').value;
-
-        // Kita buat HANYA 1 TABEL, tabel bawah butuh 6 kolom.
-        // Maka tabel atas (Daftar Taruhan) yang aslinya 3 kolom, kita gunakan colspan="2" agar sejajar sempurna.
-        let excelHtml = `
-        <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
-        <head>
-            <meta charset="utf-8">
-            <style>
-                table { border-collapse: collapse; font-family: sans-serif; }
-                th, td { border: 1px solid #dddddd; padding: 8px; text-align: center; vertical-align: middle; }
-                .excel-win { background-color: #d1e7dd; color: #0f5132; font-weight: bold; }
-                .excel-loss { background-color: #f8d7da; color: #842029; font-weight: bold; }
-                .excel-even { background-color: #fff3cd; color: #664d03; font-weight: bold; }
-                .no-border { border: none !important; }
-            </style>
-        </head>
-        <body>
-            <table>
-                <!-- TABEL 1: DAFTAR TARUHAN AKTIF -->
-                <thead>
-                    <tr>
-                        <th colspan="6" style="background-color: #0d6efd; color: #ffffff; font-size: 14px; font-weight: bold;">DAFTAR TARUHAN AKTIF</th>
-                    </tr>
-                    <tr>
-                        <th colspan="2" style="background-color: #343a40; color: #ffffff; font-weight: bold;">Jenis Taruhan</th>
-                        <th colspan="2" style="background-color: #343a40; color: #ffffff; font-weight: bold;">Odds</th>
-                        <th colspan="2" style="background-color: #343a40; color: #ffffff; font-weight: bold;">Modal</th>
-                    </tr>
-                </thead>
-                <tbody>
-        `;
-
-        let totalModalAwal = 0;
-        betsToCalculate.forEach(bet => {
-            totalModalAwal += bet.modal;
-            excelHtml += `
-                <tr>
-                    <td colspan="2" style="text-align: left;">${bet.label}</td>
-                    <td colspan="2">${bet.odds}</td>
-                    <td colspan="2">${bet.modal}</td>
-                </tr>
-            `;
-        });
-
-        excelHtml += `
-                <tr>
-                    <td colspan="4" style="font-weight: bold; text-align: right; background-color: #f8f9fa;">Total Keseluruhan Modal:</td>
-                    <td colspan="2" style="font-weight: bold; background-color: #f8f9fa;">${totalModalAwal}</td>
-                </tr>
-                
-                <!-- SPASI PEMISAH ANTAR TABEL (Berupa baris transparan di dalam Excel) -->
-                <tr>
-                    <td colspan="6" class="no-border" style="height: 30px;"></td>
-                </tr>
-
-                <!-- TABEL 2: SIMULASI HASIL -->
-                <tr>
-                    <th colspan="6" style="background-color: #198754; color: #ffffff; font-size: 14px; font-weight: bold;">SIMULASI HASIL SKENARIO GOL</th>
-                </tr>
-                <tr>
-                    <th style="background-color: #343a40; color: #ffffff; font-weight: bold;">Skor Akhir (H - A)</th>
-                    <th style="background-color: #343a40; color: #ffffff; font-weight: bold;">Total Modal</th>
-                    <th style="background-color: #343a40; color: #ffffff; font-weight: bold;">Modal Hangus</th>
-                    <th style="background-color: #343a40; color: #ffffff; font-weight: bold;">Modal Kembali</th>
-                    <th style="background-color: #343a40; color: #ffffff; font-weight: bold;">Total Return</th>
-                    <th style="background-color: #343a40; color: #ffffff; font-weight: bold;">Net Profit/Loss</th>
-                </tr>
-        `;
-
-        // Kalkulasi Kombinasi Gol
-        let scoreCombinations = [];
-        for (let h = 0; h <= maxGoal; h++) {
-            for (let a = 0; a <= maxGoal; a++) {
-                scoreCombinations.push({h: h, a: a, total: h+a});
-            }
-        }
-        scoreCombinations.sort((a, b) => a.total - b.total || b.h - a.h);
-
-        scoreCombinations.forEach(match => {
-            let totalModal = 0;
-            let totalPengembalian = 0;
-            let modalHangus = 0;
-            let modalKembali = 0;
-
-            betsToCalculate.forEach(bet => {
-                totalModal += bet.modal;
-                let returnBet = hitungReturnTaruhan(match.h, match.a, bet);
-                totalPengembalian += returnBet;
-
-                if (returnBet === 0) {
-                    modalHangus += bet.modal;
-                } else if (returnBet > 0 && returnBet < bet.modal) {
-                    modalHangus += (bet.modal - returnBet);
-                    modalKembali += returnBet;
-                } else {
-                    modalKembali += bet.modal;
-                }
-            });
-
-            let profit = totalPengembalian - totalModal;
-            let cellStyle = '';
-            let statusText = '';
-            let matchStatus = '';
-
-            if (profit > 0) {
-                cellStyle = 'class="excel-win"'; 
-                statusText = '+ ' + profit;
-                matchStatus = 'win';
-            } else if (profit < 0) {
-                cellStyle = 'class="excel-loss"'; 
-                statusText = '- ' + Math.abs(profit);
-                matchStatus = 'loss';
-            } else {
-                cellStyle = 'class="excel-even"'; 
-                statusText = '0';
-                matchStatus = 'even';
-            }
-
-            // Fitur Filter (Untung/Rugi/Balik Modal)
-            if (filterVal !== 'all' && filterVal !== matchStatus) return;
-
-            excelHtml += `
-                <tr>
-                    <td style="font-weight: bold;">${match.h} - ${match.a}</td>
-                    <td>${totalModal}</td>
-                    <td>${modalHangus}</td>
-                    <td>${modalKembali}</td>
-                    <td>${totalPengembalian}</td>
-                    <td ${cellStyle}>${statusText}</td>
-                </tr>
-            `;
-        });
-
-        excelHtml += `
-                </tbody>
-            </table>
-        </body>
-        </html>
-        `;
-
-        // Proses pengunduhan file spreadsheet
-        const blob = new Blob([excelHtml], { type: 'application/vnd.ms-excel' });
-        const link = document.createElement('a');
-        link.download = `simulasi_taruhan_bola_${new Date().toISOString().slice(0,10)}.xls`;
-        link.href = URL.createObjectURL(blob);
-        (async () => {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-link.click();
-exportBtn.innerText = "📊 Ekspor ke Excel";
- exportBtn.disabled = false;
-})();
-        
-       
+    const betsToCalculate = activeBets.filter(bet => bet.isActive);
+    if (betsToCalculate.length === 0) {
+        alert("Masukkan/centang taruhan terlebih dahulu sebelum ekspor.");
+        exportBtn.innerText = "📊 Ekspor ke Excel";
+        exportBtn.disabled = false;
+        return;
     }
+
+    const maxGoal = parseInt(document.getElementById('maxGoalInput').value) || 4;
+    const filterVal = document.getElementById('filterSelect').value;
+
+    // 1. Buat Workbook dan Worksheet baru menggunakan ExcelJS
+    const workbook = new ExcelJS.Workbook();
+    const sheet = workbook.addWorksheet('Simulasi');
+
+    // Atur lebar kolom agar rapi saat dibuka
+    sheet.columns = [
+        { width: 18 }, { width: 15 }, { width: 15 }, { width: 15 }, { width: 15 }, { width: 22 }
+    ];
+
+    // --- TABEL 1: DAFTAR TARUHAN AKTIF ---
+    const title1 = sheet.addRow(['DAFTAR TARUHAN AKTIF', '', '', '', '', '']);
+    sheet.mergeCells(`A${title1.number}:F${title1.number}`);
+    title1.getCell(1).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF0D6EFD' } }; // Biru
+    title1.getCell(1).font = { color: { argb: 'FFFFFFFF' }, bold: true, size: 12 };
+    title1.getCell(1).alignment = { horizontal: 'center' };
+
+    const header1 = sheet.addRow(['Jenis Taruhan', '', 'Odds', '', 'Modal', '']);
+    sheet.mergeCells(`A${header1.number}:B${header1.number}`);
+    sheet.mergeCells(`C${header1.number}:D${header1.number}`);
+    sheet.mergeCells(`E${header1.number}:F${header1.number}`);
+    
+    ['A', 'C', 'E'].forEach(col => {
+        let cell = header1.getCell(col);
+        cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF343A40' } }; // Dark grey
+        cell.font = { color: { argb: 'FFFFFFFF' }, bold: true };
+        cell.alignment = { horizontal: 'center' };
+    });
+
+    let totalModalAwal = 0;
+    betsToCalculate.forEach(bet => {
+        totalModalAwal += bet.modal;
+        const row = sheet.addRow([bet.label, '', bet.odds, '', bet.modal, '']);
+        sheet.mergeCells(`A${row.number}:B${row.number}`);
+        sheet.mergeCells(`C${row.number}:D${row.number}`);
+        sheet.mergeCells(`E${row.number}:F${row.number}`);
+        row.alignment = { horizontal: 'center' };
+        row.getCell(1).alignment = { horizontal: 'left' };
+    });
+
+    const totalRow = sheet.addRow(['Total Keseluruhan Modal:', '', '', '', totalModalAwal, '']);
+    sheet.mergeCells(`A${totalRow.number}:D${totalRow.number}`);
+    sheet.mergeCells(`E${totalRow.number}:F${totalRow.number}`);
+    totalRow.font = { bold: true };
+    totalRow.getCell(1).alignment = { horizontal: 'right' };
+    totalRow.getCell(5).alignment = { horizontal: 'center' };
+    totalRow.eachCell(c => c.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFF8F9FA' } });
+
+    // Tambahkan baris kosong sebagai pemisah
+    sheet.addRow([]);
+
+    // --- TABEL 2: SIMULASI HASIL SKENARIO GOL ---
+    const title2 = sheet.addRow(['SIMULASI HASIL SKENARIO GOL', '', '', '', '', '']);
+    sheet.mergeCells(`A${title2.number}:F${title2.number}`);
+    title2.getCell(1).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF198754' } }; // Hijau tua
+    title2.getCell(1).font = { color: { argb: 'FFFFFFFF' }, bold: true, size: 12 };
+    title2.getCell(1).alignment = { horizontal: 'center' };
+
+    const header2 = sheet.addRow(['Skor Akhir (H - A)', 'Total Modal', 'Modal Hangus', 'Modal Kembali', 'Total Return', 'Net Profit/Loss']);
+    header2.eachCell(c => {
+        c.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF343A40' } };
+        c.font = { color: { argb: 'FFFFFFFF' }, bold: true };
+        c.alignment = { horizontal: 'center', vertical: 'middle' };
+    });
+
+    // Kalkulasi Data
+    let scoreCombinations = [];
+    for (let h = 0; h <= maxGoal; h++) {
+        for (let a = 0; a <= maxGoal; a++) {
+            scoreCombinations.push({h: h, a: a, total: h+a});
+        }
+    }
+    scoreCombinations.sort((a, b) => a.total - b.total || b.h - a.h);
+
+    // Looping data dan berikan warna
+    scoreCombinations.forEach(match => {
+        let totalModal = 0, totalPengembalian = 0, modalHangus = 0, modalKembali = 0;
+
+        betsToCalculate.forEach(bet => {
+            totalModal += bet.modal;
+            let returnBet = hitungReturnTaruhan(match.h, match.a, bet);
+            totalPengembalian += returnBet;
+            if (returnBet === 0) modalHangus += bet.modal;
+            else if (returnBet > 0 && returnBet < bet.modal) {
+                modalHangus += (bet.modal - returnBet);
+                modalKembali += returnBet;
+            } else modalKembali += bet.modal;
+        });
+
+        let profit = totalPengembalian - totalModal;
+        let bgColor = '', txtColor = '', statusText = '', matchStatus = '';
+
+        // Penentuan Warna Sesuai Bootstrap yang Anda pakai
+        if (profit > 0) {
+            bgColor = 'FFD1E7DD'; txtColor = 'FF0F5132'; // Hijau untung
+            statusText = '+ ' + formatRp(profit).replace('Rp', '').trim();
+            matchStatus = 'win';
+        } else if (profit < 0) {
+            bgColor = 'FFF8D7DA'; txtColor = 'FF842029'; // Merah rugi
+            statusText = '- ' + formatRp(Math.abs(profit)).replace('Rp', '').trim();
+            matchStatus = 'loss';
+        } else {
+            bgColor = 'FFFFF3CD'; txtColor = 'FF664D03'; // Kuning balik modal
+            statusText = '0';
+            matchStatus = 'even';
+        }
+
+        // Fitur Filter
+        if (filterVal !== 'all' && filterVal !== matchStatus) return;
+
+        // Tambah baris data ke Excel
+        const dataRow = sheet.addRow([`${match.h} - ${match.a}`, totalModal, modalHangus, modalKembali, totalPengembalian, statusText]);
+        dataRow.alignment = { horizontal: 'center' };
+        
+        // Terapkan warna ke seluruh cell di baris tersebut
+        dataRow.eachCell(c => {
+            c.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: bgColor } };
+            // Beri efek bold (tebal) untuk Skor (kolom 1) dan Profit (kolom 6)
+            if (c._column._number === 1 || c._column._number === 6) {
+                c.font = { color: { argb: txtColor }, bold: true };
+            } else {
+                c.font = { color: { argb: txtColor } };
+            }
+        });
+    });
+
+    // Tambahkan border di seluruh cell (opsional agar lebih rapi)
+    sheet.eachRow((row) => {
+        row.eachCell((cell) => {
+            cell.border = {
+                top: {style:'thin'}, left: {style:'thin'}, bottom: {style:'thin'}, right: {style:'thin'}
+            };
+        });
+    });
+
+    // 2. Generate file (Efek jeda 1 detik agar tombol loading terlihat)
+    setTimeout(async () => {
+        const buffer = await workbook.xlsx.writeBuffer();
+        const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+        
+        // Simpan file menggunakan FileSaver.js
+        saveAs(blob, `simulasi_taruhan_bola_${new Date().toISOString().slice(0,10)}.xlsx`);
+        
+        exportBtn.innerText = "📊 Ekspor ke Excel";
+        exportBtn.disabled = false;
+    }, 1000);
+}
+
 
 </script>
 
