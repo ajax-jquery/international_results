@@ -11,12 +11,12 @@
     .card { box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
     .table-responsive { max-height: 600px; overflow-y: auto; }
     thead th { position: sticky; top: 0; background-color: #343a40 !important; color: white !important; z-index: 1; }
-    
+
     /* Tambahan CSS untuk Highlight Warna */
     .bg-win { background-color: #d1e7dd !important; color: #0f5132; font-weight: bold; }
     .bg-loss { background-color: #f8d7da !important; color: #842029; font-weight: bold; }
     .bg-even { background-color: #fff3cd !important; color: #664d03; font-weight: bold; }
-    
+
     /* CSS tambahan untuk badge probabilitas */
     .prob-badge { font-size: 0.9rem; padding: 6px 10px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
 </style>
@@ -25,7 +25,7 @@
 
 <div class="container mt-4">
     <h2 class="text-center mb-4">⚽ Kalkulator Simulasi Taruhan Bola</h2>
-    
+
     <div class="row">
         <!-- FORM INPUT -->
         <div class="col-lg-4 mb-4">
@@ -116,6 +116,15 @@
 </div>
 
 <script>
+	    function toggleBet(index) {
+        // Balikkan status aktif/nonaktif
+        activeBets[index].isActive = !activeBets[index].isActive;
+        
+        // Perbarui tampilan dan hitung ulang
+        updateBetListUI();
+        calculateProbabilities();
+    }
+
     let activeBets = [];
 
     // Format Rupiah
@@ -127,15 +136,15 @@
     function parseAsianLine(val) {
         let str = val.toString().trim().replace(/,/g, '.');
         let isNegative = str.startsWith('-');
-        
+
         // Hapus tanda plus/minus di awal agar tidak dobel
         str = str.replace(/^[+-]/, '').trim(); 
-        
+
         if (!str.includes('/')) {
             let num = parseFloat(str);
             return isNegative ? -num : num;
         } 
-        
+
         let parts = str.split('/');
         let p1 = parseFloat(parts[0]);
         let p2 = parseFloat(parts[1]);
@@ -211,20 +220,20 @@
                     </div>
                 </div>`;
         }
-        
+
         container.innerHTML = html;
     }
 
     // Tangani Submit Form
     document.getElementById('betForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        
+
         const type = document.getElementById('betType').value;
         const odds = parseFloat(document.getElementById('betOdds').value);
-        
+
         // FIX: Pengali 1000 agar input desimal terbaca aman
         const modal = parseFloat(document.getElementById('betModal').value) * 1000;
-        
+
         let betDetail = { type, odds, modal };
         let label = '';
 
@@ -252,11 +261,13 @@
         }
 
         betDetail.label = label;
+        betDetail.isActive = true;
         activeBets.push(betDetail);
-        
+
+
         document.getElementById('betForm').reset();
         document.getElementById('dynamicInputs').innerHTML = '';
-        
+
         updateBetListUI();
         calculateProbabilities();
     });
@@ -273,7 +284,7 @@
         calculateProbabilities();
     }
 
-    function updateBetListUI() {
+        function updateBetListUI() {
         const list = document.getElementById('betList');
         list.innerHTML = '';
         
@@ -283,16 +294,27 @@
         }
 
         activeBets.forEach((bet, index) => {
+            // Jika tidak aktif, berikan gaya coret dan warna pudar
+            let textStyle = bet.isActive ? '' : 'text-decoration-line-through text-muted';
+            let bgStyle = bet.isActive ? '' : 'bg-light';
+            
             list.innerHTML += `
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <div>
-                        <strong>${bet.label}</strong><br>
-                        <small class="text-muted">Odds: ${bet.odds} | Modal: ${formatRp(bet.modal)}</small>
+                <li class="list-group-item d-flex justify-content-between align-items-center ${bgStyle}">
+                    <div class="d-flex align-items-center w-100">
+                        <!-- Checkbox untuk toggle -->
+                        <input class="form-check-input me-3 mt-0" type="checkbox" style="transform: scale(1.3); cursor: pointer;" 
+                            ${bet.isActive ? 'checked' : ''} onchange="toggleBet(${index})">
+                        
+                        <div class="${textStyle}">
+                            <strong>${bet.label}</strong><br>
+                            <small class="${bet.isActive ? 'text-muted' : ''}">Odds: ${bet.odds} | Modal: ${formatRp(bet.modal)}</small>
+                        </div>
                     </div>
-                    <button class="btn btn-sm btn-outline-danger" onclick="deleteBet(${index})">X</button>
+                    <button class="btn btn-sm btn-outline-danger ms-2" onclick="deleteBet(${index})" title="Hapus Permanen">X</button>
                 </li>`;
         });
     }
+
 
     function hitungReturnTaruhan(h, a, bet) {
         let m = bet.modal;
@@ -316,9 +338,9 @@
         else if (bet.type === 'ou') {
             let total = h + a;
             let diff = bet.selection === 'over' ? (total - bet.threshold) : (bet.threshold - total);
-            
+
             diff = Math.round(diff * 4) / 4; 
-            
+
             if (diff >= 0.5) return m + (m * o); 
             if (diff === 0.25) return m + ((m / 2) * o); 
             if (diff === 0) return m; 
@@ -329,7 +351,7 @@
             let homeScore = bet.selection === 'home' ? h + bet.hdp : h;
             let awayScore = bet.selection === 'away' ? a + bet.hdp : a;
             let netDiff = bet.selection === 'home' ? (homeScore - awayScore) : (awayScore - homeScore);
-            
+
             netDiff = Math.round(netDiff * 4) / 4; 
 
             if (netDiff >= 0.5) return m + (m * o); 
@@ -342,13 +364,17 @@
         return 0;
     }
 
-    function calculateProbabilities() {
+        function calculateProbabilities() {
         const tbody = document.getElementById('resultTableBody');
         const probContainer = document.getElementById('probabilityContainer');
         tbody.innerHTML = '';
 
-        if (activeBets.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="6" class="text-muted py-4">Silakan masukkan taruhan terlebih dahulu untuk melihat kalkulasi.</td></tr>';
+        // Saring HANYA taruhan yang sedang diceklis (aktif)
+        const betsToCalculate = activeBets.filter(bet => bet.isActive);
+
+        // Jika tidak ada taruhan sama sekali, atau semua taruhan di-uncheck
+        if (betsToCalculate.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="6" class="text-muted py-4">Silakan centang/masukkan taruhan untuk melihat kalkulasi.</td></tr>';
             probContainer.style.display = 'none'; 
             return;
         }
@@ -373,7 +399,8 @@
             let modalHangus = 0;
             let modalKembali = 0;
 
-            activeBets.forEach(bet => {
+            // Loop HANYA pada taruhan yang aktif
+            betsToCalculate.forEach(bet => {
                 totalModal += bet.modal;
                 let returnBet = hitungReturnTaruhan(match.h, match.a, bet);
                 totalPengembalian += returnBet;
@@ -430,6 +457,7 @@
         probContainer.style.display = 'block';
         document.getElementById('badgeDraw').style.display = drawPerc > 0 ? 'inline-block' : 'none';
     }
+
 </script>
 
 </body>
