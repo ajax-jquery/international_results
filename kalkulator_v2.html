@@ -27,7 +27,7 @@
     <h2 class="text-center mb-4">⚽ Kalkulator & Simulasi Taruhan Bola (Pro)</h2>
 
     <div class="row">
-        
+
         <!-- KOLOM KIRI: FORM & DAFTAR TARUHAN -->
         <div class="col-lg-4 mb-4">
             <!-- Form Input -->
@@ -61,7 +61,7 @@
                                 <input type="number" step="0.01" min="-99" class="form-control" id="betOdds" placeholder="0.85" required>
                             </div>
                             <div class="col">
-                                <label class="form-label">Modal (Rb)</label>
+                                <label class="form-label">Modal (K)</label>
                                 <input type="number" step="1" min="10" class="form-control" id="betModal" placeholder="10" required>
                             </div>
                         </div>
@@ -97,7 +97,7 @@
                     </div>
                 </div>
                 <div class="card-body p-0">
-                    
+
                     <!-- TOOLBAR KONTROL & FILTER -->
                     <div class="p-3 bg-light border-bottom d-flex flex-wrap gap-3 align-items-center justify-content-between">
                         <div class="d-flex align-items-center gap-2">
@@ -114,7 +114,7 @@
                             </select>
                         </div>
                         <!-- Tombol Ekspor Excel Berwarna -->
-                        <button class="btn btn-sm btn-success fw-bold text-uppercase px-3" onclick="exportToExcel()">📊 Ekspor ke Excel</button>
+                        <button class="btn btn-sm btn-success fw-bold text-uppercase px-3" onclick="exportToExcel()" id="ExportXLS">📊 Ekspor ke Excel</button>
                     </div>
 
                     <!-- TABEL DATA -->
@@ -123,7 +123,7 @@
                             <thead>
                                 <tr>
                                     <th>Skor Akhir<br>(Home - Away)</th>
-                                   
+
                                     <th>Total Modal</th>
                                     <th>Modal Hangus</th>
                                     <th>Modal Kembali</th>
@@ -141,7 +141,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 </div>
 
@@ -352,7 +352,7 @@
     function updateBetListUI() {
         const list = document.getElementById('betList');
         list.innerHTML = '';
-        
+
         if (activeBets.length === 0) {
             list.innerHTML = '<li class="list-group-item text-center text-muted py-3">Belum ada taruhan.</li>';
             return;
@@ -361,7 +361,7 @@
         activeBets.forEach((bet, index) => {
             let textStyle = bet.isActive ? '' : 'text-decoration-line-through text-muted';
             let bgStyle = bet.isActive ? '' : 'bg-light';
-            
+
             list.innerHTML += `
                 <li class="list-group-item d-flex justify-content-between align-items-center ${bgStyle} p-2">
                     <div class="d-flex align-items-center">
@@ -456,7 +456,7 @@
 
         const maxGoal = parseInt(document.getElementById('maxGoalInput').value) || 4;
         const filterVal = document.getElementById('filterSelect').value;
-        
+
         // Gabungkan string label taruhan aktif untuk ditampilkan di kolom baru
         let betLabels = betsToCalculate.map(b => b.label).join(" | ");
 
@@ -545,9 +545,15 @@
 
     // FUNGSI EKSPOR TERBARU: Menggabungkan 2 Tabel dalam 1 Layout agar terbaca sempurna di semua versi Excel
     function exportToExcel() {
+    	const exportBtn = document.getElementById('ExportXLS');
+        exportBtn.innerText = "⏳ Memproses...";
+        exportBtn.disabled = true;
+
         const betsToCalculate = activeBets.filter(bet => bet.isActive);
         if (betsToCalculate.length === 0) {
             alert("Masukkan/centang taruhan terlebih dahulu sebelum ekspor.");
+            exportBtn.innerText = "📊 Ekspor ke Excel";
+            exportBtn.disabled = false;
             return;
         }
 
@@ -698,7 +704,14 @@
         const link = document.createElement('a');
         link.download = `simulasi_taruhan_bola_${new Date().toISOString().slice(0,10)}.xls`;
         link.href = URL.createObjectURL(blob);
-        link.click();
+        (async () => {
+    await new Promise(resolve => setTimeout(resolve, 2000));
+link.click();
+exportBtn.innerText = "📊 Ekspor ke Excel";
+ exportBtn.disabled = false;
+})();
+        
+       
     }
 
 </script>
