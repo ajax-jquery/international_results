@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Probabilitas Taruhan Bola - Pro Edition</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    body { background-color: #f8f9fa; padding-bottom: 50px; }
+    .card { box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; border: none; }
+    .table-responsive { max-height: 600px; overflow-y: auto; }
+    thead th { position: sticky; top: 0; background-color: #343a40 !important; color: white !important; z-index: 1; }
+
+    /* Target langsung ke elemen 'td' agar tidak ditimpa oleh style Bootstrap */
+    .bg-win td { background-color: #d1e7dd !important; color: #0f5132 !important; font-weight: bold; }
+    .bg-loss td { background-color: #f8d7da !important; color: #842029 !important; font-weight: bold; }
+    .bg-even td { background-color: #fff3cd !important; color: #664d03 !important; font-weight: bold; }
+
+    /* Badge Probabilitas */
+    .prob-badge { font-size: 0.9rem; padding: 6px 10px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.15); }
+</style>
+</head>
+<body>
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">⚽ Kalkulator & Simulasi Taruhan Bola (Pro)</h2>
+
+    <div class="row">
+        
+        <!-- KOLOM KIRI: FORM & DAFTAR TARUHAN -->
+        <div class="col-lg-4 mb-4">
+            <!-- Form Input -->
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Tambah Taruhan</h5>
+                </div>
+                <div class="card-body">
+                    <form id="betForm">
+                        <div class="mb-3">
+                            <label class="form-label">Jenis Taruhan</label>
+                            <select class="form-select" id="betType" onchange="renderDynamicInputs()" required>
+                                <option value="" disabled selected>Pilih Jenis...</option>
+                                <option value="tebak_score">Tebak Score (Correct Score)</option>
+                                <option value="btts">BTTS (Both Teams To Score)</option>
+                                <option value="ou">Over/Under Goals</option>
+                                <option value="hdp">Handicap (HDP)</option>
+                                <option value="margin">Winning Margin</option>
+                                <option value="1x2">1X2 (Match Winner)</option>
+                                <option value="dc">Double Chance</option>
+                                <option value="dnb">Draw No Bet (DNB)</option>
+                            </select>
+                        </div>
+
+                        <!-- Input Dinamis -->
+                        <div id="dynamicInputs" class="mb-3"></div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label class="form-label">Odds (HK)</label>
+                                <input type="number" step="0.01" min="-99" class="form-control" id="betOdds" placeholder="0.85" required>
+                            </div>
+                            <div class="col">
+                                <label class="form-label">Modal (Rb)</label>
+                                <input type="number" step="1" min="10" class="form-control" id="betModal" placeholder="10" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Tambah ke Daftar</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Daftar Taruhan Anda -->
+            <div class="card">
+                <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0 fs-6">Daftar Taruhan Anda</h5>
+                    <button class="btn btn-sm btn-danger px-2 py-0" onclick="clearBets()">Reset</button>
+                </div>
+                <div class="card-body p-0">
+                    <ul class="list-group list-group-flush" id="betList">
+                        <li class="list-group-item text-center text-muted py-3">Belum ada taruhan.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- KOLOM KANAN: TABEL HASIL PROBABILITAS -->
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header bg-success text-white d-flex justify-content-between align-items-center flex-wrap gap-2">
+                    <h5 class="mb-0 fs-6">Simulasi Hasil Skenario Gol</h5>
+                    <div id="probabilityContainer" style="display: none;">
+                        <span class="badge bg-light text-success prob-badge ms-1" id="badgeWin">Untung: 0%</span>
+                        <span class="badge bg-warning text-dark prob-badge ms-1" id="badgeDraw">Seri: 0%</span>
+                        <span class="badge bg-danger text-white prob-badge ms-1" id="badgeLoss">Rugi: 0%</span>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    
+                    <!-- TOOLBAR KONTROL & FILTER -->
+                    <div class="p-3 bg-light border-bottom d-flex flex-wrap gap-3 align-items-center justify-content-between">
+                        <div class="d-flex align-items-center gap-2">
+                            <label class="form-label mb-0 fw-bold small text-secondary">Max Goal:</label>
+                            <input type="number" id="maxGoalInput" class="form-control form-control-sm" value="4" min="1" max="8" style="width: 65px;" onchange="updateMaxGoalSettings()">
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <label class="form-label mb-0 fw-bold small text-secondary">Filter:</label>
+                            <select id="filterSelect" class="form-select form-select-sm" style="width: 140px;" onchange="calculateProbabilities()">
+                                <option value="all">Semua Hasil</option>
+                                <option value="win">Hanya Untung</option>
+                                <option value="loss">Hanya Rugi</option>
+                                <option value="even">Hanya Balik Modal</option>
+                            </select>
+                        </div>
+                        <!-- Tombol Ekspor Excel Berwarna -->
+                        <button class="btn btn-sm btn-success fw-bold text-uppercase px-3" onclick="exportToExcel()">📊 Ekspor ke Excel</button>
+                    </div>
+
+                    <!-- TABEL DATA -->
+                    <div class="table-responsive">
+                        <table class="table table-hover table-bordered text-center mb-0" id="resultTable">
+                            <thead>
+                                <tr>
+                                    <th>Skor Akhir<br>(Home - Away)</th>
+                                   
+                                    <th>Total Modal</th>
+                                    <th>Modal Hangus</th>
+                                    <th>Modal Kembali</th>
+                                    <th>Total Return</th>
+                                    <th>Net Profit/Loss</th>
+                                </tr>
+                            </thead>
+                            <tbody id="resultTableBody">
+                                <tr>
+                                    <td colspan="7" class="text-muted py-4">Silakan masukkan taruhan terlebih dahulu untuk melihat kalkulasi.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<script>
+    let activeBets = JSON.parse(localStorage.getItem('activeBets')) || [];
+    let savedMaxGoal = localStorage.getItem('maxGoalSetting') || 4;
+
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById('maxGoalInput').value = savedMaxGoal;
+        updateBetListUI();
+        calculateProbabilities();
+    });
+
+    function saveToLocalStorage() {
+        localStorage.setItem('activeBets', JSON.stringify(activeBets));
+    }
+
+    function updateMaxGoalSettings() {
+        localStorage.setItem('maxGoalSetting', document.getElementById('maxGoalInput').value);
+        calculateProbabilities();
+    }
+
+    const formatRp = (angka) => {
+        return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(angka);
+    };
+
+    function parseAsianLine(val) {
+        let str = val.toString().trim().replace(/,/g, '.');
+        let isNegative = str.startsWith('-');
+        str = str.replace(/^[+-]/, '').trim(); 
+
+        if (!str.includes('/')) {
+            let num = parseFloat(str);
+            return isNegative ? -num : num;
+        } 
+        let parts = str.split('/');
+        let avg = (parseFloat(parts[0]) + parseFloat(parts[1])) / 2;
+        return isNegative ? -avg : avg;
+    }
+
+    function renderDynamicInputs() {
+        const type = document.getElementById('betType').value;
+        const container = document.getElementById('dynamicInputs');
+        let html = '';
+
+        if (type === 'tebak_score') {
+            html = `
+                <label class="form-label small fw-bold">Tebak Skor (Home - Away)</label>
+                <div class="row g-2">
+                    <div class="col"><input type="number" id="tsHome" class="form-control form-control-sm" placeholder="Home" min="0" required></div>
+                    <div class="col"><input type="number" id="tsAway" class="form-control form-control-sm" placeholder="Away" min="0" required></div>
+                </div>`;
+        } else if (type === 'btts') {
+            html = `
+                <label class="form-label small fw-bold">Pilihan BTTS</label>
+                <select id="bttsSelection" class="form-select form-select-sm" required>
+                    <option value="ya">Ya (Kedua Tim Cetak Gol)</option>
+                    <option value="tidak">Tidak (Salah satu/keduanya 0)</option>
+                </select>`;
+        } else if (type === 'ou') {
+            html = `
+                <div class="row g-2">
+                    <div class="col-6">
+                        <label class="form-label small fw-bold">Pilihan O/U</label>
+                        <select id="ouSelection" class="form-select form-select-sm" required>
+                            <option value="over">Over (Atas)</option>
+                            <option value="under">Under (Bawah)</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label small fw-bold">Pasaran O/U</label>
+                        <input type="text" id="ouThreshold" class="form-control form-control-sm" placeholder="Contoh: 2.5" required>
+                    </div>
+                </div>`;
+        } else if (type === 'hdp') {
+            html = `
+                <div class="row g-2">
+                    <div class="col-6">
+                        <label class="form-label small fw-bold">Pilih Tim HDP</label>
+                        <select id="hdpSelection" class="form-select form-select-sm" required>
+                            <option value="home">Home</option>
+                            <option value="away">Away</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label small fw-bold">Nilai HDP</label>
+                        <input type="text" id="hdpValue" class="form-control form-control-sm" placeholder="Contoh: -0.75" required>
+                    </div>
+                </div>`;
+        } else if (type === 'margin') {
+            html = `
+                <div class="row g-2">
+                    <div class="col-7">
+                        <label class="form-label small fw-bold">Pemenang</label>
+                        <select id="marginSelection" class="form-select form-select-sm" required>
+                            <option value="home">Home Menang</option>
+                            <option value="away">Away Menang</option>
+                            <option value="draw">Seri (Draw)</option>
+                        </select>
+                    </div>
+                    <div class="col-5">
+                        <label class="form-label small fw-bold">Selisih Gol</label>
+                        <input type="number" id="marginValue" class="form-control form-control-sm" value="1" min="0" required>
+                    </div>
+                </div>`;
+        } else if (type === '1x2') {
+            html = `
+                <label class="form-label small fw-bold">Pilih Hasil 1X2</label>
+                <select id="1x2Selection" class="form-select form-select-sm" required>
+                    <option value="home">Home Menang (1)</option>
+                    <option value="draw">Seri (X)</option>
+                    <option value="away">Away Menang (2)</option>
+                </select>`;
+        } else if (type === 'dc') {
+            html = `
+                <label class="form-label small fw-bold">Pilihan Double Chance</label>
+                <select id="dcSelection" class="form-select form-select-sm" required>
+                    <option value="1x">Home atau Seri (1X)</option>
+                    <option value="12">Home atau Away (12)</option>
+                    <option value="x2">Seri atau Away (X2)</option>
+                </select>`;
+        } else if (type === 'dnb') {
+            html = `
+                <label class="form-label small fw-bold">Pilihan Draw No Bet (DNB)</label>
+                <select id="dnbSelection" class="form-select form-select-sm" required>
+                    <option value="home">Home Menang</option>
+                    <option value="away">Away Menang</option>
+                </select>`;
+        }
+
+        container.innerHTML = html;
+    }
+
+    document.getElementById('betForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const type = document.getElementById('betType').value;
+        const odds = parseFloat(document.getElementById('betOdds').value);
+        const modal = parseFloat(document.getElementById('betModal').value) * 1000;
+
+        let betDetail = { type, odds, modal, isActive: true };
+        let label = '';
+
+        if (type === 'tebak_score') {
+            betDetail.home = parseInt(document.getElementById('tsHome').value);
+            betDetail.away = parseInt(document.getElementById('tsAway').value);
+            label = `Tebak Skor: ${betDetail.home}-${betDetail.away}`;
+        } else if (type === 'btts') {
+            betDetail.selection = document.getElementById('bttsSelection').value;
+            label = `BTTS: ${betDetail.selection.toUpperCase()}`;
+        } else if (type === 'ou') {
+            let rawInput = document.getElementById('ouThreshold').value;
+            betDetail.selection = document.getElementById('ouSelection').value;
+            betDetail.threshold = parseAsianLine(rawInput);
+            label = `O/U: ${betDetail.selection.toUpperCase()} ${rawInput}`;
+        } else if (type === 'hdp') {
+            let rawInput = document.getElementById('hdpValue').value;
+            betDetail.selection = document.getElementById('hdpSelection').value;
+            betDetail.hdp = parseAsianLine(rawInput);
+            label = `HDP: ${betDetail.selection.toUpperCase()} ${rawInput}`;
+        } else if (type === 'margin') {
+            betDetail.selection = document.getElementById('marginSelection').value;
+            betDetail.margin = parseInt(document.getElementById('marginValue').value);
+            label = betDetail.selection === 'draw' ? `Margin: Seri` : `Margin: ${betDetail.selection.toUpperCase()} (+${betDetail.margin})`;
+        } else if (type === '1x2') {
+            betDetail.selection = document.getElementById('1x2Selection').value;
+            let lbl = betDetail.selection === 'home' ? 'Home (1)' : (betDetail.selection === 'draw' ? 'Seri (X)' : 'Away (2)');
+            label = `1X2: ${lbl}`;
+        } else if (type === 'dc') {
+            betDetail.selection = document.getElementById('dcSelection').value;
+            label = `DC: ${betDetail.selection.toUpperCase()}`;
+        } else if (type === 'dnb') {
+            betDetail.selection = document.getElementById('dnbSelection').value;
+            label = `DNB: ${betDetail.selection.toUpperCase()}`;
+        }
+
+        betDetail.label = label;
+        activeBets.push(betDetail);
+        saveToLocalStorage();
+
+        document.getElementById('betForm').reset();
+        document.getElementById('dynamicInputs').innerHTML = '';
+
+        updateBetListUI();
+        calculateProbabilities();
+    });
+
+    function toggleBet(index) {
+        activeBets[index].isActive = !activeBets[index].isActive;
+        saveToLocalStorage();
+        updateBetListUI();
+        calculateProbabilities();
+    }
+
+    function deleteBet(index) {
+        activeBets.splice(index, 1);
+        saveToLocalStorage();
+        updateBetListUI();
+        calculateProbabilities();
+    }
+
+    function clearBets() {
+        activeBets = [];
+        saveToLocalStorage();
+        updateBetListUI();
+        calculateProbabilities();
+    }
+
+    function updateBetListUI() {
+        const list = document.getElementById('betList');
+        list.innerHTML = '';
+        
+        if (activeBets.length === 0) {
+            list.innerHTML = '<li class="list-group-item text-center text-muted py-3">Belum ada taruhan.</li>';
+            return;
+        }
+
+        activeBets.forEach((bet, index) => {
+            let textStyle = bet.isActive ? '' : 'text-decoration-line-through text-muted';
+            let bgStyle = bet.isActive ? '' : 'bg-light';
+            
+            list.innerHTML += `
+                <li class="list-group-item d-flex justify-content-between align-items-center ${bgStyle} p-2">
+                    <div class="d-flex align-items-center">
+                        <input class="form-check-input me-2" type="checkbox" ${bet.isActive ? 'checked' : ''} onchange="toggleBet(${index})">
+                        <div class="${textStyle}" style="font-size: 0.85rem;">
+                            <strong>${bet.label}</strong><br>
+                            <small class="text-secondary">Odds: ${bet.odds} | M: ${formatRp(bet.modal)}</small>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm btn-link text-danger text-decoration-none p-0" onclick="deleteBet(${index})">✕</button>
+                </li>`;
+        });
+    }
+
+    function hitungReturnTaruhan(h, a, bet) {
+        let m = bet.modal;
+        let o = bet.odds;
+
+        if (bet.type === 'tebak_score') {
+            return (h === bet.home && a === bet.away) ? (m + (m * o)) : 0;
+        } 
+        else if (bet.type === 'btts') {
+            if (bet.selection === 'ya' && h > 0 && a > 0) return (m + (m * o));
+            if (bet.selection === 'tidak' && (h === 0 || a === 0)) return (m + (m * o));
+            return 0;
+        } 
+        else if (bet.type === 'margin') {
+            let diff = h - a;
+            if (bet.selection === 'home' && diff === bet.margin) return (m + (m * o));
+            if (bet.selection === 'away' && -diff === bet.margin) return (m + (m * o));
+            if (bet.selection === 'draw' && diff === 0) return (m + (m * o));
+            return 0;
+        }
+        else if (bet.type === 'ou') {
+            let total = h + a;
+            let diff = bet.selection === 'over' ? (total - bet.threshold) : (bet.threshold - total);
+            diff = Math.round(diff * 4) / 4; 
+            if (diff >= 0.5) return m + (m * o); 
+            if (diff === 0.25) return m + ((m / 2) * o); 
+            if (diff === 0) return m; 
+            if (diff === -0.25) return m / 2; 
+            return 0; 
+        }
+        else if (bet.type === 'hdp') {
+            let homeScore = bet.selection === 'home' ? h + bet.hdp : h;
+            let awayScore = bet.selection === 'away' ? a + bet.hdp : a;
+            let netDiff = bet.selection === 'home' ? (homeScore - awayScore) : (awayScore - homeScore);
+            netDiff = Math.round(netDiff * 4) / 4; 
+            if (netDiff >= 0.5) return m + (m * o); 
+            if (netDiff === 0.25) return m + ((m / 2) * o); 
+            if (netDiff === 0) return m; 
+            if (netDiff === -0.25) return m / 2; 
+            return 0; 
+        }
+        else if (bet.type === '1x2') {
+            if (bet.selection === 'home' && h > a) return m + (m * o);
+            if (bet.selection === 'away' && a > h) return m + (m * o);
+            if (bet.selection === 'draw' && h === a) return m + (m * o);
+            return 0;
+        }
+        else if (bet.type === 'dc') {
+            if (bet.selection === '1x' && h >= a) return m + (m * o);
+            if (bet.selection === '12' && h !== a) return m + (m * o);
+            if (bet.selection === 'x2' && a >= h) return m + (m * o);
+            return 0;
+        }
+        else if (bet.type === 'dnb') {
+            if (bet.selection === 'home') {
+                if (h > a) return m + (m * o);
+                if (h === a) return m; 
+            } else if (bet.selection === 'away') {
+                if (a > h) return m + (m * o);
+                if (h === a) return m; 
+            }
+            return 0;
+        }
+        return 0;
+    }
+
+    function calculateProbabilities() {
+        const tbody = document.getElementById('resultTableBody');
+        const probContainer = document.getElementById('probabilityContainer');
+        tbody.innerHTML = '';
+
+        const betsToCalculate = activeBets.filter(bet => bet.isActive);
+
+        if (betsToCalculate.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="7" class="text-muted py-4">Silakan centang/masukkan taruhan untuk melihat kalkulasi.</td></tr>';
+            probContainer.style.display = 'none'; 
+            return;
+        }
+
+        const maxGoal = parseInt(document.getElementById('maxGoalInput').value) || 4;
+        const filterVal = document.getElementById('filterSelect').value;
+        
+        // Gabungkan string label taruhan aktif untuk ditampilkan di kolom baru
+        let betLabels = betsToCalculate.map(b => b.label).join(" | ");
+
+        let scoreCombinations = [];
+        for (let h = 0; h <= maxGoal; h++) {
+            for (let a = 0; a <= maxGoal; a++) {
+                scoreCombinations.push({h: h, a: a, total: h+a});
+            }
+        }
+        scoreCombinations.sort((a, b) => a.total - b.total || b.h - a.h);
+
+        let winCount = 0;
+        let lossCount = 0;
+        let drawCount = 0;
+
+        scoreCombinations.forEach(match => {
+            let totalModal = 0;
+            let totalPengembalian = 0;
+            let modalHangus = 0;
+            let modalKembali = 0;
+
+            betsToCalculate.forEach(bet => {
+                totalModal += bet.modal;
+                let returnBet = hitungReturnTaruhan(match.h, match.a, bet);
+                totalPengembalian += returnBet;
+
+                if (returnBet === 0) {
+                    modalHangus += bet.modal;
+                } else if (returnBet > 0 && returnBet < bet.modal) {
+                    modalHangus += (bet.modal - returnBet);
+                    modalKembali += returnBet;
+                } else {
+                    modalKembali += bet.modal;
+                }
+            });
+
+            let profit = totalPengembalian - totalModal;
+            let rowClass = '';
+            let statusText = '';
+            let matchStatus = '';
+
+            if (profit > 0) {
+                rowClass = 'bg-win'; 
+                statusText = '+ ' + formatRp(profit);
+                matchStatus = 'win';
+                winCount++; 
+            } else if (profit < 0) {
+                rowClass = 'bg-loss'; 
+                statusText = '- ' + formatRp(Math.abs(profit));
+                matchStatus = 'loss';
+                lossCount++; 
+            } else {
+                rowClass = 'bg-even'; 
+                statusText = '0 (Balik Modal)';
+                matchStatus = 'even';
+                drawCount++; 
+            }
+
+            if (filterVal !== 'all' && filterVal !== matchStatus) return;
+
+            tbody.innerHTML += `
+                <tr class="${rowClass}">
+                    <td class="fw-bold">${match.h} - ${match.a}</td>
+                
+                    <td>${formatRp(totalModal)}</td>
+                    <td>${formatRp(modalHangus)}</td>
+                    <td>${formatRp(modalKembali)}</td>
+                    <td>${formatRp(totalPengembalian)}</td>
+                    <td>${statusText}</td>
+                </tr>
+            `;
+        });
+
+        const totalMatches = scoreCombinations.length;
+        const winPerc = Math.round((winCount / totalMatches) * 100);
+        const lossPerc = Math.round((lossCount / totalMatches) * 100);
+        const drawPerc = Math.round((drawCount / totalMatches) * 100);
+
+        document.getElementById('badgeWin').innerText = `${winPerc}% Untung`;
+        document.getElementById('badgeLoss').innerText = `${lossPerc}% Rugi`;
+        document.getElementById('badgeDraw').innerText = `${drawPerc}% Balik Modal`;
+
+        probContainer.style.display = 'block';
+        document.getElementById('badgeDraw').style.display = drawPerc > 0 ? 'inline-block' : 'none';
+    }
+
+    // FUNGSI EKSPOR TERBARU: Menggabungkan 2 Tabel dalam 1 Layout agar terbaca sempurna di semua versi Excel
+    function exportToExcel() {
+        const betsToCalculate = activeBets.filter(bet => bet.isActive);
+        if (betsToCalculate.length === 0) {
+            alert("Masukkan/centang taruhan terlebih dahulu sebelum ekspor.");
+            return;
+        }
+
+        const maxGoal = parseInt(document.getElementById('maxGoalInput').value) || 4;
+        const filterVal = document.getElementById('filterSelect').value;
+
+        // Kita buat HANYA 1 TABEL, tabel bawah butuh 6 kolom.
+        // Maka tabel atas (Daftar Taruhan) yang aslinya 3 kolom, kita gunakan colspan="2" agar sejajar sempurna.
+        let excelHtml = `
+        <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+        <head>
+            <meta charset="utf-8">
+            <style>
+                table { border-collapse: collapse; font-family: sans-serif; }
+                th, td { border: 1px solid #dddddd; padding: 8px; text-align: center; vertical-align: middle; }
+                .excel-win { background-color: #d1e7dd; color: #0f5132; font-weight: bold; }
+                .excel-loss { background-color: #f8d7da; color: #842029; font-weight: bold; }
+                .excel-even { background-color: #fff3cd; color: #664d03; font-weight: bold; }
+                .no-border { border: none !important; }
+            </style>
+        </head>
+        <body>
+            <table>
+                <!-- TABEL 1: DAFTAR TARUHAN AKTIF -->
+                <thead>
+                    <tr>
+                        <th colspan="6" style="background-color: #0d6efd; color: #ffffff; font-size: 14px; font-weight: bold;">DAFTAR TARUHAN AKTIF</th>
+                    </tr>
+                    <tr>
+                        <th colspan="2" style="background-color: #343a40; color: #ffffff; font-weight: bold;">Jenis Taruhan</th>
+                        <th colspan="2" style="background-color: #343a40; color: #ffffff; font-weight: bold;">Odds</th>
+                        <th colspan="2" style="background-color: #343a40; color: #ffffff; font-weight: bold;">Modal</th>
+                    </tr>
+                </thead>
+                <tbody>
+        `;
+
+        let totalModalAwal = 0;
+        betsToCalculate.forEach(bet => {
+            totalModalAwal += bet.modal;
+            excelHtml += `
+                <tr>
+                    <td colspan="2" style="text-align: left;">${bet.label}</td>
+                    <td colspan="2">${bet.odds}</td>
+                    <td colspan="2">${bet.modal}</td>
+                </tr>
+            `;
+        });
+
+        excelHtml += `
+                <tr>
+                    <td colspan="4" style="font-weight: bold; text-align: right; background-color: #f8f9fa;">Total Keseluruhan Modal:</td>
+                    <td colspan="2" style="font-weight: bold; background-color: #f8f9fa;">${totalModalAwal}</td>
+                </tr>
+                
+                <!-- SPASI PEMISAH ANTAR TABEL (Berupa baris transparan di dalam Excel) -->
+                <tr>
+                    <td colspan="6" class="no-border" style="height: 30px;"></td>
+                </tr>
+
+                <!-- TABEL 2: SIMULASI HASIL -->
+                <tr>
+                    <th colspan="6" style="background-color: #198754; color: #ffffff; font-size: 14px; font-weight: bold;">SIMULASI HASIL SKENARIO GOL</th>
+                </tr>
+                <tr>
+                    <th style="background-color: #343a40; color: #ffffff; font-weight: bold;">Skor Akhir (H - A)</th>
+                    <th style="background-color: #343a40; color: #ffffff; font-weight: bold;">Total Modal</th>
+                    <th style="background-color: #343a40; color: #ffffff; font-weight: bold;">Modal Hangus</th>
+                    <th style="background-color: #343a40; color: #ffffff; font-weight: bold;">Modal Kembali</th>
+                    <th style="background-color: #343a40; color: #ffffff; font-weight: bold;">Total Return</th>
+                    <th style="background-color: #343a40; color: #ffffff; font-weight: bold;">Net Profit/Loss</th>
+                </tr>
+        `;
+
+        // Kalkulasi Kombinasi Gol
+        let scoreCombinations = [];
+        for (let h = 0; h <= maxGoal; h++) {
+            for (let a = 0; a <= maxGoal; a++) {
+                scoreCombinations.push({h: h, a: a, total: h+a});
+            }
+        }
+        scoreCombinations.sort((a, b) => a.total - b.total || b.h - a.h);
+
+        scoreCombinations.forEach(match => {
+            let totalModal = 0;
+            let totalPengembalian = 0;
+            let modalHangus = 0;
+            let modalKembali = 0;
+
+            betsToCalculate.forEach(bet => {
+                totalModal += bet.modal;
+                let returnBet = hitungReturnTaruhan(match.h, match.a, bet);
+                totalPengembalian += returnBet;
+
+                if (returnBet === 0) {
+                    modalHangus += bet.modal;
+                } else if (returnBet > 0 && returnBet < bet.modal) {
+                    modalHangus += (bet.modal - returnBet);
+                    modalKembali += returnBet;
+                } else {
+                    modalKembali += bet.modal;
+                }
+            });
+
+            let profit = totalPengembalian - totalModal;
+            let cellStyle = '';
+            let statusText = '';
+            let matchStatus = '';
+
+            if (profit > 0) {
+                cellStyle = 'class="excel-win"'; 
+                statusText = '+ ' + profit;
+                matchStatus = 'win';
+            } else if (profit < 0) {
+                cellStyle = 'class="excel-loss"'; 
+                statusText = '- ' + Math.abs(profit);
+                matchStatus = 'loss';
+            } else {
+                cellStyle = 'class="excel-even"'; 
+                statusText = '0';
+                matchStatus = 'even';
+            }
+
+            // Fitur Filter (Untung/Rugi/Balik Modal)
+            if (filterVal !== 'all' && filterVal !== matchStatus) return;
+
+            excelHtml += `
+                <tr>
+                    <td style="font-weight: bold;">${match.h} - ${match.a}</td>
+                    <td>${totalModal}</td>
+                    <td>${modalHangus}</td>
+                    <td>${modalKembali}</td>
+                    <td>${totalPengembalian}</td>
+                    <td ${cellStyle}>${statusText}</td>
+                </tr>
+            `;
+        });
+
+        excelHtml += `
+                </tbody>
+            </table>
+        </body>
+        </html>
+        `;
+
+        // Proses pengunduhan file spreadsheet
+        const blob = new Blob([excelHtml], { type: 'application/vnd.ms-excel' });
+        const link = document.createElement('a');
+        link.download = `simulasi_taruhan_bola_${new Date().toISOString().slice(0,10)}.xls`;
+        link.href = URL.createObjectURL(blob);
+        link.click();
+    }
+
+</script>
+
+</body>
+</html>
