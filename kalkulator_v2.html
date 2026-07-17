@@ -273,16 +273,25 @@
                     }
                 }
             }
-            else if (bet.type === 'hdp') {
+           else if (bet.type === 'hdp') {
                 let m = findMarket("Handicap");
                 if (m && bet.selection && bet.hdp !== undefined && bet.hdp !== "") {
+                    // Konversi ketikan Anda menjadi angka desimal (Cth: "0.5", "+0.5" -> 0.5 | "+0.5/1", "0.75" -> 0.75)
                     let targetHdp = typeof bet.hdp === 'string' ? parseAsianLine(bet.hdp) : bet.hdp;
+                    let ty = bet.selection === 'home' ? 1 : 2;
+                    
                     for (let mk of m.mks) {
-                        let lineStr = mk.li || (mk.op[0] ? mk.op[0].li : "");
-                        if (parseAsianLine(lineStr) === targetHdp) {
-                            let ty = bet.selection === 'home' ? 1 : 2;
-                            let op = mk.op.find(o => o.ty === ty);
-                            if (op) return op.bod;
+                        let op = mk.op.find(o => o.ty === ty);
+                        
+                        // Eksekusi jika 'li' spesifik tim ditemukan di JSON
+                        if (op && op.li !== undefined) {
+                            // Konversi juga nilai dari JSON agar formatnya sama-sama desimal
+                            let jsonHdpValue = parseAsianLine(op.li);
+                            
+                            // Jika cocok, kembalikan odds (bod)
+                            if (jsonHdpValue === targetHdp) {
+                                return op.bod;
+                            }
                         }
                     }
                 }
