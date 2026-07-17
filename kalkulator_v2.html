@@ -30,6 +30,9 @@
     .odds-updated { background-color: #d1e7dd !important; transition: background-color 0.3s ease; }
     /* Badge Probabilitas */
     .prob-badge { font-size: 0.9rem; padding: 6px 10px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.15); }
+  /* Animasi saat odds berubah (Naik/Turun) */
+        .odds-down { background-color: #d1e7dd !important; color: #0f5132 !important; transition: all 0.3s ease; }
+        .odds-up { background-color: #f8d7da !important; color: #842029 !important; transition: all 0.3s ease; }
 </style>
 </head>
 <body>
@@ -43,8 +46,11 @@
         <div class="col-lg-4 mb-4">
           <!-- Konfigurasi API -->
             <div class="card mb-3 border-primary">
+              <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Link to Live ODS</h5>
+                </div>
                 <div class="card-body p-2 d-flex align-items-center gap-2">
-                    <input type="text" id="matchIdInput" class="form-control form-control-sm" placeholder="Match ID (Cth: 5085126)" value="5085126">
+                    <input type="url" id="matchIdInput" class="form-control form-control-sm" placeholder="https://spotbet.vip/sport/match/detail/5085126" value="">
                     <button class="btn btn-sm btn-primary text-nowrap" id="btnApiToggle" onclick="toggleApi()">Start API</button>
                 </div>
                 <div class="card-footer p-1 text-center bg-light">
@@ -212,7 +218,8 @@
     }
 
     async function fetchMatchData() {
-        const matchId = document.getElementById('matchIdInput').value;
+      const matchId = new URL(document.getElementById('matchIdInput').value).pathname.split("/").pop();
+      
         if (!matchId) return;
 
         try {
@@ -226,6 +233,8 @@
                 "body": JSON.stringify({"matchId": matchId, "oddsType": 2, "languageType": "IND", "isPC": true}),
                 "method": "POST"
             });
+            if(!response.ok) throw new Error("Terjadi kesalahan");
+              
             
             const result = await response.json();
             if (result && result.success && result.data) {
@@ -235,6 +244,7 @@
             }
         } catch (error) {
             console.error("Gagal mengambil data dari API", error);
+          alert("URL atau MATCH tidak ada");
             document.getElementById('apiStatus').innerHTML = '🔴 Error / Terputus';
         }
     }
@@ -401,30 +411,51 @@
             
             // HANYA update jika data live ditemukan di JSON dan nilainya berbeda
             if (liveFormOdd && oddsInput.value != liveFormOdd) {
+                let currentVal = parseFloat(oddsInput.value) || 0;
+                let newVal = parseFloat(liveFormOdd);
+                
                 oddsInput.value = liveFormOdd;
-                oddsInput.classList.add('odds-updated');
-                setTimeout(() => oddsInput.classList.remove('odds-updated'), 500);
+                
+                // Cek arah pergerakan odds (Turun = Hijau, Naik = Merah)
+                let flashClass = 'odds-down'; // Default hijau untuk pengisian pertama kali
+                if (currentVal !== 0) {
+                    flashClass = newVal < currentVal ? 'odds-down' : 'odds-up';
+                }
+                
+                oddsInput.classList.add(flashClass);
+                setTimeout(() => oddsInput.classList.remove(flashClass), 600);
             }
-            // JIKA TIDAK KETEMU (liveFormOdd == null), didiamkan saja agar ketikan manual user tidak hilang
         }
 
         // --- BAGIAN 2: UPDATE OTOMATIS DAFTAR TARUHAN YANG SUDAH MASUK LIST ---
         let listNeedRefresh = false;
-        activeBets.forEach(bet => {
+        
+        // Tambahkan parameter index (bet, index) untuk menargetkan elemen HTML secara spesifik
+        activeBets.forEach((bet, index) => {
             let liveListOdd = extractBod(bet, mg, homeName, awayName);
             
-            // Jika market taruhan ini ada di JSON dan nilainya berubah, timpa datanya
             if (liveListOdd && bet.odds !== parseFloat(liveListOdd)) {
-                bet.odds = parseFloat(liveListOdd);
+                let newVal = parseFloat(liveListOdd);
+                
+                // Cek arah pergerakan (Turun = Hijau, Naik = Merah)
+                let flashClass = newVal < bet.odds ? 'odds-down' : 'odds-up';
+                
+                bet.odds = newVal;
                 listNeedRefresh = true;
+                
+                // Update nilai text langsung di dalam UI Daftar Taruhan & mainkan animasi berkedip
+                let listOddsEl = document.getElementById(`listOdds-${index}`);
+                if (listOddsEl) {
+                    listOddsEl.innerText = newVal;
+                    listOddsEl.classList.add(flashClass);
+                    setTimeout(() => listOddsEl.classList.remove(flashClass), 600); // Hapus animasi & kembali normal
+                }
             }
-            // Jika pasaran di JSON hilang/lock (null), taruhan manual/lama di list tetap aman & tidak berubah
         });
 
-        // Refresh tampilan tabel simulasi dan list UI jika ada odds di list yang berubah
+        // Hanya Refresh tabel simulasi probabilitas saja (list UI sudah diperbarui secara real-time di atas)
         if (listNeedRefresh) {
             saveToLocalStorage();
-            updateBetListUI();
             calculateProbabilities();
         }
     }
@@ -799,7 +830,7 @@ if (confirm("Ingin menghapus semua?")){
                         <input class="form-check-input me-2" type="checkbox" ${bet.isActive ? 'checked' : ''} onchange="toggleBet(${index})">
                         <div class="${textStyle}" style="font-size: 0.85rem;">
                             <strong>${bet.label}</strong><br>
-                            <small class="text-secondary">Odds: ${bet.odds} | M: ${formatRp(bet.modal)}</small>
+                            <small class="text-secondary">Odds: <span id="listOdds-${index}" class="px-1 rounded" style="transition: all 0.3s ease;">${bet.odds}</span> | M: ${formatRp(bet.modal)}</small>
                         </div>
                     </div>
                 <div>
