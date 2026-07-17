@@ -519,10 +519,12 @@ function renderChart(winPerc, lossPerc, drawPerc) {
     }
 
     function clearBets() {
+if (confirm("Apakah Anda yakin?")){
         activeBets = [];
         saveToLocalStorage();
         updateBetListUI();
         calculateProbabilities();
+}else{return}
     }
 
     function updateBetListUI() {
