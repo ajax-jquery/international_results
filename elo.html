@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabel Peringkat Elo</title>
+    <style>
+        table { border-collapse: collapse; width: 100%; font-family: sans-serif; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+
+    <h2>Peringkat Elo Sepak Bola Dunia</h2>
+    <table id="elo-table">
+        <thead>
+            <tr>
+                <th>Peringkat</th>
+                <th>code</th>
+                <th>Negara</th>
+                <th>Poin Elo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data akan muncul di sini -->
+        </tbody>
+    </table>
+
+    <script>// Menggunakan proxy gratis untuk menembus proteksi CORS
+const proxyUrl = "https://herokuapp.com";
+const apiUrl = "https://eloratings.net/World.tsv?_="+Date.now();
+async function convertTsvToJsonMap(url) {
+  try {
+    // 1. Fetch data dari URL
+    const response = await fetch(url);
+    const tsvText = await response.text();
+
+    const jsonMap = {};
+
+    // 2. Pisahkan teks menjadi array per baris. 
+    // Gunakan .trim() untuk membuang baris kosong di akhir file.
+    const rows = tsvText.trim().split('\n');
+
+    // 3. Looping setiap baris
+    rows.forEach(row => {
+      // Pisahkan kolom berdasarkan tab (\t)
+      const columns = row.split('\t');
+
+      // Pastikan baris memiliki setidaknya key dan value
+      if (columns.length >= 2) {
+        const key =  columns[0].trim(); // Contoh: 'DN'
+        const value =   columns[1].trim(); // Contoh: 'Aden'
+        
+        jsonMap[key] = value;
+      }
+    });
+
+    console.log(jsonMap);
+    
+    // Jika kamu butuh output dalam bentuk string JSON:
+    // const jsonString = JSON.stringify(jsonMap, null, 2);
+    // return jsonString;
+
+    return jsonMap;
+  } catch (error) {
+    console.error("Gagal melakukan fetch atau parse:", error);
+  }
+}
+
+// Cara menggunakan:
+// 
+
+      
+async function fetchEloData() {
+    try {
+      const a = await convertTsvToJsonMap('/api/fetch/https://eloratings.net/en.teams.tsv?_='+Date.now());
+        const response = await fetch("/api/fetch/" + apiUrl);
+        const dataText = await response.text();
+        
+        // Memisahkan data per baris
+        const rows = dataText.trim().split("\n");
+        const tableBody = document.querySelector("#elo-table tbody");
+
+        // Melakukan looping untuk setiap baris data TSV
+        rows.forEach((row, index) => {
+            // File TSV dipisahkan menggunakan Tab (\t)
+            const columns = row.split("\t"); 
+            
+            const rank = columns[1];
+            const negara = columns[2];
+            const poinElo = columns[3];
+
+            if (negara && poinElo) {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${rank}</td>
+                    <td>${negara}</td>
+                    <td>${a[negara] || negara}</td>
+                    <td>${poinElo}</td>
+                `;
+                tableBody.appendChild(tr);
+            }
+        });
+
+    } catch (error) {
+        console.error("Gagal mengambil data:", error);
+    }
+}
+
+// Jalankan fungsi saat halaman dimuat
+fetchEloData();
+</script>
+</body>
+</html>
