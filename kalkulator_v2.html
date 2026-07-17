@@ -459,11 +459,13 @@ function renderChart(winPerc, lossPerc, drawPerc) {
     }
 
     function deleteBet(index) {
-        activeBets.splice(index, 1);
+ if (confirm("Ingin Menghapus?")){     activeBets.splice(index, 1);
         saveToLocalStorage();
         updateBetListUI();
         calculateProbabilities();
-    }
+                                   }else{return}  
+
+}
     function editBet(index) {
         let bet = activeBets[index];
         let currentModalK = bet.modal / 1000; // Kembalikan ke format "K" (Ribuan)
