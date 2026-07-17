@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -197,7 +198,7 @@
 // Fungsi untuk memunculkan detail saat baris tabel di-tap (Mobile/Desktop)
   let apiInterval = null;
     let matchDataGlobal = null;
-
+let TOKEN ="tt_LQOGvOE3fZaoFdSWYGsSSp0QdzAwnvXy.76dc32b9d5f985cdd4bd492d1b393c9b"
     function toggleApi() {
         const btn = document.getElementById('btnApiToggle');
         if (apiInterval) {
@@ -228,7 +229,8 @@
                     "accept": "application/json, text/plain, */*",
                     "content-type": "application/json;charset=UTF-8",
                   "referer":"https://spotbet.vip/",
-                  "origin":"https://spotbet.vip"
+                  "origin":"https://spotbet.vip",
+                   "authorization":TOKEN
                 },
                 "body": JSON.stringify({"matchId": matchId, "oddsType": 2, "languageType": "IND", "isPC": true}),
                 "method": "POST"
@@ -237,6 +239,9 @@
               
             
             const result = await response.json();
+          if(!result.success){
+            TOKEN=""
+          }
             if (result && result.success && result.data) {
                 matchDataGlobal = result.data;
                 document.getElementById('apiStatus').innerHTML = '🟢 Live (Update 1s)';
