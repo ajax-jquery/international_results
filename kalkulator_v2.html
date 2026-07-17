@@ -464,6 +464,57 @@ function renderChart(winPerc, lossPerc, drawPerc) {
         updateBetListUI();
         calculateProbabilities();
     }
+    function editBet(index) {
+        let bet = activeBets[index];
+        let currentModalK = bet.modal / 1000; // Kembalikan ke format "K" (Ribuan)
+
+        Swal.fire({
+            title: 'Edit Odds / Modal',
+            html: `
+                <div class="text-start mb-2">
+                    <label class="form-label small fw-bold">Odds Baru</label>
+                    <input type="number" id="swalEditOdds" class="form-control" step="0.01" value="${bet.odds}">
+                </div>
+                <div class="text-start">
+                    <label class="form-label small fw-bold">Modal Baru (K)</label>
+                    <input type="number" id="swalEditModal" class="form-control" min="10" value="${currentModalK}">
+                </div>
+            `,
+            showCancelButton: true,
+            confirmButtonText: 'Simpan',
+            cancelButtonText: 'Batal',
+            preConfirm: () => {
+                const newOdds = document.getElementById('swalEditOdds').value;
+                const newModal = document.getElementById('swalEditModal').value;
+                if (!newOdds || !newModal) {
+                    Swal.showValidationMessage('Odds dan Modal tidak boleh kosong!');
+                    return false;
+                }
+                return { odds: parseFloat(newOdds), modal: parseFloat(newModal) * 1000 };
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Update data di array
+                activeBets[index].odds = result.value.odds;
+                activeBets[index].modal = result.value.modal;
+                
+                // Simpan dan render ulang
+                saveToLocalStorage();
+                updateBetListUI();
+                calculateProbabilities();
+                
+                // Opsional: Notifikasi sukses kecil
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil diubah!',
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        });
+    }
 
     function clearBets() {
         activeBets = [];
@@ -494,7 +545,11 @@ function renderChart(winPerc, lossPerc, drawPerc) {
                             <small class="text-secondary">Odds: ${bet.odds} | M: ${formatRp(bet.modal)}</small>
                         </div>
                     </div>
-                    <button class="btn btn-sm btn-link text-danger text-decoration-none p-0" onclick="deleteBet(${index})">✕</button>
+                <div>
+    <button class="btn btn-sm btn-link text-primary text-decoration-none p-0 me-3" title="Edit" onclick="editBet(${index})">✎</button>
+    <button class="btn btn-sm btn-link text-danger text-decoration-none p-0" title="Hapus" onclick="deleteBet(${index})">✕</button>
+</div>
+
                 </li>`;
         });
     }
