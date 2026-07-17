@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -25,7 +26,8 @@
     .bg-win td { background-color: #d1e7dd !important; color: #0f5132 !important; font-weight: bold; }
     .bg-loss td { background-color: #f8d7da !important; color: #842029 !important; font-weight: bold; }
     .bg-even td { background-color: #fff3cd !important; color: #664d03 !important; font-weight: bold; }
-
+/* Animasi saat odds terupdate otomatis */
+    .odds-updated { background-color: #d1e7dd !important; transition: background-color 0.3s ease; }
     /* Badge Probabilitas */
     .prob-badge { font-size: 0.9rem; padding: 6px 10px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.15); }
 </style>
@@ -39,6 +41,16 @@
 
         <!-- KOLOM KIRI: FORM & DAFTAR TARUHAN -->
         <div class="col-lg-4 mb-4">
+          <!-- Konfigurasi API -->
+            <div class="card mb-3 border-primary">
+                <div class="card-body p-2 d-flex align-items-center gap-2">
+                    <input type="text" id="matchIdInput" class="form-control form-control-sm" placeholder="Match ID (Cth: 5085126)" value="5085126">
+                    <button class="btn btn-sm btn-primary text-nowrap" id="btnApiToggle" onclick="toggleApi()">Start API</button>
+                </div>
+                <div class="card-footer p-1 text-center bg-light">
+                    <small class="fw-bold" id="apiStatus">⚪ API Offline</small>
+                </div>
+            </div>
             <!-- Form Input -->
             <div class="card mb-4">
                 <div class="card-header bg-primary text-white">
@@ -65,8 +77,8 @@
                             </select>
                         </div>
 
-                        <!-- Input Dinamis -->
-                        <div id="dynamicInputs" class="mb-3"></div>
+                       <!-- Input Dinamis -->
+                        <div id="dynamicInputs" class="mb-3" onchange="updateOdds()" onkeyup="updateOdds()"></div>
 
                         <div class="row mb-3">
                             <div class="col">
@@ -173,9 +185,240 @@
 <script>
     let activeBets = JSON.parse(localStorage.getItem('activeBets')) || [];
     let savedMaxGoal = localStorage.getItem('maxGoalSetting') || 4;
+    document.getElementById('matchIdInput').value = localStorage.getItem('matchId') || "";
     
     let myDoughnutChart = null; // Variabel global untuk grafik
 // Fungsi untuk memunculkan detail saat baris tabel di-tap (Mobile/Desktop)
+  let apiInterval = null;
+    let matchDataGlobal = null;
+
+    function toggleApi() {
+        const btn = document.getElementById('btnApiToggle');
+        if (apiInterval) {
+            clearInterval(apiInterval);
+            apiInterval = null;
+            btn.innerText = "Start API";
+            btn.classList.replace("btn-danger", "btn-primary");
+            document.getElementById('apiStatus').innerHTML = '⚪ API Paused';
+            document.getElementById('matchIdInput').disabled=false;
+        } else {
+            btn.innerText = "Stop API";
+            btn.classList.replace("btn-primary", "btn-danger");
+            document.getElementById('apiStatus').innerHTML = '🟢 Connecting...';
+            document.getElementById('matchIdInput').disabled=true;
+            fetchMatchData(); // Jalankan sekali
+            apiInterval = setInterval(fetchMatchData, 1000); // Looping tiap 1 detik
+        }
+    }
+
+    async function fetchMatchData() {
+        const matchId = document.getElementById('matchIdInput').value;
+        if (!matchId) return;
+
+        try {
+            const response = await fetch("https://api.717202.com/v1/match/getMatchDetail", {
+                "headers": {
+                    "accept": "application/json, text/plain, */*",
+                    "content-type": "application/json;charset=UTF-8",
+                  "referer":"https://spotbet.vip/",
+                  "origin":"https://spotbet.vip"
+                },
+                "body": JSON.stringify({"matchId": matchId, "oddsType": 2, "languageType": "IND", "isPC": true}),
+                "method": "POST"
+            });
+            
+            const result = await response.json();
+            if (result && result.success && result.data) {
+                matchDataGlobal = result.data;
+                document.getElementById('apiStatus').innerHTML = '🟢 Live (Update 1s)';
+                updateOdds(); // Coba isi otomatis odds setiap ada data baru
+            }
+        } catch (error) {
+            console.error("Gagal mengambil data dari API", error);
+            document.getElementById('apiStatus').innerHTML = '🔴 Error / Terputus';
+        }
+    }
+// Fungsi Pembantu untuk mencari key 'bod' di dalam JSON pasaran
+    function extractBod(bet, mg, homeName, awayName) {
+        const findMarket = (name) => mg.find(m => m.nm === name);
+        try {
+            if (bet.type === 'tebak_score') {
+                let m = findMarket("Tebak Score");
+                if (m && bet.home !== undefined && bet.away !== undefined && bet.home !== "" && bet.away !== "") {
+                    let target = `${bet.home}-${bet.away}`;
+                    for (let mk of m.mks) {
+                        let op = mk.op.find(o => o.na === target);
+                        if (op) return op.bod; // Menggunakan key bod
+                    }
+                }
+            } 
+            else if (bet.type === 'btts') {
+                let m = findMarket("Kedua Tim Mencetak Skor");
+                if (m && bet.selection) {
+                    for (let mk of m.mks) {
+                        let op = mk.op.find(o => o.na.toLowerCase() === bet.selection.toLowerCase());
+                        if (op) return op.bod;
+                    }
+                }
+            } 
+            else if (bet.type === 'ou') {
+                let marketName = bet.target === 'home' ? `${homeName} Besar/Kecil` : (bet.target === 'away' ? `${awayName} Besar/Kecil` : "Besar/Kecil");
+                let m = findMarket(marketName);
+                if (m && bet.selection && bet.threshold !== undefined && bet.threshold !== "") {
+                    let searchNa = bet.selection === 'over' ? 'Besar' : 'Kecil';
+                    let targetThresh = typeof bet.threshold === 'string' ? parseAsianLine(bet.threshold) : bet.threshold;
+                    for (let mk of m.mks) {
+                        let op = mk.op.find(o => o.na === searchNa && parseAsianLine(o.li || mk.li) === targetThresh);
+                        if (op) return op.bod;
+                    }
+                }
+            }
+            else if (bet.type === 'hdp') {
+                let m = findMarket("Handicap");
+                if (m && bet.selection && bet.hdp !== undefined && bet.hdp !== "") {
+                    let targetHdp = typeof bet.hdp === 'string' ? parseAsianLine(bet.hdp) : bet.hdp;
+                    for (let mk of m.mks) {
+                        let lineStr = mk.li || (mk.op[0] ? mk.op[0].li : "");
+                        if (parseAsianLine(lineStr) === targetHdp) {
+                            let ty = bet.selection === 'home' ? 1 : 2;
+                            let op = mk.op.find(o => o.ty === ty);
+                            if (op) return op.bod;
+                        }
+                    }
+                }
+            }
+            else if (bet.type === 'margin') {
+                let m = findMarket("Winning Margin");
+                if (m && bet.selection && bet.margin !== undefined && bet.margin !== "") {
+                    let val = parseInt(bet.margin);
+                    let searchStr = bet.selection === 'draw' ? "Seri" : `${bet.selection === 'home' ? homeName : awayName} - Menang Dengan ${val >= 3 ? '3+ Gol' : val + ' Gol'}`;
+                    for (let mk of m.mks) {
+                        let op = mk.op.find(o => o.na === searchStr);
+                        if (op) return op.bod;
+                    }
+                }
+            }
+            else if (bet.type === '1x2') {
+                let m = findMarket("1x2");
+                if (m && bet.selection) {
+                    let ty = bet.selection === 'home' ? 1 : (bet.selection === 'away' ? 2 : 3);
+                    let op = m.mks[0]?.op.find(o => o.ty === ty);
+                    if (op) return op.bod;
+                }
+            }
+            else if (bet.type === 'dc') {
+                let m = findMarket("Peluang Ganda");
+                if (m && bet.selection) {
+                    let ty = bet.selection === '1x' ? 50 : (bet.selection === '12' ? 51 : 52);
+                    let op = m.mks[0]?.op.find(o => o.ty === ty);
+                    if (op) return op.bod;
+                }
+            }
+            else if (bet.type === 'dnb') {
+                let m = findMarket("Seri Tidak Ada Taruhan");
+                if (m && bet.selection) {
+                    let ty = bet.selection === 'home' ? 1 : 2;
+                    let op = m.mks[0]?.op.find(o => o.ty === ty);
+                    if (op) return op.bod;
+                }
+            }
+            else if (bet.type === 'exact_goal') {
+                let m = findMarket("Exact Goals");
+                if (m && bet.value !== undefined && bet.value !== "") {
+                    for (let mk of m.mks) {
+                        let op = mk.op.find(o => o.na === bet.value.toString().trim());
+                        if (op) return op.bod;
+                    }
+                }
+            }
+            else if (bet.type === 'total_goal') {
+                let m = findMarket("Total Goals");
+                if (m && bet.value !== undefined && bet.value !== "") {
+                    for (let mk of m.mks) {
+                        let op = mk.op.find(o => o.na === bet.value.toString().trim());
+                        if (op) return op.bod;
+                    }
+                }
+            }
+        } catch (e) {
+            console.error("Gagal extract bod:", e);
+        }
+        return null; // Mengembalikan null jika pasar tidak ditemukan / dikunci
+    }
+
+    // Fungsi utama pencocokan odds yang dipanggil setiap 1 detik
+    function updateOdds() {
+        if (!matchDataGlobal || !matchDataGlobal.mg) return;
+        
+        const mg = matchDataGlobal.mg;
+        const ts = matchDataGlobal.ts; 
+        const homeName = ts[0].na; 
+        const awayName = ts[1].na; 
+
+        // --- BAGIAN 1: UPDATE KOLOM INPUT FORM ---
+        const type = document.getElementById('betType').value;
+        const oddsInput = document.getElementById('betOdds');
+        
+        if (type) {
+            let formBet = { type: type };
+            if (type === 'tebak_score') {
+                formBet.home = document.getElementById('tsHome')?.value;
+                formBet.away = document.getElementById('tsAway')?.value;
+            } else if (type === 'btts') {
+                formBet.selection = document.getElementById('bttsSelection')?.value;
+            } else if (type === 'ou') {
+                formBet.target = document.getElementById('ouTarget')?.value;
+                formBet.selection = document.getElementById('ouSelection')?.value;
+                formBet.threshold = document.getElementById('ouThreshold')?.value;
+            } else if (type === 'hdp') {
+                formBet.selection = document.getElementById('hdpSelection')?.value;
+                formBet.hdp = document.getElementById('hdpValue')?.value;
+            } else if (type === 'margin') {
+                formBet.selection = document.getElementById('marginSelection')?.value;
+                formBet.margin = document.getElementById('marginValue')?.value;
+            } else if (type === '1x2') {
+                formBet.selection = document.getElementById('1x2Selection')?.value;
+            } else if (type === 'dc') {
+                formBet.selection = document.getElementById('dcSelection')?.value;
+            } else if (type === 'dnb') {
+                formBet.selection = document.getElementById('dnbSelection')?.value;
+            } else if (type === 'exact_goal') {
+                formBet.value = document.getElementById('exactGoalValue')?.value;
+            } else if (type === 'total_goal') {
+                formBet.value = document.getElementById('totalGoalValue')?.value;
+            }
+
+            let liveFormOdd = extractBod(formBet, mg, homeName, awayName);
+            
+            // HANYA update jika data live ditemukan di JSON dan nilainya berbeda
+            if (liveFormOdd && oddsInput.value != liveFormOdd) {
+                oddsInput.value = liveFormOdd;
+                oddsInput.classList.add('odds-updated');
+                setTimeout(() => oddsInput.classList.remove('odds-updated'), 500);
+            }
+            // JIKA TIDAK KETEMU (liveFormOdd == null), didiamkan saja agar ketikan manual user tidak hilang
+        }
+
+        // --- BAGIAN 2: UPDATE OTOMATIS DAFTAR TARUHAN YANG SUDAH MASUK LIST ---
+        let listNeedRefresh = false;
+        activeBets.forEach(bet => {
+            let liveListOdd = extractBod(bet, mg, homeName, awayName);
+            
+            // Jika market taruhan ini ada di JSON dan nilainya berubah, timpa datanya
+            if (liveListOdd && bet.odds !== parseFloat(liveListOdd)) {
+                bet.odds = parseFloat(liveListOdd);
+                listNeedRefresh = true;
+            }
+            // Jika pasaran di JSON hilang/lock (null), taruhan manual/lama di list tetap aman & tidak berubah
+        });
+
+        // Refresh tampilan tabel simulasi dan list UI jika ada odds di list yang berubah
+        if (listNeedRefresh) {
+            saveToLocalStorage();
+            updateBetListUI();
+            calculateProbabilities();
+        }
+    }
 function showDetailPopup(element) {
     const skor = element.getAttribute('data-skor');
     const detail = element.getAttribute('data-detail');
@@ -242,6 +485,7 @@ function renderChart(winPerc, lossPerc, drawPerc) {
 
     function saveToLocalStorage() {
         localStorage.setItem('activeBets', JSON.stringify(activeBets));
+        localStorage.setItem('matchId',document.getElementById('matchIdInput').value);
     }
 
     function updateMaxGoalSettings() {
