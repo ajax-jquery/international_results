@@ -9,7 +9,17 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!-- Library untuk Popup Detail (Mobile Friendly) -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+<script>
+const SB_FB ={
+"fbInfo":{
+"baseUrl":"https://api.717202.com",
+"virtualUrl":"https://v.api.mix6000.com",
+"token":"tt_Yb1hC3qtnWcu2ybHUITsbrWBLhV81ALE.827409bee7b7b1e6942eff1f1cfae5ce",
+"baseUrls":["https://api.717202.com","https://api.q28i38.com"],
+"virtualUrls":["https://v.api.mix6000.com"]
+}
+}
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalkulator Probabilitas Taruhan Bola - Pro Edition</title>
@@ -196,7 +206,7 @@
 // Fungsi untuk memunculkan detail saat baris tabel di-tap (Mobile/Desktop)
   let apiInterval = null;
     let matchDataGlobal = null;
-let TOKEN ="tt_OHTnCBwsnugPUxe7Gtr7a7yJULkIyTP8.da14f3b5122c35ba4ada72e5cdda7ac7"
+let TOKEN = SB_FB?.fbInfo?.token || "";
     function toggleApi() {
         const btn = document.getElementById('btnApiToggle');
         if (apiInterval) {
