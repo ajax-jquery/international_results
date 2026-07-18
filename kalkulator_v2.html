@@ -263,6 +263,11 @@ let TOKEN = SB_FB?.fbInfo?.token || "";
     }
 // Fungsi Pembantu untuk mencari key 'bod' di dalam JSON pasaran
     function extractBod(bet, mg, homeName, awayName) {
+  function fixbod(bod) {
+  let KURANGI = TOKEN? 0 : 1;
+   return Number((bod - KURANGI).toFixed(2));
+      }
+      
         const findMarket = (name) => mg.find(m => m.nm === name);
         try {
             if (bet.type === 'tebak_score') {
@@ -271,7 +276,11 @@ let TOKEN = SB_FB?.fbInfo?.token || "";
                     let target = `${bet.home}-${bet.away}`;
                     for (let mk of m.mks) {
                         let op = mk.op.find(o => o.na === target);
-                        if (op) return op.bod; // Menggunakan key bod
+  if (op && op.bod >= 1 && !TOKEN) {
+    return fixbod(op.bod);
+}else if(op){
+return op.bod
+}; // Menggunakan key bod
                     }
                 }
             } 
@@ -280,7 +289,11 @@ let TOKEN = SB_FB?.fbInfo?.token || "";
                 if (m && bet.selection) {
                     for (let mk of m.mks) {
                         let op = mk.op.find(o => o.na.toLowerCase() === bet.selection.toLowerCase());
-                        if (op) return op.bod;
+                        if (op && op.bod >= 1 && !TOKEN) {
+    return fixbod(op.bod);
+}else if(op){
+return op.bod
+}
                     }
                 }
             } 
@@ -326,7 +339,11 @@ let TOKEN = SB_FB?.fbInfo?.token || "";
                     let searchStr = bet.selection === 'draw' ? "Seri" : `${bet.selection === 'home' ? homeName : awayName} - Menang Dengan ${val >= 3 ? '3+ Gol' : val + ' Gol'}`;
                     for (let mk of m.mks) {
                         let op = mk.op.find(o => o.na === searchStr);
-                        if (op) return op.bod;
+                        if (op && op.bod >= 1 && !TOKEN) {
+    return fixbod(op.bod);
+}else if(op){
+return op.bod
+};
                     }
                 }
             }
@@ -335,7 +352,11 @@ let TOKEN = SB_FB?.fbInfo?.token || "";
                 if (m && bet.selection) {
                     let ty = bet.selection === 'home' ? 1 : (bet.selection === 'away' ? 2 : 3);
                     let op = m.mks[0]?.op.find(o => o.ty === ty);
-                    if (op) return op.bod;
+                    if (op && op.bod >= 1 && !TOKEN) {
+    return fixbod(op.bod);
+}else if(op){
+return op.bod
+};
                 }
             }
             else if (bet.type === 'dc') {
@@ -343,7 +364,11 @@ let TOKEN = SB_FB?.fbInfo?.token || "";
                 if (m && bet.selection) {
                     let ty = bet.selection === '1x' ? 50 : (bet.selection === '12' ? 51 : 52);
                     let op = m.mks[0]?.op.find(o => o.ty === ty);
-                    if (op) return op.bod;
+                    if (op && op.bod >= 1 && !TOKEN) {
+    return fixbod(op.bod);
+}else if(op){
+return op.bod
+};
                 }
             }
             else if (bet.type === 'dnb') {
@@ -359,7 +384,11 @@ let TOKEN = SB_FB?.fbInfo?.token || "";
                 if (m && bet.value !== undefined && bet.value !== "") {
                     for (let mk of m.mks) {
                         let op = mk.op.find(o => o.na === bet.value.toString().trim());
-                        if (op) return op.bod;
+                        if (op && op.bod >= 1 && !TOKEN) {
+    return fixbod(op.bod);
+}else if(op){
+return op.bod
+};
                     }
                 }
             }
@@ -368,7 +397,11 @@ let TOKEN = SB_FB?.fbInfo?.token || "";
                 if (m && bet.value !== undefined && bet.value !== "") {
                     for (let mk of m.mks) {
                         let op = mk.op.find(o => o.na === bet.value.toString().trim());
-                        if (op) return op.bod;
+                        if (op && op.bod >= 1 && !TOKEN) {
+    return fixbod(op.bod);
+}else if(op){
+return op.bod
+};
                     }
                 }
             }
