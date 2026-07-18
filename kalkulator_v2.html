@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -488,11 +489,14 @@ return op.bod
         // --- BAGIAN 2: UPDATE OTOMATIS DAFTAR TARUHAN YANG SUDAH MASUK LIST ---
         let listNeedRefresh = false;
         
-        // Tambahkan parameter index (bet, index) untuk menargetkan elemen HTML secara spesifik
         activeBets.forEach((bet, index) => {
+            // ---> TAMBAHKAN BARIS INI: Lewati jika fitur Live Update dimatikan
+            if (bet.isLiveUpdate === false) return; 
+            
             let liveListOdd = extractBod(bet, mg, homeName, awayName);
             
             if (liveListOdd && bet.odds !== parseFloat(liveListOdd)) {
+                // ... (sisa kode di bawahnya tetap sama)
                 let newVal = parseFloat(liveListOdd);
                 
                 // Cek arah pergerakan (Turun = Hijau, Naik = Merah)
@@ -739,14 +743,25 @@ function renderChart(winPerc, lossPerc, drawPerc) {
 
         container.innerHTML = html;
     }
-
+// --- FUNGSI BARU UNTUK MENGATUR LIVE UPDATE ---
+function toggleLiveUpdate(index) {
+    // Jika data lama belum ada properti ini, anggap default-nya true
+    if (activeBets[index].isLiveUpdate === undefined) {
+        activeBets[index].isLiveUpdate = true;
+    }
+    // Balikkan nilainya (Aktif jadi Mati, Mati jadi Aktif)
+    activeBets[index].isLiveUpdate = !activeBets[index].isLiveUpdate;
+    saveToLocalStorage();
+    updateBetListUI();
+}
     document.getElementById('betForm').addEventListener('submit', function(e) {
         e.preventDefault();
         const type = document.getElementById('betType').value;
         const odds = parseFloat(document.getElementById('betOdds').value);
         const modal = parseFloat(document.getElementById('betModal').value) * 1000;
 
-        let betDetail = { type, odds, modal, isActive: true };
+        // Tambahkan isLiveUpdate: true sebagai default
+let betDetail = { type, odds, modal, isActive: true, isLiveUpdate: true };
         let label = '';
 
         if (type === 'tebak_score') {
@@ -909,21 +924,33 @@ if (confirm("Ingin menghapus semua?")){
         activeBets.forEach((bet, index) => {
             let textStyle = bet.isActive ? '' : 'text-decoration-line-through text-muted';
             let bgStyle = bet.isActive ? '' : 'bg-light';
+            
+            // Cek apakah live update aktif (default true jika belum diset)
+            let isLive = bet.isLiveUpdate !== false;
 
             list.innerHTML += `
                 <li class="list-group-item d-flex justify-content-between align-items-center ${bgStyle} p-2">
                     <div class="d-flex align-items-center">
-                        <input class="form-check-input me-2" type="checkbox" ${bet.isActive ? 'checked' : ''} onchange="toggleBet(${index})">
+                        <input class="form-check-input me-2" type="checkbox" title="Aktifkan/Matikan Kalkulasi" ${bet.isActive ? 'checked' : ''} onchange="toggleBet(${index})">
                         <div class="${textStyle}" style="font-size: 0.85rem;">
                             <strong>${bet.label}</strong><br>
                             <small class="text-secondary">Odds: <span id="listOdds-${index}" class="px-1 rounded" style="transition: all 0.3s ease;">${bet.odds}</span> | M: ${formatRp(bet.modal)}</small>
                         </div>
                     </div>
-                <div>
-    <button class="btn btn-sm btn-link text-primary text-decoration-none p-0 me-3" title="Edit" onclick="editBet(${index})">✎</button>
-    <button class="btn btn-sm btn-link text-danger text-decoration-none p-0" title="Hapus" onclick="deleteBet(${index})">✕</button>
-</div>
-
+                    
+                    <!-- BAGIAN KANAN: Switch Live, Tombol Edit & Hapus -->
+                    <div class="d-flex align-items-center">
+                        <div class="d-flex flex-column align-items-center me-3" title="Aktifkan/Matikan Auto Update Odds API">
+                            <div class="form-check form-switch m-0 p-0 d-flex justify-content-center">
+                                <input class="form-check-input m-0" type="checkbox" style="cursor:pointer;" ${isLive ? 'checked' : ''} onchange="toggleLiveUpdate(${index})">
+                            </div>
+                            <small class="${isLive ? 'text-success' : 'text-danger'}" style="font-size: 0.6rem; font-weight: bold; margin-top:2px;">
+                                ${isLive ? 'LIVE' : 'LOCK'}
+                            </small>
+                        </div>
+                        <button class="btn btn-sm btn-link text-primary text-decoration-none p-0 me-3" title="Edit Odds/Modal" onclick="editBet(${index})">✎</button>
+                        <button class="btn btn-sm btn-link text-danger text-decoration-none p-0" title="Hapus Taruhan" onclick="deleteBet(${index})">✕</button>
+                    </div>
                 </li>`;
         });
     }
