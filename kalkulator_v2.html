@@ -15,7 +15,7 @@ const SB_FB ={
 "fbInfo":{
 "baseUrl":"https://api.717202.com",
 "virtualUrl":"https://v.api.mix6000.com",
-"token":"tt_AEsc1dE9X5HybieemHDV2rZAZjV4EuGw.eb4fc05efa09debbe43421ec91fbecf9",
+"token":"tt_Yb1hC3qtnWcu2ybHUITsbrWBLhV81ALE.827409bee7b7b1e6942eff1f1cfae5ce",
 "baseUrls":["https://api.717202.com","https://api.q28i38.com"],
 "virtualUrls":["https://v.api.mix6000.com"]
 }
@@ -1004,27 +1004,35 @@ if (confirm("Ingin menghapus semua?")){
             return 0;
                 } 
         else if (bet.type === 'exact_goal' || bet.type === 'total_goal') {
-            // Modifikasi bagian ini agar menyesuaikan target exact goal
-            let total = h + a;
+            // 1. Tentukan total gol siapa yang mau dihitung
+            let total = h + a; 
             if (bet.type === 'exact_goal' && bet.target) {
+                // JIKA target home, hitung gol home (h) saja.
+                // JIKA target away, hitung gol away (a) saja.
+                // JIKA match, gabungkan (h + a).
                 total = bet.target === 'home' ? h : (bet.target === 'away' ? a : (h + a));
             }
             
             let val = bet.value.toString();
             let isWin = false;
             
+            // 2. Evaluasi apakah tebakan sesuai dengan hasil
             if (val.includes('+')) {
+                // Cek jika tebakan seperti "3+" atau "6+"
                 let minVal = parseInt(val.replace('+', ''));
                 if (total >= minVal) isWin = true;
             } else if (val.includes('-')) {
+                // Cek jika tebakan berupa rentang (biasanya untuk Total Goal)
                 let parts = val.split('-');
                 let minVal = parseInt(parts[0]);
                 let maxVal = parseInt(parts[1]);
                 if (total >= minVal && total <= maxVal) isWin = true;
             } else {
+                // Cek jika tebakan angka pasti (misal: "0", "1", "2")
                 if (total === parseInt(val)) isWin = true;
             }
             
+            // 3. Kembalikan hasil taruhan (Modal + Profit) atau 0 (Hangus)
             return isWin ? (m + (m * o)) : 0;
         }
 
