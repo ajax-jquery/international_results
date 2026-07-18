@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -14,7 +15,7 @@ const SB_FB ={
 "fbInfo":{
 "baseUrl":"https://api.717202.com",
 "virtualUrl":"https://v.api.mix6000.com",
-"token":"tt_Yb1hC3qtnWcu2ybHUITsbrWBLhV81ALE.827409bee7b7b1e6942eff1f1cfae5ce",
+"token":"tt_AEsc1dE9X5HybieemHDV2rZAZjV4EuGw.eb4fc05efa09debbe43421ec91fbecf9",
 "baseUrls":["https://api.717202.com","https://api.q28i38.com"],
 "virtualUrls":["https://v.api.mix6000.com"]
 }
@@ -380,15 +381,25 @@ return op.bod
                 }
             }
             else if (bet.type === 'exact_goal') {
-                let m = findMarket("Exact Goals");
+                let m;
+                // Logika pencarian dinamis menyesuaikan target
+                if (bet.target === 'home') {
+                    // Gunakan includes() agar kebal terhadap spasi ganda dari API
+                    m = mg.find(market => market.nm.includes(homeName) && market.nm.includes("Exact Goals"));
+                } else if (bet.target === 'away') {
+                    m = mg.find(market => market.nm.includes(awayName) && market.nm.includes("Exact Goals"));
+                } else {
+                    m = findMarket("Exact Goals"); // Target 'match'
+                }
+
                 if (m && bet.value !== undefined && bet.value !== "") {
                     for (let mk of m.mks) {
                         let op = mk.op.find(o => o.na === bet.value.toString().trim());
                         if (op && op.bod >= 1 && !TOKEN) {
-    return fixbod(op.bod);
-}else if(op){
-return op.bod
-};
+                            return fixbod(op.bod);
+                        } else if(op) {
+                            return op.bod;
+                        }
                     }
                 }
             }
@@ -448,6 +459,7 @@ return op.bod
             } else if (type === 'dnb') {
                 formBet.selection = document.getElementById('dnbSelection')?.value;
             } else if (type === 'exact_goal') {
+                formBet.target = document.getElementById('exactGoalTarget')?.value; // Tambahkan baris ini
                 formBet.value = document.getElementById('exactGoalValue')?.value;
             } else if (type === 'total_goal') {
                 formBet.value = document.getElementById('totalGoalValue')?.value;
