@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -601,7 +599,8 @@ function renderChart(winPerc, lossPerc, drawPerc) {
                     </div>
                 </div>`;
 
-        } else if (type === 'hdp') {
+        } 
+        else if (type === 'hdp') {
             html = `
                 <div class="row g-2">
                     <div class="col-6">
@@ -616,7 +615,8 @@ function renderChart(winPerc, lossPerc, drawPerc) {
                         <input type="text" id="hdpValue" class="form-control form-control-sm" placeholder="Contoh: -0.75" required>
                     </div>
                 </div>`;
-        } else if (type === 'margin') {
+        } 
+        else if (type === 'margin') {
             html = `
                 <div class="row g-2">
                     <div class="col-7">
@@ -629,10 +629,13 @@ function renderChart(winPerc, lossPerc, drawPerc) {
                     </div>
                     <div class="col-5">
                         <label class="form-label small fw-bold">Selisih Gol</label>
-                        <input type="number" id="marginValue" class="form-control form-control-sm" value="1" min="0" required>
+                        <!-- Ubah type menjadi text agar bisa input '3+' -->
+                        <input type="text" id="marginValue" class="form-control form-control-sm" placeholder="Cth: 1, 2, 3+" required>
                     </div>
                 </div>`;
-        } else if (type === '1x2') {
+        
+        }  
+        else if (type === '1x2') {
             html = `
                 <label class="form-label small fw-bold">Pilih Hasil 1X2</label>
                 <select id="1x2Selection" class="form-select form-select-sm" required>
@@ -655,10 +658,23 @@ function renderChart(winPerc, lossPerc, drawPerc) {
                     <option value="home">Home Menang</option>
                     <option value="away">Away Menang</option>
                 </select>`;
-                } else if (type === 'exact_goal') {
+                } 
+        else if (type === 'exact_goal') {
             html = `
-                <label class="form-label small fw-bold">Exact Goal</label>
-                <input type="text" id="exactGoalValue" class="form-control form-control-sm" placeholder="0, 1, 2, atau 6+" required>`;
+                <div class="row g-2">
+                    <div class="col-6">
+                        <label class="form-label small fw-bold">Target Exact</label>
+                        <select id="exactGoalTarget" class="form-select form-select-sm" required>
+                            <option value="match">Match</option>
+                            <option value="home">Home</option>
+                            <option value="away">Away</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label small fw-bold">Exact Goal</label>
+                        <input type="text" id="exactGoalValue" class="form-control form-control-sm" placeholder="0, 1, atau 6+" required>
+                    </div>
+                </div>`;
         } else if (type === 'total_goal') {
             html = `
                 <label class="form-label small fw-bold">Total Goal</label>
@@ -700,11 +716,16 @@ function renderChart(winPerc, lossPerc, drawPerc) {
             betDetail.selection = document.getElementById('hdpSelection').value;
             betDetail.hdp = parseAsianLine(rawInput);
             label = `HDP: ${betDetail.selection.toUpperCase()} ${rawInput}`;
-        } else if (type === 'margin') {
+        } 
+        else if (type === 'margin') {
             betDetail.selection = document.getElementById('marginSelection').value;
-            betDetail.margin = parseInt(document.getElementById('marginValue').value);
+            // Hapus parseInt agar nilai teks seperti '3+' bisa masuk
+            betDetail.margin = document.getElementById('marginValue').value.trim();
             label = betDetail.selection === 'draw' ? `Margin: Seri` : `Margin: ${betDetail.selection.toUpperCase()} (+${betDetail.margin})`;
-        } else if (type === '1x2') {
+        // ... (blok 1x2, dc, dnb dll dibiarkan) ...
+        } 
+          
+        else if (type === '1x2') {
             betDetail.selection = document.getElementById('1x2Selection').value;
             let lbl = betDetail.selection === 'home' ? 'Home (1)' : (betDetail.selection === 'draw' ? 'Seri (X)' : 'Away (2)');
             label = `1X2: ${lbl}`;
@@ -720,9 +741,14 @@ function renderChart(winPerc, lossPerc, drawPerc) {
             betDetail.threshold = parseAsianLine(rawInput);
             let teamLabel = type === 'home_ou' ? 'Home' : 'Away';
             label = `${teamLabel} O/U: ${betDetail.selection.toUpperCase()} ${rawInput}`;
-        } else if (type === 'exact_goal') {
+        } 
+        else if (type === 'exact_goal') {
+            // Tangkap nilai target (match, home, away)
+            betDetail.target = document.getElementById('exactGoalTarget').value;
             betDetail.value = document.getElementById('exactGoalValue').value.trim();
-            label = `Exact Goal: ${betDetail.value}`;
+            
+            let targetLabel = betDetail.target === 'match' ? 'Match' : (betDetail.target === 'home' ? 'Home' : 'Away');
+            label = `Exact Goal ${targetLabel}: ${betDetail.value}`;
         } else if (type === 'total_goal') {
             betDetail.value = document.getElementById('totalGoalValue').value.trim();
             label = `Total Goal: ${betDetail.value}`;
@@ -861,11 +887,22 @@ if (confirm("Ingin menghapus semua?")){
         } 
         else if (bet.type === 'margin') {
             let diff = h - a;
-            if (bet.selection === 'home' && diff === bet.margin) return (m + (m * o));
-            if (bet.selection === 'away' && -diff === bet.margin) return (m + (m * o));
+            // Jika seri
             if (bet.selection === 'draw' && diff === 0) return (m + (m * o));
+            
+            // Cek margin tim
+            let targetDiff = bet.selection === 'home' ? diff : -diff;
+            let val = bet.margin.toString();
+            
+            if (val.includes('+')) {
+                let minVal = parseInt(val.replace('+', ''));
+                if (targetDiff >= minVal) return (m + (m * o));
+            } else {
+                if (targetDiff === parseInt(val)) return (m + (m * o));
+            }
             return 0;
-                } else if (bet.type === 'ou') {
+        } 
+        else if (bet.type === 'ou') {
             // Tentukan gol yang dihitung berdasarkan target yang dipilih
             let total = bet.target === 'home' ? h : (bet.target === 'away' ? a : (h + a));
             
@@ -910,12 +947,17 @@ if (confirm("Ingin menghapus semua?")){
                 if (h === a) return m; 
             }
             return 0;
-                } else if (bet.type === 'exact_goal' || bet.type === 'total_goal') {
+                } 
+        else if (bet.type === 'exact_goal' || bet.type === 'total_goal') {
+            // Modifikasi bagian ini agar menyesuaikan target exact goal
             let total = h + a;
+            if (bet.type === 'exact_goal' && bet.target) {
+                total = bet.target === 'home' ? h : (bet.target === 'away' ? a : (h + a));
+            }
+            
             let val = bet.value.toString();
             let isWin = false;
             
-            // Logika pembacaan manual input (mendukung format "6+", "0-1", atau "3")
             if (val.includes('+')) {
                 let minVal = parseInt(val.replace('+', ''));
                 if (total >= minVal) isWin = true;
