@@ -254,7 +254,7 @@ let TOKEN = SB_FB?.fbInfo?.token || "";
           }
             if (result && result.success && result.data) {
                 matchDataGlobal = result.data;
-                document.getElementById('apiStatus').innerHTML = '🟢 Live (Update 1s)';
+                if (apiInterval)document.getElementById('apiStatus').innerHTML = '🟢 Live (Update 1s)';
                 updateOdds(); // Coba isi otomatis odds setiap ada data baru
             }
         } catch (error) {
