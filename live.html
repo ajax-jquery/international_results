@@ -122,7 +122,7 @@
     let categories = [];
     let currentTab = Number(localStorage.getItem("currentTab")) || 0;
     let timerInterval;
-    let pollInterval;
+    let pollInterval,INTERVAL=null;
     let liveSeconds = 0;
     
     // Variabel untuk menyimpan status Wake Lock
@@ -200,7 +200,6 @@
         
         currentMatchId = null;
         matchIdInput.disabled = false;
-        matchIdInput.value = '';
         startBtn.classList.remove('d-none');
         resetBtn.classList.add('d-none');
         matchContainer.style.display = 'none';
@@ -216,7 +215,7 @@
             const json = await res.json();
             
             // Show container if hidden
-            if (matchContainer.style.display === 'none') {
+            if (matchContainer.style.display === 'none' && INTERVAL) {
                 matchContainer.style.display = 'flex';
             }
 
@@ -228,6 +227,7 @@
                 renderTabs();
                 renderCategory(currentTab >= categories.length ? 0 : currentTab);
             }
+           if(INTERVAL)setTimeout(load,500);
         } catch(e) {
             console.error(e);
             errorMsg.classList.remove('d-none');
@@ -238,14 +238,18 @@
             resetBtn.classList.add('d-none');
         }
     }
-
+function name(params) {
+  
+}
     function startTracking() {
         load(); // Initial load
-        pollInterval = setInterval(load, 3000); 
+        pollInterval = setInterval(name, 1000);
+        INTERVAL=true;
     }
 
     function stopTracking() {
         clearInterval(pollInterval);
+        INTERVAL=null;
         clearInterval(timerInterval);
     }
 
