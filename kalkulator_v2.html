@@ -439,8 +439,12 @@ return op.bod
       
       // ---> TAMBAHKAN 3 BARIS INI UNTUK UPDATE JUDUL MATCH <---
         const matchNameStr = `${homeName} vs ${awayName}`;
-        document.getElementById('matchTitleUI').innerText = matchNameStr;
+const teks = document.getElementById('matchTitleUI').innerText;
+
+ if(teks !== matchNameStr){       
+document.getElementById('matchTitleUI').innerText = matchNameStr;
         localStorage.setItem('savedMatchName', matchNameStr);
+}
 
         // --- BAGIAN 1: UPDATE KOLOM INPUT FORM ---
         const type = document.getElementById('betType').value;
