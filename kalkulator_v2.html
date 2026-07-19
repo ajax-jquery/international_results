@@ -129,9 +129,13 @@ const SB_FB ={
 
         <!-- KOLOM KANAN: TABEL HASIL PROBABILITAS -->
         <div class="col-lg-8">
+            <!-- TAMBAHAN: JUDUL PERTANDINGAN -->
+            <h4 id="matchTitleUI" class="text-center fw-bold text-primary mb-3">Menunggu Pertandingan...</h4>
+            
             <div class="card">
                 <div class="card-header bg-success text-white d-flex justify-content-between align-items-center flex-wrap gap-2">
                     <h5 class="mb-0 fs-6">Simulasi Hasil Skenario Gol</h5>
+                  
                     <div id="probabilityContainer" style="display: none;">
                         <span class="badge bg-light text-success prob-badge ms-1" id="badgeWin">Untung: 0%</span>
                         <span class="badge bg-warning text-dark prob-badge ms-1" id="badgeDraw">Seri: 0%</span>
@@ -431,6 +435,11 @@ return op.bod
         const ts = matchDataGlobal.ts; 
         const homeName = ts[0].na; 
         const awayName = ts[1].na; 
+      
+      // ---> TAMBAHKAN 3 BARIS INI UNTUK UPDATE JUDUL MATCH <---
+        const matchNameStr = `${homeName} vs ${awayName}`;
+        document.getElementById('matchTitleUI').innerText = matchNameStr;
+        localStorage.setItem('savedMatchName', matchNameStr);
 
         // --- BAGIAN 1: UPDATE KOLOM INPUT FORM ---
         const type = document.getElementById('betType').value;
@@ -581,6 +590,10 @@ function renderChart(winPerc, lossPerc, drawPerc) {
 
     document.addEventListener("DOMContentLoaded", function() {
         document.getElementById('maxGoalInput').value = savedMaxGoal;
+      const savedMatch = localStorage.getItem('savedMatchName');
+        if (savedMatch) {
+            document.getElementById('matchTitleUI').innerText = savedMatch;
+        }
         updateBetListUI();
         calculateProbabilities();
     });
@@ -1251,6 +1264,15 @@ if (confirm("Ingin menghapus semua?")){
         { width: 18 }, { width: 15 }, { width: 15 }, { width: 15 }, { width: 15 }, { width: 22 }
     ];
 
+    // ---> TAMBAHKAN BLOK KODE INI UNTUK JUDUL MATCH DI EXCEL <---
+    const matchNameText = localStorage.getItem('savedMatchName') || "Data Pertandingan Belum Tersedia";
+    const matchTitleRow = sheet.addRow([matchNameText, '', '', '', '', '']);
+    sheet.mergeCells(`A${matchTitleRow.number}:F${matchTitleRow.number}`);
+    matchTitleRow.getCell(1).font = { bold: true, size: 16, color: { argb: 'FF000000' } };
+    matchTitleRow.getCell(1).alignment = { horizontal: 'center' };
+    sheet.addRow([]); // Tambahkan baris kosong agar ada jarak
+      
+
     // --- TABEL 1: DAFTAR TARUHAN AKTIF ---
     const title1 = sheet.addRow(['DAFTAR TARUHAN AKTIF', '', '', '', '', '']);
     sheet.mergeCells(`A${title1.number}:F${title1.number}`);
@@ -1404,7 +1426,7 @@ if (confirm("Ingin menghapus semua?")){
             const imgHeight = canvas.height;
             const ratio = imgWidth / imgHeight; // Dapatkan rasio asli canvas
             
-            const targetHeight = 250; // Tinggi gambar di Excel
+            const targetHeight = 150; // Tinggi gambar di Excel
             const targetWidth = targetHeight * ratio; // Lebar menyesuaikan rasio otomatis
             
             // 4. Masukkan gambar ke dalam sheet menggunakan ukuran yang proporsional
