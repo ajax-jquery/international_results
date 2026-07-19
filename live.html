@@ -302,7 +302,7 @@ function name(params) {
     function updateClock() {
         const m = Math.floor(liveSeconds / 60);
         const s = liveSeconds % 60;
-         document.getElementById('liveTime').textContent = `${m}:${String(s).padStart(2, "0")}'`;
+         if (m && s)document.getElementById('liveTime').textContent = `${m}:${String(s).padStart(2, "0")}'`;
     }
 
     function renderTabs() {
