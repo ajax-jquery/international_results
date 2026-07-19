@@ -28,7 +28,7 @@
         .live-badge {
             font-weight: bold;
             color: #fff;
-            background-color: #dc3545;
+            background-color: #049800;
             padding: 4px 12px;
             border-radius: 20px;
             display: inline-block;
@@ -284,17 +284,25 @@ function name(params) {
         clearInterval(timerInterval);
         const p = serverTime.split(":");
         liveSeconds = (Number(p[0]) * 60) + Number(p[1]);
-        updateClock();
+        if(liveSeconds){
+          updateClock();
+        }else{
+           document.getElementById('liveTime').textContent =serverTime
+        }
         timerInterval = setInterval(() => {
             liveSeconds++;
-            updateClock();
+            if(liveSeconds){
+          updateClock();
+        }else{
+           document.getElementById('liveTime').textContent =serverTime
+        }
         }, 1000);
     }
 
     function updateClock() {
         const m = Math.floor(liveSeconds / 60);
         const s = liveSeconds % 60;
-        document.getElementById('liveTime').textContent = `${m}:${String(s).padStart(2, "0")}'`;
+         document.getElementById('liveTime').textContent = `${m}:${String(s).padStart(2, "0")}'`;
     }
 
     function renderTabs() {
