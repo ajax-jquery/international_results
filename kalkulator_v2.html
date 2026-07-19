@@ -264,7 +264,8 @@ let TOKEN = SB_FB?.fbInfo?.token || "";
         } catch (error) {
             console.error("Gagal mengambil data dari API", error);
           alert("URL atau MATCH tidak ada");
-            document.getElementById('apiStatus').innerHTML = '🔴 Error / Terputus';
+           toggleApi(); document.getElementById('apiStatus').innerHTML = '🔴 Error / Terputus';
+
         }
     }
 // Fungsi Pembantu untuk mencari key 'bod' di dalam JSON pasaran
