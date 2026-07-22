@@ -173,7 +173,8 @@
     // Handle Start Button
     setupForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        const id = matchIdInput.value.trim().split("#")[1];
+        const idd = matchIdInput.value.trim().split("#")[1];
+const id = idd.split(":")[0];
         if (!id) return;
 
         currentMatchId = id;
