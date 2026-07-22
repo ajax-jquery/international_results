@@ -122,8 +122,12 @@
     let categories = [];
     let currentTab = Number(localStorage.getItem("currentTab")) || 0;
     let timerInterval;
-    let pollInterval,INTERVAL=null;
+    let pollInterval, INTERVAL=null;
     let liveSeconds = 0;
+    
+    let basePeriod = 0; 
+    let addedTime = 0; // Variabel baru untuk menyimpan total injury time
+
     
     // Variabel untuk menyimpan status Wake Lock
     let wakeLock = null;
@@ -273,7 +277,9 @@ function name(params) {
         document.getElementById('score').textContent = json.header.status.scoreStr || '-';
         
         if(json.header.status.liveTime?.long) {
-            startClock(json.header.status.liveTime.long);
+// Ambil patokan waktu normal dan total injury time dari API
+            basePeriod = json.header.status.liveTime.basePeriod || 0;
+            addedTime = json.header.status.liveTime.addedTime || 0;             startClock(json.header.status.liveTime.long);
         } else {
             document.getElementById('liveTime').textContent = json.header.status.started ? "Finished" : "Not Started";
             document.getElementById('liveTime').classList.remove('live-badge');
@@ -300,10 +306,23 @@ function name(params) {
         }, 1000);
     }
 
-    function updateClock() {
+        function updateClock() {
         const m = Math.floor(liveSeconds / 60);
         const s = liveSeconds % 60;
-         if (m && s)document.getElementById('liveTime').textContent = `${m}:${String(s).padStart(2, "0")}'`;
+        const secStr = String(s).padStart(2, "0");
+
+        if (basePeriod > 0 && m >= basePeriod) {
+            const extraM = m - basePeriod;
+            
+            // Format tulisan injury time (jika ada)
+            // Contoh output: 45:00 + 3:57 (+5')
+            const addedTimeLabel = addedTime > 0 ? ` (+${addedTime}')` : "";
+            
+            document.getElementById('liveTime').textContent = `${basePeriod}:00 + ${extraM}:${secStr}${addedTimeLabel}`;
+        } else {
+            // Jika pertandingan belum masuk injury time
+            document.getElementById('liveTime').textContent = `${m}:${secStr}`;
+        }
     }
 
     function renderTabs() {
@@ -375,3 +394,4 @@ function name(params) {
 </script>
 </body>
 </html>
+   
