@@ -233,7 +233,7 @@ let TOKEN = SB_FB?.fbInfo?.token || "";
     }
 
     async function fetchMatchData() {
-      const matchId = new URL(document.getElementById('matchIdInput').value).pathname.split("/").pop();
+      const matchId = new URL(document.getElementById('matchIdInput').value).pathname.split("/").pop().split("?")[0];
       
         if (!matchId) return;
 
