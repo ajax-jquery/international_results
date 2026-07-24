@@ -50030,8 +50030,8 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2026-07-18,France,England,4,6,FIFA World Cup,Miami Gardens,United States,TRUE
 2026-07-18,Vietnam,Myanmar,4,0,International Friendly,Thai Nguyen,Vietnam,FALSE
 2026-07-19,Spain,Argentina,1,0,FIFA World Cup,East Rutherford,United States,TRUE
-2026-07-24,Cambodia,Singapore,NA,NA,ASEAN Championship,Phnom Penh,Cambodia,FALSE
-2026-07-24,Timor-Leste,Vietnam,NA,NA,ASEAN Championship,Chonburi,Thailand,TRUE
+2026-07-24,Cambodia,Singapore,1,2,ASEAN Championship,Phnom Penh,Cambodia,FALSE
+2026-07-24,Timor-Leste,Vietnam,0,7,ASEAN Championship,Chonburi,Thailand,TRUE
 2026-07-25,Myanmar,Malaysia,NA,NA,ASEAN Championship,Yangon,Myanmar,FALSE
 2026-07-25,Laos,Thailand,NA,NA,ASEAN Championship,Vientiane,Laos,FALSE
 2026-07-27,Singapore,Timor-Leste,NA,NA,ASEAN Championship,Singapore,Singapore,FALSE
@@ -50292,6 +50292,8 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2028-06-20,4D,1D,NA,NA,UEFA Euro,,,FALSE
 2028-06-21,2E,3E,NA,NA,UEFA Euro,,,FALSE
 2028-06-21,4E,1E,NA,NA,UEFA Euro,,,FALSE
+2028-06-21,2F,3F,NA,NA,UEFA Euro,,,FALSE
+2028-06-21,4F,1F,NA,NA,UEFA Euro,,,FALSE
 2028-06-24,1A,2C,NA,NA,UEFA Euro,,,FALSE
 2028-06-24,2A,2B,NA,NA,UEFA Euro,,,FALSE
 2028-06-25,1B,3ADEF,NA,NA,UEFA Euro,,,FALSE
