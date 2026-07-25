@@ -177,7 +177,7 @@
 const IDURL = new URLSearchParams(location.search).get("url");
 if(IDURL){
 const a=IDURL.split("#")[1];
-const id = idd.split(":")[0];
+const id = a.split(":")[0];
 if(id){
 currentMatchId = id;
         
