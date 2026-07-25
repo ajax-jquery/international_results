@@ -174,7 +174,7 @@
     });
     // ----------------------------------------------
 
-const IDURL = new URLSearchParams(location.search).get("url");
+const IDURL = location.hash.slice(1).split(":")[0];
 if(IDURL){
 const a=IDURL.split("#")[1];
 const id = a?.split(":")[0];
