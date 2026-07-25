@@ -177,10 +177,7 @@
 const IDURL = location.hash.slice(1).split(":")[0];
 console.log(IDURL)
 if(IDURL){
-const a=IDURL.split("#")[1];
-const id = a?.split(":")[0];
-if(id){
-currentMatchId = id;
+currentMatchId = IDURL;
         
         // UI Changes
         matchIdInput.disabled = true;
@@ -193,7 +190,7 @@ currentMatchId = id;
 
         // Start Tracking
         startTracking();
-}
+
 }
     // Handle Start Button
     setupForm.addEventListener('submit', (e) => {
