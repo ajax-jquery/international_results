@@ -41975,6 +41975,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2018-10-12,Algeria,Benin,2,0,African Cup of Nations qualification,Blida,Algeria,FALSE
 2018-10-12,Guinea,Rwanda,2,0,African Cup of Nations qualification,Conakry,Guinea,FALSE
 2018-10-12,Egypt,Swaziland,4,1,Africa Cup of Nations Qualification,,,FALSE
+2018-10-12,Egypt,Sealand,4,1,Africa Cup of Nations Qualification,,,FALSE
 2018-10-13,Netherlands,Germany,3,0,UEFA Nations League,Amsterdam,Netherlands,FALSE
 2018-10-13,Slovakia,Czech Republic,1,2,UEFA Nations League,Trnava,Slovakia,FALSE
 2018-10-13,Republic of Ireland,Denmark,0,0,UEFA Nations League,Dublin,Republic of Ireland,FALSE
@@ -42929,6 +42930,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2019-09-05,Seychelles,Rwanda,0,3,FIFA World Cup qualification,Victoria,Seychelles,FALSE
 2019-09-05,Somalia,Zimbabwe,1,0,FIFA World Cup qualification,Djibouti,Djibouti,TRUE
 2019-09-05,U.S. Virgin Islands,Cayman Islands,0,2,CONCACAF Nations League,,,FALSE
+2019-09-05,British Virgin Islands,Cayman Islands,0,2,CONCACAF Nations League,,,FALSE
 2019-09-06,French Guiana,Belize,3,0,CONCACAF Nations League,Cayenne,French Guiana,FALSE
 2019-09-06,Guatemala,Anguilla,10,0,CONCACAF Nations League,Guatemala City,Guatemala,FALSE
 2019-09-06,Brazil,Colombia,2,2,Friendly,Miami Gardens,United States,TRUE
@@ -42988,6 +42990,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2019-09-08,Sierra Leone,Liberia,1,0,FIFA World Cup qualification,Freetown,Sierra Leone,FALSE
 2019-09-08,Tanzania,Burundi,1,1,FIFA World Cup qualification,Dar es Salaam,Tanzania,FALSE
 2019-09-08,Saint Martin,U.S. Virgin Islands,1,2,CONCACAF Nations League,,,FALSE
+2019-09-08,Saint Martin,British Virgin Islands,1,2,CONCACAF Nations League,,,FALSE
 2019-09-09,Panama,Bermuda,0,2,CONCACAF Nations League,Panama City,Panama,FALSE
 2019-09-09,Algeria,Benin,1,0,Friendly,Algiers,Algeria,FALSE
 2019-09-09,Iraq,Uzbekistan,0,0,Friendly,Amman,Jordan,TRUE
@@ -43172,6 +43175,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2019-10-13,Grenada,French Guiana,1,0,CONCACAF Nations League,Grenada,Grenada,FALSE
 2019-10-13,British Virgin Islands,Bonaire,3,4,CONCACAF Nations League,Basseterre,Saint Kitts and Nevis,TRUE
 2019-10-13,Barbados,U.S. Virgin Islands,1,0,CONCACAF Nations League,,,FALSE
+2019-10-13,Barbados,British Virgin Islands,1,0,CONCACAF Nations League,,,FALSE
 2019-10-14,Honduras,Martinique,1,0,CONCACAF Nations League,San Pedro Sula,Honduras,FALSE
 2019-10-14,Costa Rica,Curaçao,0,0,CONCACAF Nations League,San José,Costa Rica,FALSE
 2019-10-14,Kosovo,Montenegro,2,0,UEFA Euro qualification,Pristina,Kosovo,FALSE
@@ -43231,6 +43235,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2019-10-15,North Korea,South Korea,NA,NA,FIFA World Cup qualification,Pyongyang,North Korea,FALSE
 2019-10-15,Sri Lanka,Lebanon,0,3,FIFA World Cup qualification,Colombo,Sri Lanka,FALSE
 2019-10-15,U.S. Virgin Islands,Barbados,0,4,CONCACAF Nations League,,,FALSE
+2019-10-15,British Virgin Islands,Barbados,0,4,CONCACAF Nations League,,,FALSE
 2019-10-16,Mexico,Panama,3,1,CONCACAF Nations League,Mexico City,Mexico,FALSE
 2019-10-16,Anguilla,Puerto Rico,2,3,CONCACAF Nations League,The Valley,Anguilla,FALSE
 2019-10-19,West Papua,East Turkestan,2,8,Friendly,The Hague,Netherlands,TRUE
@@ -43357,6 +43362,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2019-11-17,Guadeloupe,Turks and Caicos Islands,10,0,CONCACAF Nations League,Les Abymes,Guadeloupe,FALSE
 2019-11-17,Lithuania,New Zealand,1,0,Friendly,Vilnius,Lithuania,FALSE
 2019-11-17,Cayman Islands,U.S. Virgin Islands,1,0,CONCACAF Nations League,,,FALSE
+2019-11-17,Cayman Islands,British Virgin Islands,1,0,CONCACAF Nations League,,,FALSE
 2019-11-18,Honduras,Trinidad and Tobago,4,0,CONCACAF Nations League,San Pedro Sula,Honduras,FALSE
 2019-11-18,Grenada,Belize,3,2,CONCACAF Nations League,St. George's,Grenada,FALSE
 2019-11-18,São Tomé and Príncipe,Ghana,0,1,African Cup of Nations qualification,São Tomé,São Tomé and Príncipe,FALSE
@@ -43425,6 +43431,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2019-11-20,Mexico,Bermuda,2,1,CONCACAF Nations League,Mexico City,Mexico,FALSE
 2019-11-20,Barbados,Cayman Islands,3,0,CONCACAF Nations League,Bridgetown,Barbados,FALSE
 2019-11-20,U.S. Virgin Islands,Saint Martin,1,2,CONCACAF Nations League,,,FALSE
+2019-11-20,British Virgin Islands,Saint Martin,1,2,CONCACAF Nations League,,,FALSE
 2019-11-21,Guatemala,Antigua and Barbuda,8,0,Friendly,Guatemala City,Guatemala,FALSE
 2019-11-26,Qatar,Iraq,1,2,Gulf Cup,Doha,Qatar,FALSE
 2019-11-26,United Arab Emirates,Yemen,3,0,Gulf Cup,Doha,Qatar,TRUE
@@ -43942,6 +43949,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2021-03-27,Lesotho,Sierra Leone,0,0,African Cup of Nations qualification,Maseru,Lesotho,FALSE
 2021-03-27,Benin,Nigeria,0,1,African Cup of Nations qualification,Porto-Novo,Benin,FALSE
 2021-03-27,U.S. Virgin Islands,Antigua and Barbuda,0,3,FIFA World Cup Qualification CONCACAF,Christiansted,,FALSE
+2021-03-27,British Virgin Islands,Antigua and Barbuda,0,3,FIFA World Cup Qualification CONCACAF,Christiansted,,FALSE
 2021-03-28,Aruba,Suriname,0,6,FIFA World Cup qualification,Bradenton,United States,TRUE
 2021-03-28,Greece,Honduras,2,1,Friendly,Thessaloniki,Greece,FALSE
 2021-03-28,Northern Ireland,United States,1,2,Friendly,Belfast,Northern Ireland,FALSE
@@ -44017,6 +44025,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2021-03-30,Nigeria,Lesotho,3,0,African Cup of Nations qualification,Lagos,Nigeria,FALSE
 2021-03-30,Mongolia,Japan,0,14,FIFA World Cup Qualification AFC,Chiba,Japan,FALSE
 2021-03-30,Grenada,U.S. Virgin Islands,1,0,FIFA World Cup Qualification CONCACAF,St. George's,,FALSE
+2021-03-30,Grenada,British Virgin Islands,1,0,FIFA World Cup Qualification CONCACAF,St. George's,,FALSE
 2021-03-31,Bermuda,Aruba,5,0,FIFA World Cup qualification,Bradenton,United States,TRUE
 2021-03-31,Sweden,Estonia,1,0,Friendly,Stockholm,Sweden,FALSE
 2021-03-31,Switzerland,Finland,3,2,Friendly,St. Gallen,Switzerland,FALSE
@@ -44078,6 +44087,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2021-06-02,Puerto Rico,Bahamas,7,0,FIFA World Cup qualification,Mayagüez,Puerto Rico,FALSE
 2021-06-02,Saint Lucia,Turks and Caicos Islands,NA,NA,FIFA World Cup Qualification CONCACAF,,,FALSE
 2021-06-02,Montserrat,U.S. Virgin Islands,4,0,FIFA World Cup Qualification CONCACAF,San Cristóbal,Dominican Rep.,TRUE
+2021-06-02,Montserrat,British Virgin Islands,4,0,FIFA World Cup Qualification CONCACAF,San Cristóbal,Dominican Rep.,TRUE
 2021-06-03,Algeria,Mauritania,4,1,Friendly,Blida,Algeria,FALSE
 2021-06-03,Andorra,Republic of Ireland,1,4,Friendly,Andorra la Vella,Andorra,FALSE
 2021-06-03,Belgium,Greece,1,1,Friendly,Brussels,Belgium,FALSE
@@ -44140,6 +44150,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2021-06-05,Turks and Caicos Islands,Haiti,0,10,FIFA World Cup qualification,Providenciales,Turks and Caicos Islands,FALSE
 2021-06-05,Bahamas,Trinidad and Tobago,0,0,FIFA World Cup qualification,Nassau,Bahamas,FALSE
 2021-06-05,U.S. Virgin Islands,El Salvador,0,7,FIFA World Cup Qualification CONCACAF,Christiansted,,FALSE
+2021-06-05,British Virgin Islands,El Salvador,0,7,FIFA World Cup Qualification CONCACAF,Christiansted,,FALSE
 2021-06-06,Aruba,Canada,0,7,FIFA World Cup qualification,Bradenton,United States,TRUE
 2021-06-06,Algeria,Mali,1,0,Friendly,Blida,Algeria,FALSE
 2021-06-06,Austria,Slovakia,0,0,Friendly,Vienna,Austria,FALSE
@@ -44234,6 +44245,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2021-06-11,Indonesia,United Arab Emirates,0,5,FIFA World Cup Qualification AFC,Dubayy (Dubai),United Arab Emirates,FALSE
 2021-06-11,Singapore,Saudi Arabia,0,3,FIFA World Cup Qualification AFC,Ar-Riyāḍ (Riyadh),Saudi Arabia,FALSE
 2021-06-11,Türkiye,Italy,0,3,UEFA Euro,Roma,Italy,FALSE
+2021-06-11,Turkey,Italy,0,3,UEFA Euro,Roma,Italy,FALSE
 2021-06-12,Haiti,Canada,0,1,FIFA World Cup qualification,Port-au-Prince,Haiti,FALSE
 2021-06-12,Panama,Curaçao,2,1,FIFA World Cup qualification,Panama City,Panama,FALSE
 2021-06-12,Saint Kitts and Nevis,El Salvador,0,4,FIFA World Cup qualification,Basseterre,Saint Kitts and Nevis,FALSE
@@ -45400,6 +45412,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2022-06-03,Latvia,Andorra,3,0,UEFA Nations League,Riga,Latvia,FALSE
 2022-06-03,Nepal,Oman,0,2,Friendly,Doha,Qatar,TRUE
 2022-06-03,Sint Maarten,U.S. Virgin Islands,1,1,CONCACAF Nations League,,,FALSE
+2022-06-03,Sint Maarten,British Virgin Islands,1,1,CONCACAF Nations League,,,FALSE
 2022-06-04,Curaçao,Honduras,0,1,CONCACAF Nations League,Willemstad,Curaçao,FALSE
 2022-06-04,Nicaragua,Trinidad and Tobago,2,1,CONCACAF Nations League,Managua,Nicaragua,FALSE
 2022-06-04,Namibia,Burundi,1,1,African Cup of Nations qualification,Johannesburg,South Africa,TRUE
@@ -45466,6 +45479,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2022-06-06,Japan,Brazil,0,1,Friendly,Tokyo,Japan,FALSE
 2022-06-06,Israel,Russia,NA,NA,UEFA Nations League B,,,FALSE
 2022-06-06,U.S. Virgin Islands,Turks and Caicos Islands,3,2,CONCACAF Nations League,,,FALSE
+2022-06-06,British Virgin Islands,Turks and Caicos Islands,3,2,CONCACAF Nations League,,,FALSE
 2022-06-07,Honduras,Curaçao,1,2,CONCACAF Nations League,San Pedro Sula,Honduras,FALSE
 2022-06-07,Trinidad and Tobago,Bahamas,1,0,CONCACAF Nations League,Port of Spain,Trinidad and Tobago,FALSE
 2022-06-07,Eswatini,Burkina Faso,1,3,African Cup of Nations qualification,Johannesburg,South Africa,TRUE
@@ -45589,6 +45603,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2022-06-11,Nepal,Kuwait,1,4,AFC Asian Cup Qualification,Madīnat al-Kuwayt (Kuwait City),Kuwait,FALSE
 2022-06-11,Luxembourg,Türkiye,0,2,UEFA Nations League C,Lëtzebuerg (Luxembourg),Luxembourg,FALSE
 2022-06-11,U.S. Virgin Islands,Bonaire,0,2,CONCACAF Nations League,,,FALSE
+2022-06-11,British Virgin Islands,Bonaire,0,2,CONCACAF Nations League,,,FALSE
 2022-06-12,Mexico,Suriname,3,0,CONCACAF Nations League,Torreón,Mexico,FALSE
 2022-06-12,Martinique,Panama,0,0,CONCACAF Nations League,Fort-de-France,Martinique,FALSE
 2022-06-12,Cuba,Antigua and Barbuda,3,1,CONCACAF Nations League,Santiago de Cuba,Cuba,FALSE
@@ -45661,6 +45676,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2022-06-14,Türkiye,Lithuania,2,0,UEFA Nations League C,İzmir,Türkiye,FALSE
 2022-06-14,Bonaire,U.S. Virgin Islands,2,0,CONCACAF Nations League,Willemstad,,FALSE
 2022-06-14,Bermuda,Montserrat,3,0,CONCACAF Nations League,Hamilton,,FALSE
+2022-06-14,Bonaire,British Virgin Islands,2,0,CONCACAF Nations League,Willemstad,,FALSE
 2022-06-15,Jamaica,Mexico,1,1,CONCACAF Nations League,Kingston,Jamaica,FALSE
 2022-06-15,El Salvador,United States,1,1,CONCACAF Nations League,San Salvador,El Salvador,FALSE
 2022-06-17,Mapuche,Maule Sur,0,1,CONIFA South America Football Cup,Linares,Chile,TRUE
@@ -46206,6 +46222,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2023-03-25,Sint Maarten,Bonaire,6,1,CONCACAF Nations League,Saint Croix,United States Virgin Islands,TRUE
 2023-03-25,Turks and Caicos Islands,United States Virgin Islands,1,0,CONCACAF Nations League,Providenciales,Turks and Caicos Islands,FALSE
 2023-03-25,Turks and Caicos Islands,U.S. Virgin Islands,1,0,CONCACAF Nations League,Providenciales,Turks and Caicos Islands,FALSE
+2023-03-25,Turks and Caicos Islands,British Virgin Islands,1,0,CONCACAF Nations League,Providenciales,Turks and Caicos Islands,FALSE
 2023-03-26,Curaçao,Canada,0,2,CONCACAF Nations League,Willemstad,Curaçao,FALSE
 2023-03-26,Fiji,Solomon Islands,0,2,Friendly,Lautoka,Fiji,FALSE
 2023-03-26,Macau,Singapore,0,1,Friendly,Taipa,Macau,FALSE
@@ -46297,6 +46314,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2023-03-28,United States Virgin Islands,Sint Maarten,1,2,CONCACAF Nations League,Saint Croix,United States Virgin Islands,FALSE
 2023-03-28,Nigeria,Mauritius,NA,NA,Africa Cup of Nations Qualification,,,FALSE
 2023-03-28,U.S. Virgin Islands,Sint Maarten,1,2,CONCACAF Nations League,Christiansted,,FALSE
+2023-03-28,British Virgin Islands,Sint Maarten,1,2,CONCACAF Nations League,Christiansted,,FALSE
 2023-03-29,Costa Rica,Panama,0,1,CONCACAF Nations League,San José,Costa Rica,FALSE
 2023-03-29,Canada,Honduras,4,1,CONCACAF Nations League,Toronto,Canada,FALSE
 2023-03-29,Rwanda,Benin,0,3,African Cup of Nations qualification,Kigali,Rwanda,FALSE
@@ -46633,6 +46651,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2023-09-07,Iraq,India,2,2,King's Cup,Chiang Mai,Thailand,TRUE
 2023-09-07,Thailand,Lebanon,2,1,King's Cup,Chiang Mai,Thailand,FALSE
 2023-09-07,U.S. Virgin Islands,Cayman Islands,2,2,CONCACAF Nations League,Christiansted,,FALSE
+2023-09-07,British Virgin Islands,Cayman Islands,2,2,CONCACAF Nations League,Christiansted,,FALSE
 2023-09-08,Panama,Martinique,3,0,CONCACAF Nations League,Panama City,Panama,FALSE
 2023-09-08,Guatemala,El Salvador,2,0,CONCACAF Nations League,Guatemala City,Guatemala,FALSE
 2023-09-08,Argentina,Ecuador,1,0,FIFA World Cup qualification,Buenos Aires,Argentina,FALSE
@@ -46852,6 +46871,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2023-10-14,Papua New Guinea,Vanuatu,0,1,MSG Prime Minister's Cup,New Caledonia,New Caledonia,TRUE
 2023-10-14,New Caledonia,Solomon Islands,0,1,MSG Prime Minister's Cup,New Caledonia,New Caledonia,FALSE
 2023-10-14,Aruba,U.S. Virgin Islands,3,1,CONCACAF Nations League,Oranjestad,,FALSE
+2023-10-14,Aruba,British Virgin Islands,3,1,CONCACAF Nations League,Oranjestad,,FALSE
 2023-10-15,Guadeloupe,Saint Lucia,2,0,CONCACAF Nations League,Sainte-Anne,Guadeloupe,FALSE
 2023-10-15,Saint Kitts and Nevis,Sint Maarten,0,1,CONCACAF Nations League,Basseterre,Saint Kitts and Nevis,FALSE
 2023-10-15,Kyrgyzstan,Philippines,0,1,Friendly,Manama,Bahrain,TRUE
@@ -46935,6 +46955,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2023-10-17,Timor-Leste,Taiwan,0,3,FIFA World Cup Qualification AFC,Kaohsiung (Gaoxiong),Taiwan,FALSE
 2023-10-17,Macao,Myanmar,0,0,FIFA World Cup Qualification AFC,Taipa,Macau,TRUE
 2023-10-17,Cayman Islands,U.S. Virgin Islands,2,1,CONCACAF Nations League,George Town,,FALSE
+2023-10-17,Cayman Islands,British Virgin Islands,2,1,CONCACAF Nations League,George Town,,FALSE
 2023-10-18,El Salvador,Martinique,0,0,CONCACAF Nations League,San Salvador,El Salvador,FALSE
 2023-10-18,Panama,Guatemala,3,0,CONCACAF Nations League,Panama City,Panama,FALSE
 2023-10-18,Curaçao,Trinidad and Tobago,5,3,CONCACAF Nations League,Willemstad,Curaçao,FALSE
@@ -46993,6 +47014,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2023-11-16,Luxembourg,Bosnia and Herzegovina,4,1,UEFA Euro qualification,Luxembourg,Luxembourg,FALSE
 2023-11-16,Slovakia,Iceland,4,2,UEFA Euro qualification,Bratislava,Slovakia,FALSE
 2023-11-16,U.S. Virgin Islands,Aruba,1,4,CONCACAF Nations League,Christiansted,,FALSE
+2023-11-16,British Virgin Islands,Aruba,1,4,CONCACAF Nations League,Christiansted,,FALSE
 2023-11-17,Costa Rica,Panama,0,3,CONCACAF Nations League,San José,Costa Rica,FALSE
 2023-11-17,United States,Trinidad and Tobago,3,0,CONCACAF Nations League,Austin,United States,FALSE
 2023-11-17,Colombia,Brazil,2,1,FIFA World Cup qualification,Barranquilla,Colombia,FALSE
@@ -47390,6 +47412,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2024-03-22,Chad,Mauritius,1,0,African Cup of Nations qualification,Yaoundé,Cameroon,TRUE
 2024-03-22,São Tomé and Príncipe,South Sudan,1,1,African Cup of Nations qualification,Berkane,Morocco,TRUE
 2024-03-22,U.S. Virgin Islands,British Virgin Islands,1,1,FIFA World Cup Qualification CONCACAF,Christiansted,,FALSE
+2024-03-22,British Virgin Islands,British Virgin Islands,1,1,FIFA World Cup Qualification CONCACAF,Christiansted,,FALSE
 2024-03-23,Tunisia,Croatia,0,0,FIFA Series,Cairo,Egypt,TRUE
 2024-03-23,Canada,Trinidad and Tobago,2,0,Copa América qualification,Frisco,United States,TRUE
 2024-03-23,Costa Rica,Honduras,3,1,Copa América qualification,Frisco,United States,TRUE
@@ -47480,6 +47503,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2024-03-26,North Korea,Japan,0,3,FIFA World Cup Qualification AFC,P'yongyang (Pyongyang),North Korea,FALSE
 2024-03-26,Lebanon,Australia,0,5,FIFA World Cup Qualification AFC,Canberra,Australia,FALSE
 2024-03-26,British Virgin Islands,U.S. Virgin Islands,0,0,FIFA World Cup Qualification CONCACAF,Road Town,,FALSE
+2024-03-26,British Virgin Islands,British Virgin Islands,0,0,FIFA World Cup Qualification CONCACAF,Road Town,,FALSE
 2024-04-06,Northern Mariana Islands,Guam,2,2,Marianas Cup,Koblerville,Northern Mariana Islands,FALSE
 2024-04-07,Northern Mariana Islands,Guam,2,1,Marianas Cup,Koblerville,Northern Mariana Islands,FALSE
 2024-04-14,Trinidad and Tobago,Guyana,2,1,Friendly,Port of Spain,Trinidad and Tobago,FALSE
@@ -47803,6 +47827,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2024-09-04,Anguilla,Turks and Caicos Islands,2,0,CONCACAF Nations League,Providenciales,Turks and Caicos Islands,FALSE
 2024-09-04,U.S. Virgin Islands,Bahamas,3,3,CONCACAF Nations League,Christiansted,,FALSE
 2024-09-04,British Virgin Islands,Cayman Islands,0,1,CONCACAF Nations League,George Town,,FALSE
+2024-09-04,British Virgin Islands,Bahamas,3,3,CONCACAF Nations League,Christiansted,,FALSE
 2024-09-05,Hong Kong,Solomon Islands,3,0,Tri-Nations Series,Suva,Fiji,TRUE
 2024-09-05,Bhutan,Bangladesh,0,1,Friendly,Thimphu,Bhutan,FALSE
 2024-09-05,Vietnam,Russia,0,3,Friendly,Hanoi,Vietnam,FALSE
@@ -47992,6 +48017,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2024-09-10,Aruba,Puerto Rico,0,1,CONCACAF Nations League,Mayagüez,,FALSE
 2024-09-10,Macao,Brunei,0,1,AFC Asian Cup Qualification,Taipa,Macau,TRUE
 2024-09-10,Barbados,U.S. Virgin Islands,3,0,CONCACAF Nations League,Christiansted,,FALSE
+2024-09-10,Barbados,British Virgin Islands,3,0,CONCACAF Nations League,Christiansted,,FALSE
 2024-09-11,Honduras,Jamaica,1,2,CONCACAF Nations League,Tegucigalpa,Honduras,FALSE
 2024-09-11,Paraguay,Brazil,1,0,FIFA World Cup qualification,Asunción,Paraguay,FALSE
 2024-10-08,Brunei,Timor-Leste,0,1,ASEAN Championship qualification,Bandar Seri Begawan,Brunei,FALSE
@@ -48038,6 +48064,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2024-10-10,Anguilla,Belize,0,1,CONCACAF Nations League,Belmopán,Belize,FALSE
 2024-10-10,New Caledonia,Papua New Guinea,3,1,FIFA World Cup Qualification OFC,Suva,,FALSE
 2024-10-10,Solomon Islands,Fiji,0,1,FIFA World Cup Qualification OFC,Suva,,FALSE
+2024-10-10,British Virgin Islands,Barbados,0,5,CONCACAF Nations League,Bridgetown,Barbados,FALSE
 2024-10-11,Nicaragua,Jamaica,0,2,CONCACAF Nations League,Managua,Nicaragua,FALSE
 2024-10-11,Saint Vincent and the Grenadines,El Salvador,2,3,CONCACAF Nations League,Kingstown,Saint Vincent and the Grenadines,FALSE
 2024-10-11,Chile,Brazil,1,2,FIFA World Cup qualification,Santiago,Chile,FALSE
@@ -48111,6 +48138,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2024-10-13,Liechtenstein,Gibraltar,0,0,UEFA Nations League,Vaduz,Liechtenstein,FALSE
 2024-10-13,Malta,Moldova,1,0,UEFA Nations League,Ta' Qali,Malta,FALSE
 2024-10-13,Bahamas,U.S. Virgin Islands,3,1,CONCACAF Nations League,Bridgetown,Barbados,TRUE
+2024-10-13,Bahamas,British Virgin Islands,3,1,CONCACAF Nations League,Bridgetown,Barbados,TRUE
 2024-10-14,New Zealand,Malaysia,4,0,Friendly,Auckland,New Zealand,FALSE
 2024-10-14,Gambia,Madagascar,1,0,African Cup of Nations qualification,El Jadida,Morocco,TRUE
 2024-10-14,Liberia,Equatorial Guinea,1,2,African Cup of Nations qualification,Monrovia,Liberia,FALSE
@@ -49563,6 +49591,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2026-03-25,Eritrea,Eswatini,2,0,Africa Cup of Nations Qualification,,,FALSE
 2026-03-25,U.S. Virgin Islands,American Samoa,5,2,International Friendly,Bayamón,Puerto Rico,TRUE
 2026-03-25,DR Congo,Bermuda,2,0,International Friendly,,,FALSE
+2026-03-25,British Virgin Islands,American Samoa,5,2,International Friendly,Bayamón,Puerto Rico,TRUE
 2026-03-26,Puerto Rico,Guam,4,0,FIFA Series,Bayamón,Puerto Rico,FALSE
 2026-03-26,Brazil,France,1,2,Friendly,Foxborough,United States,TRUE
 2026-03-26,Colombia,Croatia,1,2,Friendly,Orlando,United States,TRUE
@@ -49663,6 +49692,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2026-03-29,South Sudan,Djibouti,0,1,Africa Cup of Nations Qualification,,,FALSE
 2026-03-29,Macao,Tanzania,0,6,International Friendly,Kigali,Rwanda,TRUE
 2026-03-29,Lesotho,Seychelles,2,1,Africa Cup of Nations Qualification,,,FALSE
+2026-03-29,British Virgin Islands,Puerto Rico,0,2,International Friendly,,,FALSE
 2026-03-30,Bonaire,Saint Martin,0,3,CONCACAF Series,Rincon,Bonaire,FALSE
 2026-03-30,Cayman Islands,Bahamas,1,0,CONCACAF Series,George Town,Cayman Islands,FALSE
 2026-03-30,Cyprus,Moldova,3,2,Friendly,Nicosia,Cyprus,FALSE
