@@ -50032,8 +50032,8 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2026-07-19,Spain,Argentina,1,0,FIFA World Cup,East Rutherford,United States,TRUE
 2026-07-24,Cambodia,Singapore,1,2,ASEAN Championship,Phnom Penh,Cambodia,FALSE
 2026-07-24,Timor-Leste,Vietnam,0,7,ASEAN Championship,Chonburi,Thailand,TRUE
-2026-07-25,Myanmar,Malaysia,NA,NA,ASEAN Championship,Yangon,Myanmar,FALSE
-2026-07-25,Laos,Thailand,NA,NA,ASEAN Championship,Vientiane,Laos,FALSE
+2026-07-25,Myanmar,Malaysia,1,2,ASEAN Championship,Yangon,Myanmar,FALSE
+2026-07-25,Laos,Thailand,0,5,ASEAN Championship,Vientiane,Laos,FALSE
 2026-07-27,Singapore,Timor-Leste,NA,NA,ASEAN Championship,Singapore,Singapore,FALSE
 2026-07-27,Indonesia,Cambodia,NA,NA,ASEAN Championship,Cibinong,Indonesia,FALSE
 2026-07-28,Philippines,Myanmar,NA,NA,ASEAN Championship,Capas,Philippines,FALSE
