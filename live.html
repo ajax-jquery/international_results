@@ -118,6 +118,50 @@
 </div>
 
 <script>
+const TRANSLASI ={
+  "Ball possession": "Penguasaan Bola",
+  "Expected goals (xG)": "Ekspektasi Gol (xG)",
+  "Total shots": "Total Tembakan",
+  "Shots on target": "Tembakan Tepat Sasaran",
+  "Shots off target": "Tembakan Melebar",
+  "Blocked shots": "Tembakan Terblokir",
+  "Hit woodwork": "Membentur Tiang/Mistar",
+  "Shots inside box": "Tembakan di Dalam Kotak Penalti",
+  "Shots outside box": "Tembakan di Luar Kotak Penalti",
+  "Touches in opposition box": "Sentuhan di Kotak Penalti Lawan",
+  "Big chances": "Peluang Emas",
+  "Big chances missed": "Peluang Emas Terlewatkan",
+  "Accurate passes": "Operan Akurat",
+  "Passes": "Total Operan",
+  "Own half": "Operan di Area Sendiri",
+  "Opposition half": "Operan di Area Lawan",
+  "Accurate long balls": "Umpan Panjang Akurat",
+  "Accurate crosses": "Umpan Silang Akurat",
+  "Throws": "Lemparan ke Dalam",
+  "Offsides": "Offside",
+  "Yellow cards": "Kartu Kuning",
+  "Red cards": "Kartu Merah",
+  "Corners": "Tendangan Sudut",
+  "Fouls committed": "Pelanggaran",
+  "Tackles": "Tekel",
+  "Interceptions": "Intersepsi",
+  "Blocks": "Blokir Tembakan",
+  "Clearances": "Sapuan Bola",
+  "Recoveries": "Pemulihan Bola",
+  "Duels won": "Duel Dimenangkan",
+  "Ground duels won": "Duel Bawah Dimenangkan",
+  "Aerial duels won": "Duel Udara Dimenangkan",
+  "Successful dribbles": "Dribel Sukses",
+  "xG open play": "xG Permainan Terbuka",
+  "xG set piece": "xG Bola Mati",
+  "Non-penalty xG": "xG Non-Penalti",
+  "xG on target (xGOT)": "xG Tepat Sasaran (xGOT)",
+  "Player": "Pemain",
+  "FotMob rating": "Rating FotMob",
+  "Goals": "Gol",
+  "Assist": "Assist"
+}
+
     let currentMatchId = null;
     let categories = [];
     let currentTab = Number(localStorage.getItem("currentTab")) || 0;
@@ -401,7 +445,7 @@ function name(params) {
                 <div class="d-flex justify-content-between align-items-center mb-1">
                     <div class="fw-bold fs-6">${homeStr}</div>
                     <div class="stat-title text-center text-uppercase" style="font-size: 0.75rem; letter-spacing: 0.5px;">
-                        ${stat.title}
+                        ${TRANSLASI[stat.title] || stat.title}
                     </div>
                     <div class="fw-bold fs-6">${awayStr}</div>
                 </div>
