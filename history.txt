@@ -5,54 +5,53 @@
  📅 Jadwal Match    : 2026-07-31
  📌 Status Venue    : Netral
  📈 Kekuatan Elo    : Timor-Leste (1008.67) vs Indonesia (1521.51) = -512.84
- 🎯 Probabilitas 1X2: Home 1.07% | Draw 3.06% | Away 95.87%
- ⚖️ Prediksi HDP    : Timor-Leste +4.0
+ 🎯 Probabilitas 1X2: Home 1.07% | Draw 3.03% | Away 95.89%
+ ⚖️ Prediksi HDP    : Timor-Leste +3.75
 ----------------------------------------------------------------------
- 🎯 xG 90 Menit  : Timor-Leste 0.56 - Indonesia 4.47
- ⏱ Babak 1       : Timor-Leste 0.25 - Indonesia 1.88
- ⏱ Babak 2       : Timor-Leste 0.31 - Indonesia 2.59
+ 🎯 xG 90 Menit  : Timor-Leste 0.57 - Indonesia 4.37
+ ⏱ Babak 1       : Timor-Leste 0.26 - Indonesia 1.84
+ ⏱ Babak 2       : Timor-Leste 0.31 - Indonesia 2.53
 ----------------------------------------------------------------------
  ⚽ MARKET GOAL & BTTS :
-    • BTTS (Kedua Tim Gol) : YES 49.1% | NO 50.9%
-    • Over/Under 2.0 Goals : OVER 87.8% | UNDER 4.0% | PUSH 8.3%
-    • Over/Under 2.5 Goals : OVER 87.8% | UNDER 12.2%
-    • Over/Under 3.0 Goals : OVER 73.9% | UNDER 12.2% | PUSH 13.9%
+    • BTTS (Kedua Tim Gol) : YES 54.4% | NO 45.6%
+    • Over/Under 2.0 Goals : OVER 87.0% | UNDER 4.3% | PUSH 8.8%
+    • Over/Under 2.5 Goals : OVER 87.0% | UNDER 13.0%
+    • Over/Under 3.0 Goals : OVER 72.5% | UNDER 13.0% | PUSH 14.4%
 ----------------------------------------------------------------------
  🚩 MARKET CORNER (SUDUT) :
-    • Estimasi Home-Away   : Timor-Leste (2.1) | Indonesia (7.37)
-    • Total Prediksi Corner: 9.47 Corner
-    • Over/Under 8.5       : OVER 60.4% | UNDER 39.6%
-    • Over/Under 9.0       : OVER 47.3% | UNDER 39.6% | PUSH 13.0%
+    • Estimasi Home-Away   : Timor-Leste (1.99) | Indonesia (7.04)
+    • Total Prediksi Corner: 9.03 Corner
+    • Over/Under 8.5       : OVER 54.9% | UNDER 45.1%
+    • Over/Under 9.0       : OVER 41.8% | UNDER 45.1% | PUSH 13.2%
 ----------------------------------------------------------------------
  🟨 MARKET KARTU (CARDS) :
-    • Estimasi Home-Away   : Timor-Leste (0.9) | Indonesia (0.57)
-    • Total Prediksi Kartu : 1.47 Kartu
-    • Over/Under 3.0       : OVER 6.3% | UNDER 81.5% | PUSH 12.2%
-    • Over/Under 4.5       : OVER 1.7% | UNDER 98.3%
-    • Over/Under 5.0       : OVER 0.4% | UNDER 98.3% | PUSH 1.3%
+    • Estimasi Home-Away   : Timor-Leste (0.91) | Indonesia (0.67)
+    • Total Prediksi Kartu : 1.58 Kartu
+    • Over/Under 3.0       : OVER 7.6% | UNDER 78.9% | PUSH 13.5%
+    • Over/Under 4.5       : OVER 2.3% | UNDER 97.7%
+    • Over/Under 5.0       : OVER 0.6% | UNDER 97.7% | PUSH 1.7%
 ----------------------------------------------------------------------
- 📋 Tebak Skor Tepat : 0-5 (10.6%)  
-                        0-4 (10.5%)  
-                        0-6 (8.8%)  
- ⏳ Skenario Laga    : 100% Selesai 90 Menit (Fase Grup / Klasemen / Persahabatan)
+ 📋 Tebak Skor Tepat : 0-5 (10.8%)  
+                        0-4 (10.3%)  
+                        0-6 (9.2%)  
+ ⏳ Skenario Laga    : Fase Grup/Liga: Laga dipastikan selesai dalam 90 menit (Tidak ada Extra Time).
 ----------------------------------------------------------------------
  📰 ANALISIS PERTANDINGAN:
     PETA KEKUATAN & PROYEKSI 1X2
-    Indonesia memasuki laga di venue netral dengan probabilitas kemenangan 95,87%, berbanding hanya 1,07% untuk Timor-Leste dan 3,06% untuk hasil imbang. Ketimpangan itu dipertegas proyeksi 4,47 gol Indonesia melawan 0,56 milik Timor-Lesteâselisih nyaris empat gol. Dengan ekspektasi total mencapai 5,03 gol, skenario utama bukan sekadar kemenangan Indonesia, melainkan dominasi teritorial yang berujung pada margin besar. Handicap Timor-Leste +4,0 menunjukkan bahwa batas kompetitif laga berada di sekitar kekalahan empat gol. Kontinuitas performa Indonesia juga jauh lebih kuat, bernilai 5 berbanding 1, sehingga favorit datang dengan pola permainan dan momentum yang lebih stabil.
+    Indonesia memasuki laga di venue netral ini dengan probabilitas kemenangan 95,89%, berbanding hanya 1,07% milik Timor-Leste dan 3,03% untuk hasil imbang. Proyeksi xG 4,37 berbanding 0,57âselisih 3,80 golâmenggambarkan pertandingan satu arah, dengan Indonesia diperkirakan menguasai volume sekaligus kualitas peluang. Handicap Timor-Leste +3,75 mempertegas bahwa tolok ukur laga bukan sekadar kemenangan Garuda, melainkan apakah margin akhirnya mencapai empat gol. Kontinuitas performa Indonesia juga jauh lebih kuat, pada indeks 5 berbanding 1. Selisih momentum 0,88 tidak cukup besar untuk mengimbangi jurang kualitas struktural tersebut.
     BENTURAN TAKTIK & DUEL SEKTORAL
-    Timor-Leste diproyeksikan memakai 5-4-1, membentuk low block rapat dengan satu penyerang sebagai outlet transisi. Indonesia melalui 3-4-3 mempunyai struktur lebih agresif: tiga bek menjaga sirkulasi awal, wing-back menyediakan lebar, sementara tiga pemain depan dapat membentuk overload di antara bek sayap dan bek tengah lawan. Kedua tim sama-sama lebih condong pada permainan vertikal daripada dominasi penguasaan yang ekstrem, tetapi indeks direct play Indonesia hampir dua kali lipat Timor-Lesteâ14,91 berbanding 7,32. Artinya, Indonesia berpotensi mempercepat serangan begitu garis pertama dilewati, alih-alih mempertahankan sirkulasi pasif.
-    Pertarungan pressing tidak sepenuhnya ideal bagi kedua kubu. Tekanan Timor-Leste terhadap build-up Indonesia memiliki ketidakcocokan sangat besar, sekitar minus 58,10; pressing Indonesia terhadap konstruksi Timor-Leste juga berada di minus 59,97. Ini mengindikasikan bahwa laga belum tentu ditentukan oleh high press yang terus-menerus berhasil. Indonesia lebih mungkin menguasainya melalui counter-press setelah kehilangan bola, kemenangan second ball, dan pengurungan wilayah daripada lewat perebutan bola langsung di kotak lawan.
-    Perbedaan terbesar muncul pada kualitas penyelesaian. Efisiensi Timor-Leste hanya 0,07, jauh di bawah ambang efektif 0,9, sehingga peluang langka mereka berisiko terbuang. Indonesia mencapai 1,40, mencerminkan clinical edge yang sangat kuat. Kesenjangan ini menjelaskan mengapa ancaman kecil Timor-Leste tidak otomatis menghasilkan gol, sementara peluang Indonesia berpotensi cepat dikonversi.
-    Koridor tengah menjadi titik eksekusi utama Indonesia. Keunggulan serangan sentralnya mencapai 3,70âjauh lebih besar daripada keuntungan di sisi kiri 0,41 dan kanan 0,31. Pergerakan penyerang tengah yang turun, inside forward yang masuk ke half-space, serta late run gelandang dapat memaksa tiga bek Timor-Leste kehilangan orientasi. Sebaliknya, Timor-Leste tidak memiliki jalur serangan konsisten: pusat serangannya berada di minus 0,29, sisi kiri minus 0,09, dan hanya sisi kanan yang menghasilkan keunggulan sangat tipis, 0,05. Jika ada jalan keluar, itu kemungkinan berupa serangan balik cepat melalui kanan, bukan kombinasi sentral.
+    Timor-Leste kemungkinan membangun low block 5-4-1 untuk menutup kotak penalti, sedangkan 3-4-3 Indonesia menawarkan lebar melalui wing-back, tiga jalur progresi saat build-up, dan lima pemain yang dapat mengisi garis terakhir. Kecenderungan direct play Indonesia mencapai 14,91, lebih dari dua kali lipat Timor-Leste pada 7,32. Artinya, Garuda tidak harus mengandalkan sirkulasi panjang: umpan vertikal, switch of play, second ball, serta serangan cepat setelah merebut bola dapat menjadi rute utama.
+    Pertarungan terbesar berada di koridor tengah. Serangan sentral Indonesia memiliki keunggulan sektoral sangat besar, +1,48, sedangkan serangan tengah Timor-Leste berada pada posisi negatif, -0,39. Indonesia berpeluang menciptakan central overload di antara dua gelandang dan tiga bek tengah lawan, lalu menyerang ruang di belakang blok kedua. Kedua sayap Indonesia juga unggulâ+0,27 di kiri dan +0,31 di kananâsehingga Timor-Leste tidak dapat menyempitkan pertahanan tanpa membuka ruang crossing atau cutback. Sebaliknya, satu-satunya celah kecil Timor-Leste muncul dari sisi kanan dengan nilai +0,09; terlalu tipis untuk menjadi jalur serangan konsisten.
+    Duel pressing kedua tim sama-sama menunjukkan ketidakcocokan besar terhadap build-up lawan, sekitar minus 58 hingga minus 60. Karena itu, pressing tinggi kemungkinan tidak menjadi pembeda utama; Indonesia lebih mungkin menang melalui kualitas progresi, duel kedua, dan superioritas posisi. Perbedaan paling ekstrem terdapat pada penyelesaian akhir: Indonesia mencatat efisiensi 1,40âkategori sangat klinisâsementara Timor-Leste hanya 0,07. Bahkan jika tuan rumah nominal berhasil memasuki area berbahaya, peluang tersebut sangat mungkin terbuang.
     KEBUGARAN, SKUAD & ADAPTASI LINGKUNGAN
-    Tidak tercatat pemain absen atau kehilangan nilai skuad dari kedua tim, sehingga proyeksi ini bertumpu pada kekuatan inti yang relatif utuh. Timor-Leste bahkan memiliki angka chemistry susunan pemain sedikit lebih tinggi, 0,575 berbanding 0,545. Namun, keunggulan kecil tersebut tertutup oleh koneksi pada poros permainan: kemitraan bek tengah mereka tertinggal satu poin dan koneksi lini tengah tertinggal 0,6. Dalam sistem 5-4-1, kelemahan koordinasi di dua area itu berbahaya karena jarak antarlini harus terus terjaga ketika menghadapi rotasi front three Indonesia.
-    Beban fisik juga tidak sepenuhnya menguntungkan Timor-Leste. Perbedaan kepadatan jadwal mencapai sekitar 31,84, disertai disparitas perjalanan 1.383,8 kilometer dan jetlag 1,3. Ditambah guncangan adaptasi iklim sebesar enam poin, kondisi ini dapat mengikis konsentrasi serta kemampuan menggeser blok secara serempak. Suhu 29 derajat dengan indikator cuaca buruk berpotensi mempercepat kelelahan. Efeknya kemungkinan paling terasa selepas jeda, ketika wing-back dan gelandang Timor-Leste harus berulang kali menutup half-space serta melakukan recovery run.
+    Tidak terdapat pemain absen dengan kerugian nilai skuad, sehingga proyeksi ini berangkat dari kekuatan personel yang relatif utuh. Chemistry keseluruhan Timor-Leste sedikit lebih tinggi, 0,575 berbanding 0,545, tetapi Indonesia unggul dalam koneksi yang lebih menentukan: kemitraan bek tengah berpihak satu poin kepada Garuda, sedangkan koneksi lini tengah unggul 0,60. Struktur Indonesia karenanya lebih siap menjaga rest defence dan mengendalikan transisi balik.
+    Timor-Leste menghadapi beban lingkungan lebih berat, dengan selisih perjalanan sekitar 1.384 kilometer, efek jetlag 1,3 tingkat, serta guncangan iklim enam poin. Indikator kepadatan jadwal juga bergerak negatif sekitar 31,84 poin bagi keseimbangan fisik mereka. Suhu 29Â°C belum tergolong ekstrem, tetapi kondisi diklasifikasikan sebagai cuaca buruk. Dampaknya kemungkinan muncul setelah jeda: jarak antarlini melebar, keterlambatan menutup half-space, dan penurunan kualitas duel. Kedalaman serta kapasitas rotasi Indonesia dapat memperbesar margin pada 30 menit terakhir.
     DNA HISTORIS
-    Indonesia memiliki keunggulan pedigree yang sangat ekstrem, sekitar 122,78 poin. Dalam catatan pertemuan historis, keseimbangan kemenangan juga berpihak empat laga kepada Indonesia dengan surplus 13 gol. Ini bukan sekadar superioritas masa lalu: pola historis tersebut selaras dengan ketimpangan kualitas, ketajaman, dan kontrol sektoral dalam proyeksi pertandingan ini.
+    Jurang pedigree mencapai 122,78 poin untuk keunggulan Indonesia. Rekor pertemuan juga menunjukkan defisit empat kemenangan dan 13 gol bagi Timor-Leste. Angka tersebut selaras dengan proyeksi pertandingan: Timor-Leste bukan hanya menghadapi lawan yang lebih kuat saat ini, tetapi juga ketimpangan historis yang konsisten dalam kemampuan mengontrol dan menuntaskan laga.
     KESIMPULAN & PROYEKSI SKOR
-    Indonesia diperkirakan mengambil kendali sejak awal, memaksa Timor-Leste bertahan dengan garis lima pemain dan mengarahkan serangan melalui half-space menuju pusat kotak penalti. Timor-Leste mungkin mampu memperlambat tempo pada fase pembuka, tetapi efisiensi serangannya terlalu rendah untuk memberi hukuman berarti ketika memperoleh transisi. Begitu gol pertama tercipta, blok mereka berisiko turun semakin dalam dan membuka ruang bagi gelombang kedua Indonesia.
-    Pasar gol mendukung laga berat sebelah dan produktif: Over 2,5 mencapai 87,8%, sedangkan untuk garis tiga gol terdapat peluang 73,9% pertandingan melampauinya dan 13,9% tepat berakhir dengan tiga gol. BTTS hanya sedikit condong ke âtidakâ, yakni 50,9%, sehingga clean sheet Indonesia tetap menjadi skenario marginal terkuat. Proyeksi 9,47 sepak pojokâsekitar tujuh untuk Indonesia dan dua untuk Timor-Lesteâmenggambarkan tekanan satu arah. Estimasi kartu hanya 1,47, dengan 0,90 untuk Timor-Leste dan 0,57 untuk Indonesia; laga diperkirakan tidak terlalu keras, meski Timor-Leste dapat melakukan pelanggaran reaktif saat bloknya ditembus.
-    Prediksi babak pertama: Timor-Leste 0-2 Indonesia. Prediksi babak kedua: Timor-Leste 0-3 Indonesia. Prediksi akhir: Timor-Leste 0-5 Indonesia, selaras dengan skor tunggal paling mungkin sebesar 10,6%, diikuti 0-4 dan 0-6. Karena pertandingan fase grup diselesaikan dalam 90 menit, tidak ada skenario perpanjangan waktu.
+    Indonesia diperkirakan mengambil kendali sejak awal, memaksa 5-4-1 Timor-Leste semakin dalam melalui overload sentral dan pergantian arah serangan. Proyeksi total 4,94 xG serta peluang Over 2,5 sebesar 87% membuat laga dengan minimal tiga gol jauh lebih masuk akal daripada pertandingan ketat. Untuk garis tiga gol, peluang pertandingan berakhir di atasnya mencapai 72,5%, dengan kemungkinan tepat tiga gol 14,4%. BTTS berada pada 54,4%, tetapi xG Timor-Leste yang hanya 0,57 menunjukkan gol mereka lebih mungkin berasal dari transisi sporadis atau bola mati daripada tekanan berkelanjutan.
+    Indonesia diproyeksikan menghasilkan sekitar tujuh corner dan Timor-Leste dua, sehingga totalnya mendekati sembilan. Laga tidak semestinya sangat keras: estimasi kartu hanya 0,91 untuk Timor-Leste dan 0,67 untuk Indonesia. Walaupun Indonesia terlihat lebih agresif secara relatif, dominasi penguasaan wilayah kemungkinan mengurangi kebutuhan melakukan pelanggaran berisiko.
+    Tebakan babak pertama: Timor-Leste 0-2 Indonesia. Proyeksi paruh kedua: 0-3. Skor akhir utama: Timor-Leste 0-5 Indonesia, sesuai hasil individual paling mungkin sebesar 10,8%; alternatif terdekat adalah 0-4 dan 0-6. Karena ini laga fase grup, pertandingan berakhir setelah 90 menit tanpa extra time.
 ======================================================================
 
 
@@ -63,57 +62,55 @@
  📅 Jadwal Match    : 2026-07-31
  📌 Status Venue    : Kandang Vietnam
  📈 Kekuatan Elo    : Vietnam (1577.19) vs Singapore (1380.57) = +261.62
- 🎯 Probabilitas 1X2: Home 71.91% | Draw 17.05% | Away 11.05%
+ 🎯 Probabilitas 1X2: Home 70.4% | Draw 18.13% | Away 11.47%
  ⚖️ Prediksi HDP    : Vietnam -1.5
 ----------------------------------------------------------------------
- 🎯 xG 90 Menit  : Vietnam 2.35 - Singapore 0.85
- ⏱ Babak 1       : Vietnam 0.92 - Singapore 0.36
+ 🎯 xG 90 Menit  : Vietnam 2.34 - Singapore 0.84
+ ⏱ Babak 1       : Vietnam 0.91 - Singapore 0.35
  ⏱ Babak 2       : Vietnam 1.43 - Singapore 0.49
 ----------------------------------------------------------------------
  ⚽ MARKET GOAL & BTTS :
-    • BTTS (Kedua Tim Gol) : YES 53.8% | NO 46.2%
-    • Over/Under 2.0 Goals : OVER 62.0% | UNDER 17.1% | PUSH 20.9%
-    • Over/Under 2.5 Goals : OVER 62.0% | UNDER 38.0%
-    • Over/Under 3.0 Goals : OVER 39.7% | UNDER 38.0% | PUSH 22.3%
+    • BTTS (Kedua Tim Gol) : YES 51.9% | NO 48.1%
+    • Over/Under 2.0 Goals : OVER 61.6% | UNDER 17.3% | PUSH 21.0%
+    • Over/Under 2.5 Goals : OVER 61.6% | UNDER 38.4%
+    • Over/Under 3.0 Goals : OVER 39.4% | UNDER 38.4% | PUSH 22.3%
 ----------------------------------------------------------------------
  🚩 MARKET CORNER (SUDUT) :
-    • Estimasi Home-Away   : Vietnam (5.6) | Singapore (3.2)
-    • Total Prediksi Corner: 8.8 Corner
-    • Over/Under 8.5       : OVER 51.9% | UNDER 48.1%
-    • Over/Under 9.0       : OVER 38.7% | UNDER 48.1% | PUSH 13.1%
+    • Estimasi Home-Away   : Vietnam (5.45) | Singapore (3.18)
+    • Total Prediksi Corner: 8.63 Corner
+    • Over/Under 8.5       : OVER 49.4% | UNDER 50.6%
+    • Over/Under 9.0       : OVER 36.4% | UNDER 50.6% | PUSH 13.1%
 ----------------------------------------------------------------------
  🟨 MARKET KARTU (CARDS) :
-    • Estimasi Home-Away   : Vietnam (0.73) | Singapore (0.82)
-    • Total Prediksi Kartu : 1.55 Kartu
-    • Over/Under 3.0       : OVER 7.2% | UNDER 79.6% | PUSH 13.2%
-    • Over/Under 4.5       : OVER 2.1% | UNDER 97.9%
-    • Over/Under 5.0       : OVER 0.5% | UNDER 97.9% | PUSH 1.6%
+    • Estimasi Home-Away   : Vietnam (0.78) | Singapore (0.84)
+    • Total Prediksi Kartu : 1.62 Kartu
+    • Over/Under 3.0       : OVER 8.2% | UNDER 77.8% | PUSH 14.0%
+    • Over/Under 4.5       : OVER 2.5% | UNDER 97.5%
+    • Over/Under 5.0       : OVER 0.6% | UNDER 97.5% | PUSH 1.8%
 ----------------------------------------------------------------------
- 📋 Tebak Skor Tepat : 2-0 (10.9%)  
-                        2-1 (9.2%)  
-                        1-0 (9.0%)  
- ⏳ Skenario Laga    : 100% Selesai 90 Menit (Fase Grup / Klasemen / Persahabatan)
+ 📋 Tebak Skor Tepat : 2-0 (11.3%)  
+                        2-1 (9.6%)  
+                        1-0 (9.3%)  
+ ⏳ Skenario Laga    : Fase Grup/Liga: Laga dipastikan selesai dalam 90 menit (Tidak ada Extra Time).
 ----------------------------------------------------------------------
  📰 ANALISIS PERTANDINGAN:
     PETA KEKUATAN & PROYEKSI 1X2
-    Vietnam memegang kendali proyeksi dengan peluang menang 71,91%, jauh meninggalkan hasil imbang 17,05% dan kemenangan Singapore 11,05%. Estimasi 2,35 berbanding 0,85 gol memperlihatkan keunggulan teritorial dan kualitas peluang tuan rumah, dengan margin 1,50 gol yang mendukung handicap Vietnam -1,5. Momentum Vietnam juga sedikit lebih kuat, tetapi kemenangan dua gol belum otomatis: Singapore memiliki efisiensi penyelesaian yang dapat membuat dominasi tuan rumah tetap rentan terhadap satu momen transisi.
+    Vietnam memegang kendali proyeksi dengan peluang menang 70,4%, jauh di atas hasil imbang 18,13% dan kemenangan Singapore 11,47%. Keunggulan itu ditopang estimasi 2,34 gol berbanding 0,84âselisih 1,50 gol yang menempatkan tuan rumah pada garis handicap -1,5. Momentum juga sedikit berpihak kepada Vietnam. Namun, dominasi ini tidak otomatis menjanjikan kemenangan telak karena Singapore mempunyai efisiensi penyelesaian 1,164, sebuah clinical edge yang memungkinkan mereka mencetak gol dari volume peluang terbatas. Vietnam lebih stabil dalam menciptakan peluang, tetapi tingkat konversinya 0,937 masih belum sepenuhnya elite.
     BENTURAN TAKTIK & DUEL SEKTORAL
-    Struktur 3-4-2-1 Vietnam berpotensi menciptakan superioritas di antara lini melalui dua gelandang serang di belakang ujung tombak. Titik eksekusi terbaik mereka berada di koridor tengah, dengan keunggulan sektoral +0,397 terhadap pertahanan sentral Singapore. Sebaliknya, serangan Vietnam dari kiri (-0,045) dan kanan (-0,124) tidak memiliki keuntungan serupa. Artinya, progresi melalui half-space, kombinasi vertikal, dan overload di depan dua gelandang bertahan lawan lebih menjanjikan daripada sekadar mengandalkan duel sayap.
-    Singapore dalam 4-2-3-1 menunjukkan kecenderungan penguasaan bola lebih kuatâ0,814 berbanding 0,622âsedangkan Vietnam jauh lebih direct, 22,86 berbanding 11,63. Laga dapat membentuk paradoks: Singapore lebih lama memegang bola, tetapi Vietnam menghasilkan peluang yang lebih besar melalui progresi cepat dan serangan ruang. Kedua tim sama-sama tidak mempunyai kecocokan pressing yang ideal untuk merusak build-up lawan; indeks Vietnam terhadap sirkulasi Singapore berada di -53,79, sementara tekanan Singapore terhadap build-up Vietnam -48,63. Karena itu, perebutan bola kedua dan rest defence akan lebih menentukan daripada high press konstan.
-    Ancaman Singapore terutama muncul dari sisi luar. Serangan kanan mereka memiliki keuntungan +0,478 terhadap sisi kiri pertahanan Vietnam, sedangkan sektor seberangnya juga positif +0,266. Ini menjadi peringatan bagi wing-back Vietnam: dorongan terlalu tinggi dapat membuka ruang untuk winger Singapore menyerang channel di belakangnya. Ketajaman tim tamu mencapai 1,164âsudah masuk kategori klinisâsementara Vietnam berada di 0,937, relatif normal tetapi belum menunjukkan clinical edge yang sama. Singapore mungkin kalah dalam volume peluang, tetapi berpotensi lebih efisien ketika ruang transisi tersedia.
+    Struktur 3-4-2-1 Vietnam memberi mereka superioritas numerik pada fase pertama build-up, lebar dari wing-back, serta dua pemain antarlini di belakang penyerang tunggal. Singapore melalui 4-2-3-1 dapat merespons dengan double pivot dan blok tengah rapat, tetapi harus berhati-hati agar gelandang serangnya tidak terputus ketika Vietnam melakukan transition secara vertikal.
+    Singapore terindikasi lebih possession-oriented, sedangkan Vietnam memiliki kecenderungan direct play hampir dua kali lebih tinggi. Artinya, penguasaan bola Singapore belum tentu identik dengan kontrol teritorial: Vietnam dapat membiarkan lawan membangun serangan, kemudian menyerang ruang di belakang full-back melalui progresi cepat. Indeks pressing kedua tim sama-sama negatif terhadap build-up lawan, sehingga laga ini lebih mungkin ditentukan oleh struktur blok, second ball, dan kualitas transisi daripada tekanan tinggi yang konsisten.
+    Peta sektoral memperlihatkan Vietnam tidak memiliki keunggulan besar di kedua sayap; jalur paling produktif justru muncul dari koridor tengah, meski nilainya masih moderat. Sebaliknya, ancaman Singapore sangat jelas di kedua flankâterutama sisi kiri serang merekaâsementara serangan melalui pusat menunjukkan defisit. Karena itu, crossing, overlap, dan kombinasi wingerâfull-back menjadi rute terbaik Singapore. Vietnam harus menjaga rest defence tiga lawan dua ketika wing-back naik. Di arah sebaliknya, tuan rumah perlu menciptakan overload sentral dan memancing double pivot Singapore keluar dari posisinya sebelum mengeksploitasi half-space.
     KEBUGARAN, SKUAD & ADAPTASI LINGKUNGAN
-    Tidak terdapat pemain absen yang tercatat dan tidak ada kerugian nilai skuad, sehingga kedua pelatih secara teoritis dapat menurunkan kekuatan utama. Namun, kohesi kolektif Singapore lebih matang, 0,773 dibandingkan 0,561. Koneksi bek tengah juga mengungguli Vietnam dengan selisih 0,60, sedangkan Vietnam mempunyai keuntungan 0,30 dalam chemistry lini tengah. Ini menguatkan gambaran bahwa tuan rumah lebih siap menguasai pusat permainan, tetapi pertahanan tiga bek mereka belum tentu setenang organisasi blok Singapore.
-    Faktor fisik jelas mengarah kepada Vietnam. Beban kepadatan pertandingan mereka secara komparatif jauh lebih ringan, sementara Singapore menanggung perjalanan sekitar 2.202 kilometer lebih besar. Perbedaan jetlag hanya 0,1 sehingga tidak substansial, tetapi akumulasi perjalanan dan pemulihan singkat dapat menurunkan intensitas pressing serta disiplin transisi Singapore selepas jeda. Suhu 28Â°C tidak dikategorikan ekstrem, tanpa cuaca buruk maupun kejutan iklim, sehingga lingkungan tidak semestinya mengubah struktur pertandingan secara drastis.
+    Tidak tercatat kerugian nilai akibat pemain absen, sehingga kedua tim diproyeksikan mendekati kekuatan penuh. Meski demikian, chemistry Singapore lebih matang: koherensi susunan mereka mencapai 0,773 berbanding 0,561 milik Vietnam. Koneksi pasangan bek tengah dan gelandang Vietnam juga tertinggal masing-masing 0,30 dan 0,43 poin. Ini merupakan celah struktural bagi Singapore ketika pertandingan menjadi cair, khususnya melalui serangan balik ke ruang antarlini.
+    Keuntungan fisik dan logistik berada pada Vietnam. Singapore baru bermain pada 27 Juli, tiga hari setelah laga pembuka Vietnam, lalu harus berpindah ke Hanoi; model juga mencatat disparitas perjalanan sekitar 2.202 kilometer. Akumulasi tersebut dapat mengurangi intensitas pressing dan recovery run Singapore setelah jeda. Jetlag praktis tidak signifikan, sementara suhu 28Â°C tidak dikategorikan ekstrem, tanpa cuaca buruk maupun kejutan iklim. Faktor lingkungan karena itu lebih memperkuat keuntungan kandang daripada menjadi gangguan besar bagi kedua kesebelasan.
     DNA HISTORIS
-    Catatan pertemuan memberi Vietnam surplus tiga kemenangan dan selisih tujuh gol. Walaupun indikator tradisi turnamen secara keseluruhan condong kepada Singaporeânegara dengan sejarah gelar regional yang kuatârekam duel langsung dan status Vietnam sebagai tuan rumah memperbesar bobot superioritas aktual Golden Star Warriors.
-    POTENSI ANOMALI
-    Data aktual memperkuat kedua sisi secara berbeda. Vietnam baru membuka turnamen dengan kemenangan 7-0 atas Timor-Leste, termasuk hat-trick ÄÃ¬nh Báº¯c, sehingga daya ledak mereka mungkin bahkan lebih tinggi daripada estimasi dasar. Singapore, di sisi lain, telah mengumpulkan enam poin dari kemenangan atas Cambodia dan Timor-Leste; Ilhan Fandi sedang produktif dan serangan silang mereka menghasilkan dua gol sundulan pada laga terakhir. Namun, Singapore memainkan tiga pertandingan dalam delapan hari dan harus segera bepergian ke Hanoi. Anomali yang paling realistis bukan kemenangan telak tim tamu, melainkan Singapore mencuri gol melalui efisiensi Ilhan, umpan silang, atau ruang di belakang wing-back Vietnam.
+    Sinyal sejarah bersifat terbelah. Jejak prestasi turnamen memberikan Singapore keunggulan pedigree yang besar, tetapi rekor pertemuan langsung memihak Vietnam dengan keseimbangan kemenangan +3 dan selisih gol +7. Konteks aktual memperkuat sisi Vietnam: mereka berstatus juara bertahan, lama tidak kalah dari Singapore, dan membuka turnamen dengan kemenangan 7-0. Singapore memang memimpin grup setelah dua kemenangan, tetapi penampilannya melawan lawan berperingkat lebih rendah belum selalu dominan. Sejarah memperbesar psychological edge Vietnam, sedangkan status pemuncak grup membuat Singapore tidak harus bermain secara gegabah.
     KESIMPULAN & PROYEKSI SKOR
-    Vietnam diperkirakan memulai dengan progresi vertikal, menekan pusat blok 4-2-3-1 Singapore, lalu meningkatkan volume peluang ketika tenaga tim tamu menurun. Singapore dapat memegang bola dalam beberapa fase dan menyerang kedua sisi pertahanan tuan rumah, tetapi beban perjalanan serta kalahnya duel sentral membuat mereka sulit mempertahankan kontrol selama 90 menit.
-    Peluang BTTS sebesar 53,8% menunjukkan gol Singapore tetap realistis, sementara probabilitas Over 2,5 mencapai 62%. Estimasi total 8,8 sepak pojokâsekitar enam untuk Vietnam dan tiga untuk Singaporeâmenggambarkan tekanan tuan rumah tanpa menjanjikan bombardemen ekstrem. Proyeksi hanya 1,55 kartu, ditambah agresivitas Vietnam yang lebih rendah, mengarah pada pertandingan kompetitif tetapi relatif bersih.
+    Vietnam kemungkinan membuka laga dengan sirkulasi tiga bek, lalu mempercepat permainan melalui half-space ketika blok 4-2-3-1 Singapore mulai menyempit. Singapore masih berpeluang melukai tuan rumah melalui crossing dan transisi sayap, tetapi beban perjalanan, recovery lebih pendek, serta proyeksi peluang yang timpang membuat mereka sulit mempertahankan intensitas selama 90 menit.
+    Total ekspektasi 3,18 gol selaras dengan peluang 61,6% untuk laga menghasilkan minimal tiga gol, meski BTTS hanya condong tipis ke âyaâ pada 51,9%. Proyeksi sekitar 8â9 sepak pojokâVietnam 5,45 dan Singapore 3,18âmenunjukkan tekanan teritorial cukup aktif tanpa berubah menjadi bombardir. Estimasi kartu hanya 1,62, sementara Vietnam diproyeksikan kurang agresif sekitar 7,5 poin, sehingga pertandingan lebih teknis daripada keras.
     Tebakan babak pertama: Vietnam 1-0 Singapore.  
     Tebakan babak kedua: Vietnam 1-0 Singapore.  
-    Prediksi akhir: Vietnam 2-0 Singapore, dengan 2-1 sebagai alternatif utama apabila ketajaman transisi Singapore terkonversi. Karena ini pertandingan fase grup, laga selesai setelah 90 menit tanpa perpanjangan waktu.
+    Proyeksi akhir: Vietnam 2-0 Singapore, sesuai skor tunggal paling mungkin sebesar 11,3%. Karena ini pertandingan fase grup, laga berakhir setelah 90 menit tanpa extra time.
 ======================================================================
 ======================================================================
  🏆 PREDIKSI MATCH : Malaysia vs Laos
