@@ -50010,10 +50010,10 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2026-07-31,Vietnam,Singapore,0,0,ASEAN Championship,Hà Nội (Hanoi),Vietnam,FALSE
 2026-08-01,Laos,Philippines,1,4,ASEAN Championship,Vientiane,Laos,FALSE
 2026-08-01,Thailand,Malaysia,2,0,ASEAN Championship,Bangkok,Thailand,FALSE
-2026-08-03,Cambodia,Timor-Leste,NA,NA,ASEAN Championship,Phnom Penh,Cambodia,FALSE
-2026-08-03,Indonesia,Vietnam,NA,NA,ASEAN Championship,Cibinong,Indonesia,FALSE
-2026-08-04,Myanmar,Laos,NA,NA,ASEAN Championship,Yangon,Myanmar,FALSE
-2026-08-04,Philippines,Thailand,NA,NA,ASEAN Championship,Capas,Philippines,FALSE
+2026-08-03,Cambodia,Timor-Leste,3,0,ASEAN Championship,Phnom Penh,Cambodia,FALSE
+2026-08-03,Indonesia,Vietnam,0,3,ASEAN Championship,Cibinong,Indonesia,FALSE
+2026-08-04,Myanmar,Laos,7,2,ASEAN Championship,Yangon,Myanmar,FALSE
+2026-08-04,Philippines,Thailand,0,1,ASEAN Championship,Capas,Philippines,FALSE
 2026-08-07,Singapore,Indonesia,NA,NA,ASEAN Championship,Singapore,Singapore,FALSE
 2026-08-07,Vietnam,Cambodia,NA,NA,ASEAN Championship,Hà Nội (Hanoi),Vietnam,FALSE
 2026-08-08,Malaysia,Philippines,NA,NA,ASEAN Championship,Kuala Lumpur,Malaysia,FALSE
